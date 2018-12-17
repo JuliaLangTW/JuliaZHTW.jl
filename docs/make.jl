@@ -5,6 +5,7 @@ makedocs(
     sitename="Julia 台灣 中文文件",
 
     pages = [
+        "首頁" => "index.md",
         "概論 (Introduction)" => "introduction.md",
     ],
 )
