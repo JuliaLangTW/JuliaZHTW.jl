@@ -25,7 +25,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/getting-started/#",
+    "location": "manual/getting-started/#",
     "page": "入門 (Getting Started)",
     "title": "入門 (Getting Started)",
     "category": "page",
@@ -33,7 +33,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/getting-started/#入門（Getting-Started）-1",
+    "location": "manual/getting-started/#入門（Getting-Started）-1",
     "page": "入門 (Getting Started)",
     "title": "入門（Getting Started）",
     "category": "section",
@@ -41,7 +41,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/getting-started/#相關資源-1",
+    "location": "manual/getting-started/#相關資源-1",
     "page": "入門 (Getting Started)",
     "title": "相關資源",
     "category": "section",
@@ -49,7 +49,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/variables/#",
+    "location": "manual/variables/#",
     "page": "變數 (Variables)",
     "title": "變數 (Variables)",
     "category": "page",
@@ -57,7 +57,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/variables/#變數-1",
+    "location": "manual/variables/#變數-1",
     "page": "變數 (Variables)",
     "title": "變數",
     "category": "section",
@@ -65,7 +65,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/variables/#合法變數名稱-1",
+    "location": "manual/variables/#合法變數名稱-1",
     "page": "變數 (Variables)",
     "title": "合法變數名稱",
     "category": "section",
@@ -73,7 +73,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/variables/#慣用風格-1",
+    "location": "manual/variables/#慣用風格-1",
     "page": "變數 (Variables)",
     "title": "慣用風格",
     "category": "section",
@@ -81,7 +81,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#",
+    "location": "manual/performance-tips/#",
     "page": "效能建議 (Performance Tips)",
     "title": "效能建議 (Performance Tips)",
     "category": "page",
@@ -89,7 +89,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#man-performance-tips-1",
+    "location": "manual/performance-tips/#man-performance-tips-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Performance Tips",
     "category": "section",
@@ -97,7 +97,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-global-variables-1",
+    "location": "manual/performance-tips/#Avoid-global-variables-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid global variables",
     "category": "section",
@@ -105,7 +105,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Measure-performance-with-[@time](@ref)-and-pay-attention-to-memory-allocation-1",
+    "location": "manual/performance-tips/#Measure-performance-with-[@time](@ref)-and-pay-attention-to-memory-allocation-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Measure performance with @time and pay attention to memory allocation",
     "category": "section",
@@ -113,7 +113,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#tools-1",
+    "location": "manual/performance-tips/#tools-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Tools",
     "category": "section",
@@ -121,7 +121,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-containers-with-abstract-type-parameters-1",
+    "location": "manual/performance-tips/#Avoid-containers-with-abstract-type-parameters-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid containers with abstract type parameters",
     "category": "section",
@@ -129,7 +129,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Type-declarations-1",
+    "location": "manual/performance-tips/#Type-declarations-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Type declarations",
     "category": "section",
@@ -137,7 +137,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-fields-with-abstract-type-1",
+    "location": "manual/performance-tips/#Avoid-fields-with-abstract-type-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid fields with abstract type",
     "category": "section",
@@ -145,7 +145,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-fields-with-abstract-containers-1",
+    "location": "manual/performance-tips/#Avoid-fields-with-abstract-containers-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid fields with abstract containers",
     "category": "section",
@@ -153,7 +153,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Annotate-values-taken-from-untyped-locations-1",
+    "location": "manual/performance-tips/#Annotate-values-taken-from-untyped-locations-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Annotate values taken from untyped locations",
     "category": "section",
@@ -161,7 +161,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Declare-types-of-keyword-arguments-1",
+    "location": "manual/performance-tips/#Declare-types-of-keyword-arguments-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Declare types of keyword arguments",
     "category": "section",
@@ -169,7 +169,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Break-functions-into-multiple-definitions-1",
+    "location": "manual/performance-tips/#Break-functions-into-multiple-definitions-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Break functions into multiple definitions",
     "category": "section",
@@ -177,7 +177,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Write-\"type-stable\"-functions-1",
+    "location": "manual/performance-tips/#Write-\"type-stable\"-functions-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Write \"type-stable\" functions",
     "category": "section",
@@ -185,7 +185,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-changing-the-type-of-a-variable-1",
+    "location": "manual/performance-tips/#Avoid-changing-the-type-of-a-variable-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid changing the type of a variable",
     "category": "section",
@@ -193,7 +193,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#kernal-functions-1",
+    "location": "manual/performance-tips/#kernal-functions-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Separate kernel functions (aka, function barriers)",
     "category": "section",
@@ -201,7 +201,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Types-with-values-as-parameters-1",
+    "location": "manual/performance-tips/#Types-with-values-as-parameters-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Types with values-as-parameters",
     "category": "section",
@@ -209,7 +209,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#The-dangers-of-abusing-multiple-dispatch-(aka,-more-on-types-with-values-as-parameters)-1",
+    "location": "manual/performance-tips/#The-dangers-of-abusing-multiple-dispatch-(aka,-more-on-types-with-values-as-parameters)-1",
     "page": "效能建議 (Performance Tips)",
     "title": "The dangers of abusing multiple dispatch (aka, more on types with values-as-parameters)",
     "category": "section",
@@ -217,7 +217,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Access-arrays-in-memory-order,-along-columns-1",
+    "location": "manual/performance-tips/#Access-arrays-in-memory-order,-along-columns-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Access arrays in memory order, along columns",
     "category": "section",
@@ -225,7 +225,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Pre-allocating-outputs-1",
+    "location": "manual/performance-tips/#Pre-allocating-outputs-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Pre-allocating outputs",
     "category": "section",
@@ -233,7 +233,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#More-dots:-Fuse-vectorized-operations-1",
+    "location": "manual/performance-tips/#More-dots:-Fuse-vectorized-operations-1",
     "page": "效能建議 (Performance Tips)",
     "title": "More dots: Fuse vectorized operations",
     "category": "section",
@@ -241,7 +241,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Consider-using-views-for-slices-1",
+    "location": "manual/performance-tips/#Consider-using-views-for-slices-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Consider using views for slices",
     "category": "section",
@@ -249,7 +249,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Avoid-string-interpolation-for-I/O-1",
+    "location": "manual/performance-tips/#Avoid-string-interpolation-for-I/O-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Avoid string interpolation for I/O",
     "category": "section",
@@ -257,7 +257,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Optimize-network-I/O-during-parallel-execution-1",
+    "location": "manual/performance-tips/#Optimize-network-I/O-during-parallel-execution-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Optimize network I/O during parallel execution",
     "category": "section",
@@ -265,7 +265,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Fix-deprecation-warnings-1",
+    "location": "manual/performance-tips/#Fix-deprecation-warnings-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Fix deprecation warnings",
     "category": "section",
@@ -273,7 +273,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Tweaks-1",
+    "location": "manual/performance-tips/#Tweaks-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Tweaks",
     "category": "section",
@@ -281,7 +281,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Performance-Annotations-1",
+    "location": "manual/performance-tips/#Performance-Annotations-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Performance Annotations",
     "category": "section",
@@ -289,7 +289,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#Treat-Subnormal-Numbers-as-Zeros-1",
+    "location": "manual/performance-tips/#Treat-Subnormal-Numbers-as-Zeros-1",
     "page": "效能建議 (Performance Tips)",
     "title": "Treat Subnormal Numbers as Zeros",
     "category": "section",
@@ -297,7 +297,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/performance-tips/#man-code-warntype-1",
+    "location": "manual/performance-tips/#man-code-warntype-1",
     "page": "效能建議 (Performance Tips)",
     "title": "@code_warntype",
     "category": "section",
@@ -305,7 +305,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#",
+    "location": "manual/style-guide/#",
     "page": "程式風格指引 (Style Guide)",
     "title": "程式風格指引 (Style Guide)",
     "category": "page",
@@ -313,7 +313,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#man-style-guide-1",
+    "location": "manual/style-guide/#man-style-guide-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "程式風格指引 (Style Guide)",
     "category": "section",
@@ -321,7 +321,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#撰寫函式，而不只是腳本（scripts）-1",
+    "location": "manual/style-guide/#撰寫函式，而不只是腳本（scripts）-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "撰寫函式，而不只是腳本（scripts）",
     "category": "section",
@@ -329,7 +329,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免撰寫過度專一的型別-1",
+    "location": "manual/style-guide/#避免撰寫過度專一的型別-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免撰寫過度專一的型別",
     "category": "section",
@@ -337,7 +337,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#呼叫方處理超出範圍的參數-1",
+    "location": "manual/style-guide/#呼叫方處理超出範圍的參數-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "呼叫方處理超出範圍的參數",
     "category": "section",
@@ -345,7 +345,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#如果函式會修改到參數的值，在函式名稱之後加上!-1",
+    "location": "manual/style-guide/#如果函式會修改到參數的值，在函式名稱之後加上!-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "如果函式會修改到參數的值，在函式名稱之後加上!",
     "category": "section",
@@ -353,7 +353,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免不可思議的Union型別-1",
+    "location": "manual/style-guide/#避免不可思議的Union型別-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免不可思議的Union型別",
     "category": "section",
@@ -361,7 +361,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免在field中使用Union型別-1",
+    "location": "manual/style-guide/#避免在field中使用Union型別-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免在field中使用Union型別",
     "category": "section",
@@ -369,7 +369,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免詳盡描述容器型別-1",
+    "location": "manual/style-guide/#避免詳盡描述容器型別-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免詳盡描述容器型別",
     "category": "section",
@@ -377,7 +377,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#使用與Juliabase/一致的命名慣例-1",
+    "location": "manual/style-guide/#使用與Juliabase/一致的命名慣例-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "使用與Juliabase/一致的命名慣例",
     "category": "section",
@@ -385,7 +385,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要過度使用try-catch-1",
+    "location": "manual/style-guide/#不要過度使用try-catch-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用try-catch",
     "category": "section",
@@ -393,7 +393,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#別將條件式括弧起來-1",
+    "location": "manual/style-guide/#別將條件式括弧起來-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "別將條件式括弧起來",
     "category": "section",
@@ -401,7 +401,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要過度使用...-1",
+    "location": "manual/style-guide/#不要過度使用...-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用...",
     "category": "section",
@@ -409,7 +409,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要使用不必要的靜態參數-1",
+    "location": "manual/style-guide/#不要使用不必要的靜態參數-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要使用不必要的靜態參數",
     "category": "section",
@@ -417,7 +417,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免混淆實例與型別-1",
+    "location": "manual/style-guide/#避免混淆實例與型別-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免混淆實例與型別",
     "category": "section",
@@ -425,7 +425,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要過度使用macros-1",
+    "location": "manual/style-guide/#不要過度使用macros-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用macros",
     "category": "section",
@@ -433,7 +433,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要在介面上暴露不安全的操作-1",
+    "location": "manual/style-guide/#不要在介面上暴露不安全的操作-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要在介面上暴露不安全的操作",
     "category": "section",
@@ -441,7 +441,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要重載基本容器型別的方法-1",
+    "location": "manual/style-guide/#不要重載基本容器型別的方法-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要重載基本容器型別的方法",
     "category": "section",
@@ -449,7 +449,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#避免type-piracy-1",
+    "location": "manual/style-guide/#避免type-piracy-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "避免type piracy",
     "category": "section",
@@ -457,7 +457,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#要小心型別的等價性-1",
+    "location": "manual/style-guide/#要小心型別的等價性-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "要小心型別的等價性",
     "category": "section",
@@ -465,7 +465,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#不要寫x-f(x)-1",
+    "location": "manual/style-guide/#不要寫x-f(x)-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "不要寫x->f(x)",
     "category": "section",
@@ -473,7 +473,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "mannual/style-guide/#Avoid-using-floats-for-numeric-literals-in-generic-code-when-possible-1",
+    "location": "manual/style-guide/#Avoid-using-floats-for-numeric-literals-in-generic-code-when-possible-1",
     "page": "程式風格指引 (Style Guide)",
     "title": "Avoid using floats for numeric literals in generic code when possible",
     "category": "section",
