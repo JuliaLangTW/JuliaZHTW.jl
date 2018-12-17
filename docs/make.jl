@@ -1,12 +1,15 @@
-push!(LOAD_PATH,"../src/")
 using Documenter
 
 makedocs(
-    clean     = true,
+    clean = true,
+    doctest = false, # TODO: Fix doctest
     sitename="Julia Taiwan 中文文件",
     pages = [
         "首頁" => "index.md",
-        "概論 (Introduction)" => "introduction.md",
+        "手冊" => [
+            "入門 (Getting Started)" => "mannual/getting-started.md",
+            "變數 (Variables)" => "mannual/variables.md",
+        ],
     ],
     Documenter.HTML(
         prettyurls = !("local" in ARGS),
