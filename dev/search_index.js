@@ -1,6 +1,22 @@
 var documenterSearchIndex = {"docs": [
 
 {
+    "location": "#",
+    "page": "首頁",
+    "title": "首頁",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "#Julia-Taiwan-中文文件-1",
+    "page": "首頁",
+    "title": "Julia Taiwan 中文文件",
+    "category": "section",
+    "text": ""
+},
+
+{
     "location": "introduction/#",
     "page": "概論 (Introduction)",
     "title": "概論 (Introduction)",
