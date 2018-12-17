@@ -45,7 +45,7 @@ var documenterSearchIndex = {"docs": [
     "page": "入門 (Getting Started)",
     "title": "相關資源",
     "category": "section",
-    "text": "除了這份手冊之外，Julia 的新使用者也可以參考以下相關資源來入手 Julia：Julia and IJulia cheatsheet\nLearn Julia in a few minutes\nLearn Julia the Hard Way\nJulia by Example\nHands-on Julia\nTutorial for Homer Reid\'s numerical analysis class\nAn introductory presentation\nVideos from the Julia tutorial at MIT\nYouTube videos from the JuliaCons"
+    "text": "除了這份手冊之外，Julia 的新使用者也可以參考以下相關資源來入手 Julia：Julia and IJulia cheatsheet\nLearn Julia in a few minutes\nLearn Julia the Hard Way\nJulia by Example\nHands-on Julia\nTutorial for Homer Reid\'s numerical analysis class\nAn introductory presentation\nVideos from the Julia tutorial at MIT\nYouTube videos from the JuliaCons文件原文"
 },
 
 {
@@ -77,7 +77,7 @@ var documenterSearchIndex = {"docs": [
     "page": "變數 (Variables)",
     "title": "慣用風格",
     "category": "section",
-    "text": "雖然 Julia 並未強加限制在可使用名稱上，但遵循下列慣例對開發上會很有幫助：變數名稱使用小寫符號。\n可用底線 (_) 分隔名稱，但如非必要並不鼓勵使用。\n類別與模組名稱使用大寫開頭，並使用駝峰式命名 (camel case) 取代底線。\n函數與巨集 (macro) 以小寫符號命名，不使用底線。\n以!結尾的名稱為會複寫其變數的函數命名。因為這類函數再回傳後將會改變其變數的值，而不是單純回傳一個值，所以這類函數又常被稱作 \"mutating\" 或 \"in-place\" 函數。如需要更多慣用風格的資訊，請參閱程式風格指引一節。"
+    "text": "雖然 Julia 並未強加限制在可使用名稱上，但遵循下列慣例對開發上會很有幫助：變數名稱使用小寫符號。\n可用底線 (_) 分隔名稱，但如非必要並不鼓勵使用。\n類別與模組名稱使用大寫開頭，並使用駝峰式命名 (camel case) 取代底線。\n函數與巨集 (macro) 以小寫符號命名，不使用底線。\n以!結尾的名稱為會複寫其變數的函數命名。因為這類函數再回傳後將會改變其變數的值，而不是單純回傳一個值，所以這類函數又常被稱作 \"mutating\" 或 \"in-place\" 函數。如需要更多慣用風格的資訊，請參閱程式風格指引一節。文件原文"
 },
 
 {
