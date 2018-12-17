@@ -109,3 +109,5 @@ ERROR: syntax: unexpected "="
 - 以`!`結尾的名稱為會複寫其變數的函數命名。因為這類函數再回傳後將會改變其變數的值，而不是單純回傳一個值，所以這類函數又常被稱作 "mutating" 或 "in-place" 函數。
 
 如需要更多慣用風格的資訊，請參閱[程式風格指引](@ref man-style-guide)一節。
+
+[文件原文](https://docs.julialang.org/en/v0.6/manual/variables/)

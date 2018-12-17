@@ -132,3 +132,5 @@ julia [switches] -- [programfile] [args...]
   * [An introductory presentation](https://raw.githubusercontent.com/ViralBShah/julia-presentations/master/Fifth-Elephant-2013/Fifth-Elephant-2013.pdf)
   * [Videos from the Julia tutorial at MIT](https://julialang.org/blog/2013/03/julia-tutorial-MIT)
   * [YouTube videos from the JuliaCons](https://www.youtube.com/user/JuliaLanguage/playlists)
+
+[文件原文](https://docs.julialang.org/en/v0.6/manual/getting-started/)

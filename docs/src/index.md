@@ -38,5 +38,5 @@ Julia 的目標是成為前所未有，集易用、強大與效率於一身的�
 * 強大的shell-like行程管理能力
 * Lisp般的macros與其他metaprogramming的能力
 
-[文件原文](https://docs.julialang.org/en/stable/manual/introduction/#man-introduction-1)
+[文件原文](https://docs.julialang.org/en/v0.6/manual/introduction/#man-introduction-1)
 
