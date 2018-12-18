@@ -16,7 +16,8 @@ makedocs(
     Documenter.HTML(
         prettyurls = !("local" in ARGS),
         canonical = "https://julialangtw.github.io/JuliaZHTW.jl/latest/",
-    )
+    ),
+    assets = ["assets/favicon.ico"],
 )
 
 deploydocs(
