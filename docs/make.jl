@@ -1,5 +1,9 @@
 using Documenter
 
+
+# manual/unicode-input.md
+download("http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt", joinpath(@__DIR__, "UnicodeData.txt"))
+
 makedocs(
     clean = true,
     doctest = false, # TODO: Fix doctest
