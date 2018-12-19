@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>複數與有理數（Complex and Rational Numbers） · Julia Taiwan 中文文件</title><link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" rel="stylesheet" type="text/css"/><link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Mono" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link href="../../assets/documenter.css" rel="stylesheet" type="text/css"/><link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/></head><body><nav class="toc"><a href="../../index.html"><img class="logo" src="../../assets/logo.png" alt="Julia Taiwan 中文文件 logo"/></a><h1>Julia Taiwan 中文文件</h1><select id="version-selector" onChange="window.location.href=this.value" style="visibility: hidden"></select><form class="search" id="search-form" action="../../search/"><input id="search-query" name="q" type="text" placeholder="Search docs"/></form><ul><li><a class="toctext" href="../../">首頁</a></li><li><span class="toctext">手冊</span><ul><li><a class="toctext" href="../getting-started/">入門（Getting Started）</a></li><li><a class="toctext" href="../variables/">變數（Variables）</a></li><li><a class="toctext" href="../integers-and-floating-point-numbers/">整數與浮點數（Integers and Floating-Point Numbers）</a></li><li><a class="toctext" href="../mathematical-operations/">數學運算與初等函式（Mathematical Operations and Elementary Functions）</a></li><li class="current"><a class="toctext" href>複數與有理數（Complex and Rational Numbers）</a><ul class="internal"><li><a class="toctext" href="#Complex-Numbers-1">Complex Numbers</a></li><li><a class="toctext" href="#Rational-Numbers-1">Rational Numbers</a></li></ul></li><li><a class="toctext" href="../strings/">字串（Strings）</a></li><li><a class="toctext" href="../functions/">函式（Functions）</a></li><li><a class="toctext" href="../control-flow/">控制流程（Control Flow）</a></li><li><a class="toctext" href="../variables-and-scoping/">變數作用域（Scope of Variables）</a></li><li><a class="toctext" href="../types/">型別（Types）</a></li><li><a class="toctext" href="../methods/">方法（Methods）</a></li><li><a class="toctext" href="../constructors/">建構子（Constructors）</a></li><li><a class="toctext" href="../conversion-and-promotion/">轉型與向上轉型（Conversion and Promotion）</a></li><li><a class="toctext" href="../interfaces/">介面（Interfaces）</a></li><li><a class="toctext" href="../modules/">模組（Modules）</a></li><li><a class="toctext" href="../documentation/">文件（Documentation）</a></li><li><a class="toctext" href="../metaprogramming/">Metaprogramming</a></li><li><a class="toctext" href="../arrays/">多維陣列（Multi-dimensional Arrays）</a></li><li><a class="toctext" href="../missing/">遺失值（Missing Values）</a></li><li><a class="toctext" href="../networking-and-streams/">網路與串流（Networking and Streams）</a></li><li><a class="toctext" href="../parallel-computing/">平行運算（Parallel Computing）</a></li><li><a class="toctext" href="../running-external-programs/">執行外部程式（Running External Programs）</a></li><li><a class="toctext" href="../calling-c-and-fortran-code/">呼叫 C 與 Fortran 程式（Calling C and Fortran Code）</a></li><li><a class="toctext" href="../handling-operating-system-variation/">處理作業系統差異（Handling Operating System Variation）</a></li><li><a class="toctext" href="../environment-variables/">環境變數（Environment Variables）</a></li><li><a class="toctext" href="../embedding/">嵌入式 Julia（Embedding Julia）</a></li><li><a class="toctext" href="../code-loading/">程式碼載入（Code Loading）</a></li><li><a class="toctext" href="../profile/">效能剖析（Profiling）</a></li><li><a class="toctext" href="../stacktraces/">Stack Traces</a></li><li><a class="toctext" href="../performance-tips/">效能建議（Performance Tips）</a></li><li><a class="toctext" href="../workflow-tips/">工作流程建議（Workflow Tips）</a></li><li><a class="toctext" href="../style-guide/">程式風格指引（Style Guide）</a></li><li><a class="toctext" href="../faq/">常見問題（Frequently Asked Questions）</a></li><li><a class="toctext" href="../noteworthy-differences/">與其他語言的差異（Noteworthy Differences from other Languages）</a></li><li><a class="toctext" href="../unicode-input/">Unicode 輸入（Unicode Input）</a></li></ul></li><li><span class="toctext">Base</span></li><li><span class="toctext">標準程式庫</span></li><li><span class="toctext">開發者手冊</span></li></ul></nav><article id="docs"><header><nav><ul><li>手冊</li><li><a href>複數與有理數（Complex and Rational Numbers）</a></li></ul><a class="edit-page" href="https://github.com/JuliaLangTW/JuliaZHTW.jl/blob/master/docs/src/manual/complex-and-rational-numbers.md"><span class="fa"></span> Edit on GitHub</a></nav><hr/><div id="topbar"><span>複數與有理數（Complex and Rational Numbers）</span><a class="fa fa-bars" href="#"></a></div></header><h1><a class="nav-anchor" id="Complex-and-Rational-Numbers-1" href="#Complex-and-Rational-Numbers-1">Complex and Rational Numbers</a></h1><p>Julia includes predefined types for both complex and rational numbers, and supports all the standard <a href="../mathematical-operations/#Mathematical-Operations-and-Elementary-Functions-1">Mathematical Operations and Elementary Functions</a> on them. <a href="../conversion-and-promotion/#conversion-and-promotion-1">Conversion and Promotion</a> are defined so that operations on any combination of predefined numeric types, whether primitive or composite, behave as expected.</p><h2><a class="nav-anchor" id="Complex-Numbers-1" href="#Complex-Numbers-1">Complex Numbers</a></h2><p>The global constant <a href="../../base/numbers/#Base.im"><code>im</code></a> is bound to the complex number <em>i</em>, representing the principal square root of -1. (Using mathematicians&#39; <code>i</code> or engineers&#39; <code>j</code> for this global constant were rejected since they are such popular index variable names.) Since Julia allows numeric literals to be <a href="../integers-and-floating-point-numbers/#man-numeric-literal-coefficients-1">juxtaposed with identifiers as coefficients</a>, this binding suffices to provide convenient syntax for complex numbers, similar to the traditional mathematical notation:</p><pre><code class="language-julia-repl">julia&gt; 1+2im
+1 + 2im</code></pre><p>You can perform all the standard arithmetic operations with complex numbers:</p><pre><code class="language-julia-repl">julia&gt; (1 + 2im)*(2 - 3im)
+8 + 1im
+
+julia&gt; (1 + 2im)/(1 - 2im)
+-0.6 + 0.8im
+
+julia&gt; (1 + 2im) + (1 - 2im)
+2 + 0im
+
+julia&gt; (-3 + 2im) - (5 - 1im)
+-8 + 3im
+
+julia&gt; (-1 + 2im)^2
+-3 - 4im
+
+julia&gt; (-1 + 2im)^2.5
+2.729624464784009 - 6.9606644595719im
+
+julia&gt; (-1 + 2im)^(1 + 1im)
+-0.27910381075826657 + 0.08708053414102428im
+
+julia&gt; 3(2 - 5im)
+6 - 15im
+
+julia&gt; 3(2 - 5im)^2
+-63 - 60im
+
+julia&gt; 3(2 - 5im)^-1.0
+0.20689655172413796 + 0.5172413793103449im</code></pre><p>The promotion mechanism ensures that combinations of operands of different types just work:</p><pre><code class="language-julia-repl">julia&gt; 2(1 - 1im)
+2 - 2im
+
+julia&gt; (2 + 3im) - 1
+1 + 3im
+
+julia&gt; (1 + 2im) + 0.5
+1.5 + 2.0im
+
+julia&gt; (2 + 3im) - 0.5im
+2.0 + 2.5im
+
+julia&gt; 0.75(1 + 2im)
+0.75 + 1.5im
+
+julia&gt; (2 + 3im) / 2
+1.0 + 1.5im
+
+julia&gt; (1 - 3im) / (2 + 2im)
+-0.5 - 1.0im
+
+julia&gt; 2im^2
+-2 + 0im
+
+julia&gt; 1 + 3/4im
+1.0 - 0.75im</code></pre><p>Note that <code>3/4im == 3/(4*im) == -(3/4*im)</code>, since a literal coefficient binds more tightly than division.</p><p>Standard functions to manipulate complex values are provided:</p><pre><code class="language-julia-repl">julia&gt; z = 1 + 2im
+1 + 2im
+
+julia&gt; real(1 + 2im) # real part of z
+1
+
+julia&gt; imag(1 + 2im) # imaginary part of z
+2
+
+julia&gt; conj(1 + 2im) # complex conjugate of z
+1 - 2im
+
+julia&gt; abs(1 + 2im) # absolute value of z
+2.23606797749979
+
+julia&gt; abs2(1 + 2im) # squared absolute value
+5
+
+julia&gt; angle(1 + 2im) # phase angle in radians
+1.1071487177940904</code></pre><p>As usual, the absolute value (<a href="../../base/math/#Base.abs"><code>abs</code></a>) of a complex number is its distance from zero. <a href="../../base/math/#Base.abs2"><code>abs2</code></a> gives the square of the absolute value, and is of particular use for complex numbers since it avoids taking a square root. <a href="../../base/math/#Base.angle"><code>angle</code></a> returns the phase angle in radians (also known as the <em>argument</em> or <em>arg</em> function). The full gamut of other <a href="../mathematical-operations/#Elementary-Functions-1">Elementary Functions</a> is also defined for complex numbers:</p><pre><code class="language-julia-repl">julia&gt; sqrt(1im)
+0.7071067811865476 + 0.7071067811865475im
+
+julia&gt; sqrt(1 + 2im)
+1.272019649514069 + 0.7861513777574233im
+
+julia&gt; cos(1 + 2im)
+2.0327230070196656 - 3.0518977991518im
+
+julia&gt; exp(1 + 2im)
+-1.1312043837568135 + 2.4717266720048188im
+
+julia&gt; sinh(1 + 2im)
+-0.4890562590412937 + 1.4031192506220405im</code></pre><p>Note that mathematical functions typically return real values when applied to real numbers and complex values when applied to complex numbers. For example, <a href="../../base/math/#Base.sqrt-Tuple{Real}"><code>sqrt</code></a> behaves differently when applied to <code>-1</code> versus <code>-1 + 0im</code> even though <code>-1 == -1 + 0im</code>:</p><pre><code class="language-julia-repl">julia&gt; sqrt(-1)
+ERROR: DomainError with -1.0:
+sqrt will only return a complex result if called with a complex argument. Try sqrt(Complex(x)).
+Stacktrace:
+[...]
+
+julia&gt; sqrt(-1 + 0im)
+0.0 + 1.0im</code></pre><p>The <a href="../integers-and-floating-point-numbers/#man-numeric-literal-coefficients-1">literal numeric coefficient notation</a> does not work when constructing a complex number from variables. Instead, the multiplication must be explicitly written out:</p><pre><code class="language-julia-repl">julia&gt; a = 1; b = 2; a + b*im
+1 + 2im</code></pre><p>However, this is <em>not</em> recommended. Instead, use the more efficient <a href="../../base/numbers/#Base.complex-Tuple{Complex}"><code>complex</code></a> function to construct a complex value directly from its real and imaginary parts:</p><pre><code class="language-julia-repl">julia&gt; a = 1; b = 2; complex(a, b)
+1 + 2im</code></pre><p>This construction avoids the multiplication and addition operations.</p><p><a href="../../base/numbers/#Base.Inf"><code>Inf</code></a> and <a href="../../base/numbers/#Base.NaN"><code>NaN</code></a> propagate through complex numbers in the real and imaginary parts of a complex number as described in the <a href="../integers-and-floating-point-numbers/#Special-floating-point-values-1">Special floating-point values</a> section:</p><pre><code class="language-julia-repl">julia&gt; 1 + Inf*im
+1.0 + Inf*im
+
+julia&gt; 1 + NaN*im
+1.0 + NaN*im</code></pre><h2><a class="nav-anchor" id="Rational-Numbers-1" href="#Rational-Numbers-1">Rational Numbers</a></h2><p>Julia has a rational number type to represent exact ratios of integers. Rationals are constructed using the <a href="../../base/math/#Base.://"><code>//</code></a> operator:</p><pre><code class="language-julia-repl">julia&gt; 2//3
+2//3</code></pre><p>If the numerator and denominator of a rational have common factors, they are reduced to lowest terms such that the denominator is non-negative:</p><pre><code class="language-julia-repl">julia&gt; 6//9
+2//3
+
+julia&gt; -4//8
+-1//2
+
+julia&gt; 5//-15
+-1//3
+
+julia&gt; -4//-12
+1//3</code></pre><p>This normalized form for a ratio of integers is unique, so equality of rational values can be tested by checking for equality of the numerator and denominator. The standardized numerator and denominator of a rational value can be extracted using the <a href="../../base/math/#Base.numerator"><code>numerator</code></a> and <a href="../../base/math/#Base.denominator"><code>denominator</code></a> functions:</p><pre><code class="language-julia-repl">julia&gt; numerator(2//3)
+2
+
+julia&gt; denominator(2//3)
+3</code></pre><p>Direct comparison of the numerator and denominator is generally not necessary, since the standard arithmetic and comparison operations are defined for rational values:</p><pre><code class="language-julia-repl">julia&gt; 2//3 == 6//9
+true
+
+julia&gt; 2//3 == 9//27
+false
+
+julia&gt; 3//7 &lt; 1//2
+true
+
+julia&gt; 3//4 &gt; 2//3
+true
+
+julia&gt; 2//4 + 1//6
+2//3
+
+julia&gt; 5//12 - 1//4
+1//6
+
+julia&gt; 5//8 * 3//12
+5//32
+
+julia&gt; 6//5 / 10//7
+21//25</code></pre><p>Rationals can easily be converted to floating-point numbers:</p><pre><code class="language-julia-repl">julia&gt; float(3//4)
+0.75</code></pre><p>Conversion from rational to floating-point respects the following identity for any integral values of <code>a</code> and <code>b</code>, with the exception of the case <code>a == 0</code> and <code>b == 0</code>:</p><pre><code class="language-julia-repl">julia&gt; a = 1; b = 2;
+
+julia&gt; isequal(float(a//b), a/b)
+true</code></pre><p>Constructing infinite rational values is acceptable:</p><pre><code class="language-julia-repl">julia&gt; 5//0
+1//0
+
+julia&gt; -3//0
+-1//0
+
+julia&gt; typeof(ans)
+Rational{Int64}</code></pre><p>Trying to construct a <a href="../../base/numbers/#Base.NaN"><code>NaN</code></a> rational value, however, is invalid:</p><pre><code class="language-julia-repl">julia&gt; 0//0
+ERROR: ArgumentError: invalid rational: zero(Int64)//zero(Int64)
+Stacktrace:
+[...]</code></pre><p>As usual, the promotion system makes interactions with other numeric types effortless:</p><pre><code class="language-julia-repl">julia&gt; 3//5 + 1
+8//5
+
+julia&gt; 3//5 - 0.5
+0.09999999999999998
+
+julia&gt; 2//7 * (1 + 2im)
+2//7 + 4//7*im
+
+julia&gt; 2//7 * (1.5 + 2im)
+0.42857142857142855 + 0.5714285714285714im
+
+julia&gt; 3//2 / (1 + 2im)
+3//10 - 3//5*im
+
+julia&gt; 1//2 + 2im
+1//2 + 2//1*im
+
+julia&gt; 1 + 2//3im
+1//1 - 2//3*im
+
+julia&gt; 0.5 == 1//2
+true
+
+julia&gt; 0.33 == 1//3
+false
+
+julia&gt; 0.33 &lt; 1//3
+true
+
+julia&gt; 1//3 - 0.33
+0.0033333333333332993</code></pre><footer><hr/><a class="previous" href="../mathematical-operations/"><span class="direction">Previous</span><span class="title">數學運算與初等函式（Mathematical Operations and Elementary Functions）</span></a><a class="next" href="../strings/"><span class="direction">Next</span><span class="title">字串（Strings）</span></a></footer></article></body></html>
