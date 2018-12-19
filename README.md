@@ -15,3 +15,9 @@
 需要在被參考的文件中加入 `@id <ref-name>` ，然後在要參考該文件的地方用 `@ref <ref-name>` 插入連結
 
 詳細語法參考 Documenter 的 [doc](https://juliadocs.github.io/Documenter.jl/stable/man/syntax/#@ref-link-1)
+
+## 貢獻者名單
+
+- [Daniel Chen (陳建鳴)](https://github.com/d4n1elchen)
+- [Yueh-Hua Tu (杜岳華)](https://github.com/yuehhua)
+
