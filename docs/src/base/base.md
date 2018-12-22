@@ -167,7 +167,6 @@ Base.isconcretetype
 Base.isbits
 Base.isbitstype
 Core.fieldtype
-Base.fieldtypes
 Base.fieldcount
 Base.fieldoffset
 Base.datatype_alignment
@@ -200,7 +199,6 @@ Core.NamedTuple
 Base.Val
 Core.Vararg
 Core.Nothing
-Base.isnothing
 Base.Some
 Base.something
 Base.Enums.@enum
@@ -285,10 +283,6 @@ Base.Sys.isunix
 Base.Sys.isapple
 Base.Sys.islinux
 Base.Sys.isbsd
-Base.Sys.isfreebsd
-Base.Sys.isopenbsd
-Base.Sys.isnetbsd
-Base.Sys.isdragonfly
 Base.Sys.iswindows
 Base.Sys.windows_version
 Base.@static
@@ -309,7 +303,6 @@ Core.throw
 Base.rethrow
 Base.backtrace
 Base.catch_backtrace
-Base.catch_stack
 Base.@assert
 Base.ArgumentError
 Base.AssertionError
