@@ -36,7 +36,6 @@ cd(joinpath(@__DIR__, "src")) do
         end
     end
 end
-print(STDLIB_DIR)
 
 for stdlib in STDLIB_DOCS
     @eval using $(stdlib.stdlib)
@@ -109,8 +108,8 @@ makedocs(
             "base/stacktraces.md",
             "base/simd-types.md",
         ],
-        "標準程式庫" => 
-            [stdlib.targetfile for stdlib in STDLIB_DOCS],
+        #= "標準程式庫" => =# 
+        #=     [stdlib.targetfile for stdlib in STDLIB_DOCS], =#
         "開發者手冊" => [
         ],
     ],
