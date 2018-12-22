@@ -45,6 +45,7 @@ end
 download("http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt", joinpath(@__DIR__, "UnicodeData.txt"))
 
 makedocs(
+    modules   = [Base, Core, [Base.root_module(Base, stdlib.stdlib) for stdlib in STDLIB_DOCS]...],
     clean = true,
     doctest = false, # TODO: Fix doctest
     sitename="Julia Taiwan 中文文件",
