@@ -36,6 +36,7 @@ cd(joinpath(@__DIR__, "src")) do
         end
     end
 end
+print(STDLIB_DIR)
 
 for stdlib in STDLIB_DOCS
     @eval using $(stdlib.stdlib)
@@ -45,10 +46,10 @@ end
 download("http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt", joinpath(@__DIR__, "UnicodeData.txt"))
 
 makedocs(
-    modules   = [Base, Core, [Base.root_module(Base, stdlib.stdlib) for stdlib in STDLIB_DOCS]...],
-    clean = true,
-    doctest = false, # TODO: Fix doctest
-    sitename="Julia Taiwan 中文文件",
+    modules  = [Base, Core, [Base.root_module(Base, stdlib.stdlib) for stdlib in STDLIB_DOCS]...],
+    clean    = true,
+    doctest  = false, # TODO: Fix doctest
+    sitename = "Julia Taiwan 中文文件",
     pages = [
         "首頁" => "index.md",
         "手冊" => [
