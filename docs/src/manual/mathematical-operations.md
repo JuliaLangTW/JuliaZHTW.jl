@@ -1,10 +1,10 @@
-# Mathematical Operations and Elementary Functions
+# 數學運算與初等函式
 
 Julia provides a complete collection of basic arithmetic and bitwise operators across all of its
 numeric primitive types, as well as providing portable, efficient implementations of a comprehensive
 collection of standard mathematical functions.
 
-## Arithmetic Operators
+## 算術運算子
 
 The following [arithmetic operators](https://en.wikipedia.org/wiki/Arithmetic#Arithmetic_operations)
 are supported on all primitive numeric types:
@@ -49,7 +49,7 @@ julia> 3*2/12
 operators. For instance, we would generally write `-x + 2` to reflect that first `x` gets negated,
 and then `2` is added to that result.)
 
-## Bitwise Operators
+## 位元運算子
 
 The following [bitwise operators](https://en.wikipedia.org/wiki/Bitwise_operation#Bitwise_operators)
 are supported on all primitive integer types:
@@ -89,7 +89,7 @@ julia> ~UInt8(123)
 0x84
 ```
 
-## Updating operators
+## 更新運算子
 
 Every binary arithmetic and bitwise operator also has an updating version that assigns the result
 of the operation back into its left operand. The updating version of the binary operator is formed
@@ -128,7 +128,7 @@ The updating versions of all the binary arithmetic and bitwise operators are:
     Int64
     ```
 
-## [Vectorized "dot" operators](@id man-dot-operators)
+## [向量化的"點"運算子](@id man-dot-operators)
 
 For *every* binary operation like `^`, there is a corresponding
 "dot" operation `.^` that is *automatically* defined
@@ -175,7 +175,7 @@ For example, it is not clear whether `1.+x` means `1. + x` or `1 .+ x`.
 Therefore this syntax is disallowed, and spaces must be used around
 the operator in such cases.
 
-## Numeric Comparisons
+## 數字比較
 
 Standard comparison operations are defined for all the primitive numeric types:
 
@@ -298,7 +298,7 @@ equality for your own types then you only need to add a [`==`](@ref) method.  If
 your own equality function, you should probably define a corresponding [`hash`](@ref) method
 to ensure that `isequal(x,y)` implies `hash(x) == hash(y)`.
 
-### Chaining comparisons
+### 連鎖比較
 
 Unlike most languages, with the [notable exception of Python](https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Comparison_operators),
 comparisons can be arbitrarily chained:
@@ -337,7 +337,7 @@ comparison is undefined. It is strongly recommended not to use expressions with 
 as printing) in chained comparisons. If side effects are required, the short-circuit `&&` operator
 should be used explicitly (see [Short-Circuit Evaluation](@ref)).
 
-### Elementary Functions
+### 初等函數
 
 Julia provides a comprehensive collection of mathematical functions and operators. These mathematical
 operations are defined over as broad a class of numerical values as permit sensible definitions,
@@ -348,7 +348,7 @@ Moreover, these functions (like any Julia function) can be applied in "vectorize
 arrays and other collections with the [dot syntax](@ref man-vectorized) `f.(A)`,
 e.g. `sin.(A)` will compute the sine of each element of an array `A`.
 
-## Operator Precedence and Associativity
+## 運算子優先等級
 
 Julia applies the following order and associativity of operations, from highest precedence to lowest:
 
@@ -401,7 +401,7 @@ julia> Base.operator_associativity(:⊗), Base.operator_associativity(:sin), Bas
 Note that symbols such as `:sin` return precedence `0`. This value represents invalid operators and not
 operators of lowest precedence. Similarly, such operators are assigned associativity `:none`.
 
-## Numerical Conversions
+## 數值轉型
 
 Julia supports three forms of numerical conversion, which differ in their handling of inexact
 conversions.
@@ -458,7 +458,7 @@ Stacktrace:
 
 See [Conversion and Promotion](@ref conversion-and-promotion) for how to define your own conversions and promotions.
 
-### Rounding functions
+### 進位函數
 
 | Function              | Description                      | Return type |
 |:--------------------- |:-------------------------------- |:----------- |
@@ -471,7 +471,7 @@ See [Conversion and Promotion](@ref conversion-and-promotion) for how to define 
 | [`trunc(x)`](@ref)    | round `x` towards zero           | `typeof(x)` |
 | [`trunc(T, x)`](@ref) | round `x` towards zero           | `T`         |
 
-### Division functions
+### 除法函數
 
 | Function                  | Description                                                                                               |
 |:------------------------- |:--------------------------------------------------------------------------------------------------------- |
@@ -487,7 +487,7 @@ See [Conversion and Promotion](@ref conversion-and-promotion) for how to define 
 | [`gcd(x,y...)`](@ref)     | greatest positive common divisor of `x`, `y`,...                                                          |
 | [`lcm(x,y...)`](@ref)     | least positive common multiple of `x`, `y`,...                                                            |
 
-### Sign and absolute value functions
+### 符號與絕對值函數
 
 | Function                | Description                                                |
 |:----------------------- |:---------------------------------------------------------- |
@@ -498,7 +498,7 @@ See [Conversion and Promotion](@ref conversion-and-promotion) for how to define 
 | [`copysign(x,y)`](@ref) | a value with the magnitude of `x` and the sign of `y`      |
 | [`flipsign(x,y)`](@ref) | a value with the magnitude of `x` and the sign of `x*y`    |
 
-### Powers, logs and roots
+### 次方、logs 以及根號
 
 | Function                 | Description                                                                |
 |:------------------------ |:-------------------------------------------------------------------------- |
@@ -520,7 +520,7 @@ For an overview of why functions like [`hypot`](@ref), [`expm1`](@ref), and [`lo
 are necessary and useful, see John D. Cook's excellent pair of blog posts on the subject: [expm1, log1p, erfc](https://www.johndcook.com/blog/2010/06/07/math-library-functions-that-seem-unnecessary/),
 and [hypot](https://www.johndcook.com/blog/2010/06/02/whats-so-hard-about-finding-a-hypotenuse/).
 
-### Trigonometric and hyperbolic functions
+### 三角函數及雙曲函數
 
 All the standard trigonometric and hyperbolic functions are also defined:
 
@@ -547,7 +547,7 @@ sind   cosd   tand   cotd   secd   cscd
 asind  acosd  atand  acotd  asecd  acscd
 ```
 
-### Special functions
+### 特殊函數
 
 Many other special mathematical functions are provided by the package
 [SpecialFunctions.jl](https://github.com/JuliaMath/SpecialFunctions.jl).
