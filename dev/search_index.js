@@ -89,89 +89,89 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Integers-and-Floating-Point-Numbers-1",
+    "location": "manual/integers-and-floating-point-numbers/#整數與浮點數-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Integers and Floating-Point Numbers",
+    "title": "整數與浮點數",
     "category": "section",
-    "text": "Integers and floating-point values are the basic building blocks of arithmetic and computation. Built-in representations of such values are called numeric primitives, while representations of integers and floating-point numbers as immediate values in code are known as numeric literals. For example, 1 is an integer literal, while 1.0 is a floating-point literal; their binary in-memory representations as objects are numeric primitives.Julia provides a broad range of primitive numeric types, and a full complement of arithmetic and bitwise operators as well as standard mathematical functions are defined over them. These map directly onto numeric types and operations that are natively supported on modern computers, thus allowing Julia to take full advantage of computational resources. Additionally, Julia provides software support for Arbitrary Precision Arithmetic, which can handle operations on numeric values that cannot be represented effectively in native hardware representations, but at the cost of relatively slower performance.The following are Julia\'s primitive numeric types:Integer types:Type Signed? Number of bits Smallest value Largest value\nInt8 ✓ 8 -2^7 2^7 - 1\nUInt8  8 0 2^8 - 1\nInt16 ✓ 16 -2^15 2^15 - 1\nUInt16  16 0 2^16 - 1\nInt32 ✓ 32 -2^31 2^31 - 1\nUInt32  32 0 2^32 - 1\nInt64 ✓ 64 -2^63 2^63 - 1\nUInt64  64 0 2^64 - 1\nInt128 ✓ 128 -2^127 2^127 - 1\nUInt128  128 0 2^128 - 1\nBool N/A 8 false (0) true (1)Floating-point types:Type Precision Number of bits\nFloat16 half 16\nFloat32 single 32\nFloat64 double 64Additionally, full support for Complex and Rational Numbers is built on top of these primitive numeric types. All numeric types interoperate naturally without explicit casting, thanks to a flexible, user-extensible type promotion system."
+    "text": "Integers and floating-point values are the basic building blocks of arithmetic and computation. Built-in representations of such values are called numeric primitives, while representations of integers and floating-point numbers as immediate values in code are known as numeric literals. For example, 1 is an integer literal, while 1.0 is a floating-point literal; their binary in-memory representations as objects are numeric primitives.Julia provides a broad range of primitive numeric types, and a full complement of arithmetic and bitwise operators as well as standard mathematical functions are defined over them. These map directly onto numeric types and operations that are natively supported on modern computers, thus allowing Julia to take full advantage of computational resources. Additionally, Julia provides software support for Arbitrary Precision Arithmetic, which can handle operations on numeric values that cannot be represented effectively in native hardware representations, but at the cost of relatively slower performance.The following are Julia\'s primitive numeric types:整數型別：Type Signed? Number of bits Smallest value Largest value\nInt8 ✓ 8 -2^7 2^7 - 1\nUInt8  8 0 2^8 - 1\nInt16 ✓ 16 -2^15 2^15 - 1\nUInt16  16 0 2^16 - 1\nInt32 ✓ 32 -2^31 2^31 - 1\nUInt32  32 0 2^32 - 1\nInt64 ✓ 64 -2^63 2^63 - 1\nUInt64  64 0 2^64 - 1\nInt128 ✓ 128 -2^127 2^127 - 1\nUInt128  128 0 2^128 - 1\nBool N/A 8 false (0) true (1)浮點數型別：Type Precision Number of bits\nFloat16 half 16\nFloat32 single 32\nFloat64 double 64Additionally, full support for Complex and Rational Numbers is built on top of these primitive numeric types. All numeric types interoperate naturally without explicit casting, thanks to a flexible, user-extensible type promotion system."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Integers-1",
+    "location": "manual/integers-and-floating-point-numbers/#整數-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Integers",
+    "title": "整數",
     "category": "section",
     "text": "Literal integers are represented in the standard manner:julia> 1\n1\n\njulia> 1234\n1234The default type for an integer literal depends on whether the target system has a 32-bit architecture or a 64-bit architecture:# 32-bit system:\njulia> typeof(1)\nInt32\n\n# 64-bit system:\njulia> typeof(1)\nInt64The Julia internal variable Sys.WORD_SIZE indicates whether the target system is 32-bit or 64-bit:# 32-bit system:\njulia> Sys.WORD_SIZE\n32\n\n# 64-bit system:\njulia> Sys.WORD_SIZE\n64Julia also defines the types Int and UInt, which are aliases for the system\'s signed and unsigned native integer types respectively:# 32-bit system:\njulia> Int\nInt32\njulia> UInt\nUInt32\n\n# 64-bit system:\njulia> Int\nInt64\njulia> UInt\nUInt64Larger integer literals that cannot be represented using only 32 bits but can be represented in 64 bits always create 64-bit integers, regardless of the system type:# 32-bit or 64-bit system:\njulia> typeof(3000000000)\nInt64Unsigned integers are input and output using the 0x prefix and hexadecimal (base 16) digits 0-9a-f (the capitalized digits A-F also work for input). The size of the unsigned value is determined by the number of hex digits used:julia> 0x1\n0x01\n\njulia> typeof(ans)\nUInt8\n\njulia> 0x123\n0x0123\n\njulia> typeof(ans)\nUInt16\n\njulia> 0x1234567\n0x01234567\n\njulia> typeof(ans)\nUInt32\n\njulia> 0x123456789abcdef\n0x0123456789abcdef\n\njulia> typeof(ans)\nUInt64\n\njulia> 0x11112222333344445555666677778888\n0x11112222333344445555666677778888\n\njulia> typeof(ans)\nUInt128This behavior is based on the observation that when one uses unsigned hex literals for integer values, one typically is using them to represent a fixed numeric byte sequence, rather than just an integer value.Recall that the variable ans is set to the value of the last expression evaluated in an interactive session. This does not occur when Julia code is run in other ways.Binary and octal literals are also supported:julia> 0b10\n0x02\n\njulia> typeof(ans)\nUInt8\n\njulia> 0o010\n0x08\n\njulia> typeof(ans)\nUInt8\n\njulia> 0x00000000000000001111222233334444\n0x00000000000000001111222233334444\n\njulia> typeof(ans)\nUInt128As for hexadecimal literals, binary and octal literals produce unsigned integer types. The size of the binary data item is the minimal needed size, if the leading digit of the literal is not 0. In the case of leading zeros, the size is determined by the minimal needed size for a literal, which has the same length but leading digit 1. That allows the user to control the size. Values which cannot be stored in UInt128 cannot be written as such literals.Binary, octal, and hexadecimal literals may be signed by a - immediately preceding the unsigned literal. They produce an unsigned integer of the same size as the unsigned literal would do, with the two\'s complement of the value:julia> -0x2\n0xfe\n\njulia> -0x0002\n0xfffeThe minimum and maximum representable values of primitive numeric types such as integers are given by the typemin and typemax functions:julia> (typemin(Int32), typemax(Int32))\n(-2147483648, 2147483647)\n\njulia> for T in [Int8,Int16,Int32,Int64,Int128,UInt8,UInt16,UInt32,UInt64,UInt128]\n           println(\"$(lpad(T,7)): [$(typemin(T)),$(typemax(T))]\")\n       end\n   Int8: [-128,127]\n  Int16: [-32768,32767]\n  Int32: [-2147483648,2147483647]\n  Int64: [-9223372036854775808,9223372036854775807]\n Int128: [-170141183460469231731687303715884105728,170141183460469231731687303715884105727]\n  UInt8: [0,255]\n UInt16: [0,65535]\n UInt32: [0,4294967295]\n UInt64: [0,18446744073709551615]\nUInt128: [0,340282366920938463463374607431768211455]The values returned by typemin and typemax are always of the given argument type. (The above expression uses several features that have yet to be introduced, including for loops, Strings, and Interpolation, but should be easy enough to understand for users with some existing programming experience.)"
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Overflow-behavior-1",
+    "location": "manual/integers-and-floating-point-numbers/#溢位行為-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Overflow behavior",
+    "title": "溢位行為",
     "category": "section",
     "text": "In Julia, exceeding the maximum representable value of a given type results in a wraparound behavior:julia> x = typemax(Int64)\n9223372036854775807\n\njulia> x + 1\n-9223372036854775808\n\njulia> x + 1 == typemin(Int64)\ntrueThus, arithmetic with Julia integers is actually a form of modular arithmetic. This reflects the characteristics of the underlying arithmetic of integers as implemented on modern computers. In applications where overflow is possible, explicit checking for wraparound produced by overflow is essential; otherwise, the BigInt type in Arbitrary Precision Arithmetic is recommended instead."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Division-errors-1",
+    "location": "manual/integers-and-floating-point-numbers/#除法錯誤-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Division errors",
+    "title": "除法錯誤",
     "category": "section",
     "text": "Integer division (the div function) has two exceptional cases: dividing by zero, and dividing the lowest negative number (typemin) by -1. Both of these cases throw a DivideError. The remainder and modulus functions (rem and mod) throw a DivideError when their second argument is zero."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Floating-Point-Numbers-1",
+    "location": "manual/integers-and-floating-point-numbers/#浮點數-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Floating-Point Numbers",
+    "title": "浮點數",
     "category": "section",
     "text": "Literal floating-point numbers are represented in the standard formats, using E-notation when necessary:julia> 1.0\n1.0\n\njulia> 1.\n1.0\n\njulia> 0.5\n0.5\n\njulia> .5\n0.5\n\njulia> -1.23\n-1.23\n\njulia> 1e10\n1.0e10\n\njulia> 2.5e-4\n0.00025The above results are all Float64 values. Literal Float32 values can be entered by writing an f in place of e:julia> 0.5f0\n0.5f0\n\njulia> typeof(ans)\nFloat32\n\njulia> 2.5f-4\n0.00025f0Values can be converted to Float32 easily:julia> Float32(-1.5)\n-1.5f0\n\njulia> typeof(ans)\nFloat32Hexadecimal floating-point literals are also valid, but only as Float64 values, with p preceding the base-2 exponent:julia> 0x1p0\n1.0\n\njulia> 0x1.8p3\n12.0\n\njulia> 0x.4p-1\n0.125\n\njulia> typeof(ans)\nFloat64Half-precision floating-point numbers are also supported (Float16), but they are implemented in software and use Float32 for calculations.julia> sizeof(Float16(4.))\n2\n\njulia> 2*Float16(4.)\nFloat16(8.0)The underscore _ can be used as digit separator:julia> 10_000, 0.000_000_005, 0xdead_beef, 0b1011_0010\n(10000, 5.0e-9, 0xdeadbeef, 0xb2)"
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Floating-point-zero-1",
+    "location": "manual/integers-and-floating-point-numbers/#浮點數零-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Floating-point zero",
+    "title": "浮點數零",
     "category": "section",
     "text": "Floating-point numbers have two zeros, positive zero and negative zero. They are equal to each other but have different binary representations, as can be seen using the bitstring function:julia> 0.0 == -0.0\ntrue\n\njulia> bitstring(0.0)\n\"0000000000000000000000000000000000000000000000000000000000000000\"\n\njulia> bitstring(-0.0)\n\"1000000000000000000000000000000000000000000000000000000000000000\""
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Special-floating-point-values-1",
+    "location": "manual/integers-and-floating-point-numbers/#特殊浮點數值-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Special floating-point values",
+    "title": "特殊浮點數值",
     "category": "section",
     "text": "There are three specified standard floating-point values that do not correspond to any point on the real number line:Float16 Float32 Float64 Name Description\nInf16 Inf32 Inf positive infinity a value greater than all finite floating-point values\n-Inf16 -Inf32 -Inf negative infinity a value less than all finite floating-point values\nNaN16 NaN32 NaN not a number a value not == to any floating-point value (including itself)For further discussion of how these non-finite floating-point values are ordered with respect to each other and other floats, see Numeric Comparisons. By the IEEE 754 standard, these floating-point values are the results of certain arithmetic operations:julia> 1/Inf\n0.0\n\njulia> 1/0\nInf\n\njulia> -5/0\n-Inf\n\njulia> 0.000001/0\nInf\n\njulia> 0/0\nNaN\n\njulia> 500 + Inf\nInf\n\njulia> 500 - Inf\n-Inf\n\njulia> Inf + Inf\nInf\n\njulia> Inf - Inf\nNaN\n\njulia> Inf * Inf\nInf\n\njulia> Inf / Inf\nNaN\n\njulia> 0 * Inf\nNaNThe typemin and typemax functions also apply to floating-point types:julia> (typemin(Float16),typemax(Float16))\n(-Inf16, Inf16)\n\njulia> (typemin(Float32),typemax(Float32))\n(-Inf32, Inf32)\n\njulia> (typemin(Float64),typemax(Float64))\n(-Inf, Inf)"
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Machine-epsilon-1",
+    "location": "manual/integers-and-floating-point-numbers/#機器誤差-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Machine epsilon",
+    "title": "機器誤差",
     "category": "section",
     "text": "Most real numbers cannot be represented exactly with floating-point numbers, and so for many purposes it is important to know the distance between two adjacent representable floating-point numbers, which is often known as machine epsilon.Julia provides eps, which gives the distance between 1.0 and the next larger representable floating-point value:julia> eps(Float32)\n1.1920929f-7\n\njulia> eps(Float64)\n2.220446049250313e-16\n\njulia> eps() # same as eps(Float64)\n2.220446049250313e-16These values are 2.0^-23 and 2.0^-52 as Float32 and Float64 values, respectively. The eps function can also take a floating-point value as an argument, and gives the absolute difference between that value and the next representable floating point value. That is, eps(x) yields a value of the same type as x such that x + eps(x) is the next representable floating-point value larger than x:julia> eps(1.0)\n2.220446049250313e-16\n\njulia> eps(1000.)\n1.1368683772161603e-13\n\njulia> eps(1e-27)\n1.793662034335766e-43\n\njulia> eps(0.0)\n5.0e-324The distance between two adjacent representable floating-point numbers is not constant, but is smaller for smaller values and larger for larger values. In other words, the representable floating-point numbers are densest in the real number line near zero, and grow sparser exponentially as one moves farther away from zero. By definition, eps(1.0) is the same as eps(Float64) since 1.0 is a 64-bit floating-point value.Julia also provides the nextfloat and prevfloat functions which return the next largest or smallest representable floating-point number to the argument respectively:julia> x = 1.25f0\n1.25f0\n\njulia> nextfloat(x)\n1.2500001f0\n\njulia> prevfloat(x)\n1.2499999f0\n\njulia> bitstring(prevfloat(x))\n\"00111111100111111111111111111111\"\n\njulia> bitstring(x)\n\"00111111101000000000000000000000\"\n\njulia> bitstring(nextfloat(x))\n\"00111111101000000000000000000001\"This example highlights the general principle that the adjacent representable floating-point numbers also have adjacent binary integer representations."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Rounding-modes-1",
+    "location": "manual/integers-and-floating-point-numbers/#小數進位模式-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Rounding modes",
+    "title": "小數進位模式",
     "category": "section",
     "text": "If a number doesn\'t have an exact floating-point representation, it must be rounded to an appropriate representable value. However, the manner in which this rounding is done can be changed if required according to the rounding modes presented in the IEEE 754 standard.The default mode used is always RoundNearest, which rounds to the nearest representable value, with ties rounded towards the nearest value with an even least significant bit."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Background-and-References-1",
+    "location": "manual/integers-and-floating-point-numbers/#背景與參考-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Background and References",
+    "title": "背景與參考",
     "category": "section",
     "text": "Floating-point arithmetic entails many subtleties which can be surprising to users who are unfamiliar with the low-level implementation details. However, these subtleties are described in detail in most books on scientific computation, and also in the following references:The definitive guide to floating point arithmetic is the IEEE 754-2008 Standard; however, it is not available for free online.\nFor a brief but lucid presentation of how floating-point numbers are represented, see John D. Cook\'s article on the subject as well as his introduction to some of the issues arising from how this representation differs in behavior from the idealized abstraction of real numbers.\nAlso recommended is Bruce Dawson\'s series of blog posts on floating-point numbers.\nFor an excellent, in-depth discussion of floating-point numbers and issues of numerical accuracy encountered when computing with them, see David Goldberg\'s paper What Every Computer Scientist Should Know About Floating-Point Arithmetic.\nFor even more extensive documentation of the history of, rationale for, and issues with floating-point numbers, as well as discussion of many other topics in numerical computing, see the collected writings of William Kahan, commonly known as the \"Father of Floating-Point\". Of particular interest may be An Interview with the Old Man of Floating-Point."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Arbitrary-Precision-Arithmetic-1",
+    "location": "manual/integers-and-floating-point-numbers/#任意精度算術運算-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Arbitrary Precision Arithmetic",
+    "title": "任意精度算術運算",
     "category": "section",
     "text": "To allow computations with arbitrary-precision integers and floating point numbers, Julia wraps the GNU Multiple Precision Arithmetic Library (GMP) and the GNU MPFR Library, respectively. The BigInt and BigFloat types are available in Julia for arbitrary precision integer and floating point numbers respectively.Constructors exist to create these types from primitive numerical types, and parse can be used to construct them from AbstractStrings.  Once created, they participate in arithmetic with all other numeric types thanks to Julia\'s type promotion and conversion mechanism:julia> BigInt(typemax(Int64)) + 1\n9223372036854775808\n\njulia> parse(BigInt, \"123456789012345678901234567890\") + 1\n123456789012345678901234567891\n\njulia> parse(BigFloat, \"1.23456789012345678901\")\n1.234567890123456789010000000000000000000000000000000000000000000000000000000004\n\njulia> BigFloat(2.0^66) / 3\n2.459565876494606882133333333333333333333333333333333333333333333333333333333344e+19\n\njulia> factorial(BigInt(40))\n815915283247897734345611269596115894272000000000However, type promotion between the primitive types above and BigInt/BigFloat is not automatic and must be explicitly stated.julia> x = typemin(Int64)\n-9223372036854775808\n\njulia> x = x - 1\n9223372036854775807\n\njulia> typeof(x)\nInt64\n\njulia> y = BigInt(typemin(Int64))\n-9223372036854775808\n\njulia> y = y - 1\n-9223372036854775809\n\njulia> typeof(y)\nBigIntThe default precision (in number of bits of the significand) and rounding mode of BigFloat operations can be changed globally by calling setprecision and setrounding, and all further calculations will take these changes in account.  Alternatively, the precision or the rounding can be changed only within the execution of a particular block of code by using the same functions with a do block:julia> setrounding(BigFloat, RoundUp) do\n           BigFloat(1) + parse(BigFloat, \"0.1\")\n       end\n1.100000000000000000000000000000000000000000000000000000000000000000000000000003\n\njulia> setrounding(BigFloat, RoundDown) do\n           BigFloat(1) + parse(BigFloat, \"0.1\")\n       end\n1.099999999999999999999999999999999999999999999999999999999999999999999999999986\n\njulia> setprecision(40) do\n           BigFloat(1) + parse(BigFloat, \"0.1\")\n       end\n1.1000000000004"
 },
@@ -179,23 +179,23 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/integers-and-floating-point-numbers/#man-numeric-literal-coefficients-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Numeric Literal Coefficients",
+    "title": "數字字面係數",
     "category": "section",
     "text": "To make common numeric formulae and expressions clearer, Julia allows variables to be immediately preceded by a numeric literal, implying multiplication. This makes writing polynomial expressions much cleaner:julia> x = 3\n3\n\njulia> 2x^2 - 3x + 1\n10\n\njulia> 1.5x^2 - .5x + 1\n13.0It also makes writing exponential functions more elegant:julia> 2^2x\n64The precedence of numeric literal coefficients is slightly lower than that of unary operators such as negation. So -2x is parsed as (-2) * x and √2x is parsed as (√2) * x. However, numeric literal coefficients parse similarly to unary operators when combined with exponentiation. For example 2^3x is parsed as 2^(3x), and 2x^3 is parsed as 2*(x^3).Numeric literals also work as coefficients to parenthesized expressions:julia> 2(x-1)^2 - 3(x-1) + 1\n3note: Note\nThe precedence of numeric literal coefficients used for implicit multiplication is higher than other binary operators such as multiplication (*), and division (/, \\, and //).  This means, for example, that 1 / 2im equals -0.5im and 6 // 2(2 + 1) equals 1 // 1.Additionally, parenthesized expressions can be used as coefficients to variables, implying multiplication of the expression by the variable:julia> (x-1)x\n6Neither juxtaposition of two parenthesized expressions, nor placing a variable before a parenthesized expression, however, can be used to imply multiplication:julia> (x-1)(x+1)\nERROR: MethodError: objects of type Int64 are not callable\n\njulia> x(x+1)\nERROR: MethodError: objects of type Int64 are not callableBoth expressions are interpreted as function application: any expression that is not a numeric literal, when immediately followed by a parenthetical, is interpreted as a function applied to the values in parentheses (see Functions for more about functions). Thus, in both of these cases, an error occurs since the left-hand value is not a function.The above syntactic enhancements significantly reduce the visual noise incurred when writing common mathematical formulae. Note that no whitespace may come between a numeric literal coefficient and the identifier or parenthesized expression which it multiplies."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Syntax-Conflicts-1",
+    "location": "manual/integers-and-floating-point-numbers/#語法衝突-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Syntax Conflicts",
+    "title": "語法衝突",
     "category": "section",
     "text": "Juxtaposed literal coefficient syntax may conflict with two numeric literal syntaxes: hexadecimal integer literals and engineering notation for floating-point literals. Here are some situations where syntactic conflicts arise:The hexadecimal integer literal expression 0xff could be interpreted as the numeric literal 0 multiplied by the variable xff.\nThe floating-point literal expression 1e10 could be interpreted as the numeric literal 1 multiplied by the variable e10, and similarly with the equivalent E form.\nThe 32-bit floating-point literal expression 1.5f22 could be interpreted as the numeric literal 1.5 multiplied by the variable f22.In all cases the ambiguity is resolved in favor of interpretation as numeric literals:Expressions starting with 0x are always hexadecimal literals.\nExpressions starting with a numeric literal followed by e or E are always floating-point literals.\nExpressions starting with a numeric literal followed by f are always 32-bit floating-point literals.Unlike E, which is equivalent to e in numeric literals for historical reasons, F is just another letter and does not behave like f in numeric literals. Hence, expressions starting with a numeric literal followed by F are interpreted as the numerical literal multiplied by a variable, which means that, for example, 1.5F22 is equal to 1.5 * F22."
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#Literal-zero-and-one-1",
+    "location": "manual/integers-and-floating-point-numbers/#字面零與一-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "Literal zero and one",
+    "title": "字面零與一",
     "category": "section",
     "text": "Julia provides functions which return literal 0 and 1 corresponding to a specified type or the type of a given variable.Function Description\nzero(x) Literal zero of type x or type of variable x\none(x) Literal one of type x or type of variable xThese functions are useful in Numeric Comparisons to avoid overhead from unnecessary type conversion.Examples:julia> zero(Float32)\n0.0f0\n\njulia> zero(1.0)\n0.0\n\njulia> one(Int32)\n1\n\njulia> one(BigFloat)\n1.0"
 },
@@ -209,33 +209,33 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/mathematical-operations/#Mathematical-Operations-and-Elementary-Functions-1",
+    "location": "manual/mathematical-operations/#數學運算與初等函式-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Mathematical Operations and Elementary Functions",
+    "title": "數學運算與初等函式",
     "category": "section",
     "text": "Julia provides a complete collection of basic arithmetic and bitwise operators across all of its numeric primitive types, as well as providing portable, efficient implementations of a comprehensive collection of standard mathematical functions."
 },
 
 {
-    "location": "manual/mathematical-operations/#Arithmetic-Operators-1",
+    "location": "manual/mathematical-operations/#算術運算子-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Arithmetic Operators",
+    "title": "算術運算子",
     "category": "section",
     "text": "The following arithmetic operators are supported on all primitive numeric types:Expression Name Description\n+x unary plus the identity operation\n-x unary minus maps values to their additive inverses\nx + y binary plus performs addition\nx - y binary minus performs subtraction\nx * y times performs multiplication\nx / y divide performs division\nx ÷ y integer divide x / y, truncated to an integer\nx \\ y inverse divide equivalent to y / x\nx ^ y power raises x to the yth power\nx % y remainder equivalent to rem(x,y)as well as the negation on Bool types:Expression Name Description\n!x negation changes true to false and vice versaJulia\'s promotion system makes arithmetic operations on mixtures of argument types \"just work\" naturally and automatically. See Conversion and Promotion for details of the promotion system.Here are some simple examples using arithmetic operators:julia> 1 + 2 + 3\n6\n\njulia> 1 - 2\n-1\n\njulia> 3*2/12\n0.5(By convention, we tend to space operators more tightly if they get applied before other nearby operators. For instance, we would generally write -x + 2 to reflect that first x gets negated, and then 2 is added to that result.)"
 },
 
 {
-    "location": "manual/mathematical-operations/#Bitwise-Operators-1",
+    "location": "manual/mathematical-operations/#位元運算子-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Bitwise Operators",
+    "title": "位元運算子",
     "category": "section",
     "text": "The following bitwise operators are supported on all primitive integer types:Expression Name\n~x bitwise not\nx & y bitwise and\nx | y bitwise or\nx ⊻ y bitwise xor (exclusive or)\nx >>> y logical shift right\nx >> y arithmetic shift right\nx << y logical/arithmetic shift leftHere are some examples with bitwise operators:julia> ~123\n-124\n\njulia> 123 & 234\n106\n\njulia> 123 | 234\n251\n\njulia> 123 ⊻ 234\n145\n\njulia> xor(123, 234)\n145\n\njulia> ~UInt32(123)\n0xffffff84\n\njulia> ~UInt8(123)\n0x84"
 },
 
 {
-    "location": "manual/mathematical-operations/#Updating-operators-1",
+    "location": "manual/mathematical-operations/#更新運算子-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Updating operators",
+    "title": "更新運算子",
     "category": "section",
     "text": "Every binary arithmetic and bitwise operator also has an updating version that assigns the result of the operation back into its left operand. The updating version of the binary operator is formed by placing a = immediately after the operator. For example, writing x += 3 is equivalent to writing x = x + 3:julia> x = 1\n1\n\njulia> x += 3\n4\n\njulia> x\n4The updating versions of all the binary arithmetic and bitwise operators are:+=  -=  *=  /=  \\=  ÷=  %=  ^=  &=  |=  ⊻=  >>>=  >>=  <<=note: Note\nAn updating operator rebinds the variable on the left-hand side. As a result, the type of the variable may change.julia> x = 0x01; typeof(x)\nUInt8\n\njulia> x *= 2 # Same as x = x * 2\n2\n\njulia> typeof(x)\nInt64"
 },
@@ -243,95 +243,95 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/mathematical-operations/#man-dot-operators-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Vectorized \"dot\" operators",
+    "title": "向量化的\"點\"運算子",
     "category": "section",
     "text": "For every binary operation like ^, there is a corresponding \"dot\" operation .^ that is automatically defined to perform ^ element-by-element on arrays. For example, [1,2,3] ^ 3 is not defined, since there is no standard mathematical meaning to \"cubing\" a (non-square) array, but [1,2,3] .^ 3 is defined as computing the elementwise (or \"vectorized\") result [1^3, 2^3, 3^3].  Similarly for unary operators like ! or √, there is a corresponding .√ that applies the operator elementwise.julia> [1,2,3] .^ 3\n3-element Array{Int64,1}:\n  1\n  8\n 27More specifically, a .^ b is parsed as the \"dot\" call (^).(a,b), which performs a broadcast operation: it can combine arrays and scalars, arrays of the same size (performing the operation elementwise), and even arrays of different shapes (e.g. combining row and column vectors to produce a matrix). Moreover, like all vectorized \"dot calls,\" these \"dot operators\" are fusing. For example, if you compute 2 .* A.^2 .+ sin.(A) (or equivalently @. 2A^2 + sin(A), using the @. macro) for an array A, it performs a single loop over A, computing 2a^2 + sin(a) for each element of A. In particular, nested dot calls like f.(g.(x)) are fused, and \"adjacent\" binary operators like x .+ 3 .* x.^2 are equivalent to nested dot calls (+).(x, (*).(3, (^).(x, 2))).Furthermore, \"dotted\" updating operators like a .+= b (or @. a += b) are parsed as a .= a .+ b, where .= is a fused in-place assignment operation (see the dot syntax documentation).Note the dot syntax is also applicable to user-defined operators. For example, if you define ⊗(A,B) = kron(A,B) to give a convenient infix syntax A ⊗ B for Kronecker products (kron), then [A,B] .⊗ [C,D] will compute [A⊗C, B⊗D] with no additional coding.Combining dot operators with numeric literals can be ambiguous. For example, it is not clear whether 1.+x means 1. + x or 1 .+ x. Therefore this syntax is disallowed, and spaces must be used around the operator in such cases."
 },
 
 {
-    "location": "manual/mathematical-operations/#Numeric-Comparisons-1",
+    "location": "manual/mathematical-operations/#數字比較-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Numeric Comparisons",
+    "title": "數字比較",
     "category": "section",
     "text": "Standard comparison operations are defined for all the primitive numeric types:Operator Name\n== equality\n!=, ≠ inequality\n< less than\n<=, ≤ less than or equal to\n> greater than\n>=, ≥ greater than or equal toHere are some simple examples:julia> 1 == 1\ntrue\n\njulia> 1 == 2\nfalse\n\njulia> 1 != 2\ntrue\n\njulia> 1 == 1.0\ntrue\n\njulia> 1 < 2\ntrue\n\njulia> 1.0 > 3\nfalse\n\njulia> 1 >= 1.0\ntrue\n\njulia> -1 <= 1\ntrue\n\njulia> -1 <= -1\ntrue\n\njulia> -1 <= -2\nfalse\n\njulia> 3 < -0.5\nfalseIntegers are compared in the standard manner – by comparison of bits. Floating-point numbers are compared according to the IEEE 754 standard:Finite numbers are ordered in the usual manner.\nPositive zero is equal but not greater than negative zero.\nInf is equal to itself and greater than everything else except NaN.\n-Inf is equal to itself and less then everything else except NaN.\nNaN is not equal to, not less than, and not greater than anything, including itself.The last point is potentially surprising and thus worth noting:julia> NaN == NaN\nfalse\n\njulia> NaN != NaN\ntrue\n\njulia> NaN < NaN\nfalse\n\njulia> NaN > NaN\nfalseand can cause especial headaches with arrays:julia> [1 NaN] == [1 NaN]\nfalseJulia provides additional functions to test numbers for special values, which can be useful in situations like hash key comparisons:Function Tests if\nisequal(x, y) x and y are identical\nisfinite(x) x is a finite number\nisinf(x) x is infinite\nisnan(x) x is not a numberisequal considers NaNs equal to each other:julia> isequal(NaN, NaN)\ntrue\n\njulia> isequal([1 NaN], [1 NaN])\ntrue\n\njulia> isequal(NaN, NaN32)\ntrueisequal can also be used to distinguish signed zeros:julia> -0.0 == 0.0\ntrue\n\njulia> isequal(-0.0, 0.0)\nfalseMixed-type comparisons between signed integers, unsigned integers, and floats can be tricky. A great deal of care has been taken to ensure that Julia does them correctly.For other types, isequal defaults to calling ==, so if you want to define equality for your own types then you only need to add a == method.  If you define your own equality function, you should probably define a corresponding hash method to ensure that isequal(x,y) implies hash(x) == hash(y)."
 },
 
 {
-    "location": "manual/mathematical-operations/#Chaining-comparisons-1",
+    "location": "manual/mathematical-operations/#連鎖比較-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Chaining comparisons",
+    "title": "連鎖比較",
     "category": "section",
     "text": "Unlike most languages, with the notable exception of Python, comparisons can be arbitrarily chained:julia> 1 < 2 <= 2 < 3 == 3 > 2 >= 1 == 1 < 3 != 5\ntrueChaining comparisons is often quite convenient in numerical code. Chained comparisons use the && operator for scalar comparisons, and the & operator for elementwise comparisons, which allows them to work on arrays. For example, 0 .< A .< 1 gives a boolean array whose entries are true where the corresponding elements of A are between 0 and 1.Note the evaluation behavior of chained comparisons:julia> v(x) = (println(x); x)\nv (generic function with 1 method)\n\njulia> v(1) < v(2) <= v(3)\n2\n1\n3\ntrue\n\njulia> v(1) > v(2) <= v(3)\n2\n1\nfalseThe middle expression is only evaluated once, rather than twice as it would be if the expression were written as v(1) < v(2) && v(2) <= v(3). However, the order of evaluations in a chained comparison is undefined. It is strongly recommended not to use expressions with side effects (such as printing) in chained comparisons. If side effects are required, the short-circuit && operator should be used explicitly (see Short-Circuit Evaluation)."
 },
 
 {
-    "location": "manual/mathematical-operations/#Elementary-Functions-1",
+    "location": "manual/mathematical-operations/#初等函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Elementary Functions",
+    "title": "初等函數",
     "category": "section",
     "text": "Julia provides a comprehensive collection of mathematical functions and operators. These mathematical operations are defined over as broad a class of numerical values as permit sensible definitions, including integers, floating-point numbers, rationals, and complex numbers, wherever such definitions make sense.Moreover, these functions (like any Julia function) can be applied in \"vectorized\" fashion to arrays and other collections with the dot syntax f.(A), e.g. sin.(A) will compute the sine of each element of an array A."
 },
 
 {
-    "location": "manual/mathematical-operations/#Operator-Precedence-and-Associativity-1",
+    "location": "manual/mathematical-operations/#運算子優先等級-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Operator Precedence and Associativity",
+    "title": "運算子優先等級",
     "category": "section",
     "text": "Julia applies the following order and associativity of operations, from highest precedence to lowest:Category Operators Associativity\nSyntax . followed by :: Left\nExponentiation ^ Right\nUnary + - √ Right[1]\nBitshifts << >> >>> Left\nFractions // Left\nMultiplication * / % & \\ ÷ Left[2]\nAddition + - | ⊻ Left[2]\nSyntax : .. Left\nSyntax |> Left\nSyntax <| Right\nComparisons > < >= <= == === != !== <: Non-associative\nControl flow && followed by || followed by ? Right\nPair => Right\nAssignments = += -= *= /= //= \\= ^= ÷= %= |= &= ⊻= <<= >>= >>>= Right[1]: The unary operators + and - require explicit parentheses around their argument to disambiguate them from the operator ++, etc. Other compositions of unary operators are parsed with right-associativity, e. g., √√-a as √(√(-a)).[2]: The operators +, ++ and * are non-associative. a + b + c is parsed as +(a, b, c) not +(+(a, b), c). However, the fallback methods for +(a, b, c, d...) and *(a, b, c, d...) both default to left-associative evaluation.For a complete list of every Julia operator\'s precedence, see the top of this file: src/julia-parser.scmYou can also find the numerical precedence for any given operator via the built-in function Base.operator_precedence, where higher numbers take precedence:julia> Base.operator_precedence(:+), Base.operator_precedence(:*), Base.operator_precedence(:.)\n(11, 13, 17)\n\njulia> Base.operator_precedence(:sin), Base.operator_precedence(:+=), Base.operator_precedence(:(=))  # (Note the necessary parens on `:(=)`)\n(0, 1, 1)A symbol representing the operator associativity can also be found by calling the built-in function Base.operator_associativity:julia> Base.operator_associativity(:-), Base.operator_associativity(:+), Base.operator_associativity(:^)\n(:left, :none, :right)\n\njulia> Base.operator_associativity(:⊗), Base.operator_associativity(:sin), Base.operator_associativity(:→)\n(:left, :none, :right)Note that symbols such as :sin return precedence 0. This value represents invalid operators and not operators of lowest precedence. Similarly, such operators are assigned associativity :none."
 },
 
 {
-    "location": "manual/mathematical-operations/#Numerical-Conversions-1",
+    "location": "manual/mathematical-operations/#數值轉型-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Numerical Conversions",
+    "title": "數值轉型",
     "category": "section",
     "text": "Julia supports three forms of numerical conversion, which differ in their handling of inexact conversions.The notation T(x) or convert(T,x) converts x to a value of type T.\nIf T is a floating-point type, the result is the nearest representable value, which could be positive or negative infinity.\nIf T is an integer type, an InexactError is raised if x is not representable by T.\nx % T converts an integer x to a value of integer type T congruent to x modulo 2^n, where n is the number of bits in T. In other words, the binary representation is truncated to fit.\nThe Rounding functions take a type T as an optional argument. For example, round(Int,x) is a shorthand for Int(round(x)).The following examples show the different forms.julia> Int8(127)\n127\n\njulia> Int8(128)\nERROR: InexactError: trunc(Int8, 128)\nStacktrace:\n[...]\n\njulia> Int8(127.0)\n127\n\njulia> Int8(3.14)\nERROR: InexactError: Int8(3.14)\nStacktrace:\n[...]\n\njulia> Int8(128.0)\nERROR: InexactError: Int8(128.0)\nStacktrace:\n[...]\n\njulia> 127 % Int8\n127\n\njulia> 128 % Int8\n-128\n\njulia> round(Int8,127.4)\n127\n\njulia> round(Int8,127.6)\nERROR: InexactError: trunc(Int8, 128.0)\nStacktrace:\n[...]See Conversion and Promotion for how to define your own conversions and promotions."
 },
 
 {
-    "location": "manual/mathematical-operations/#Rounding-functions-1",
+    "location": "manual/mathematical-operations/#進位函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Rounding functions",
+    "title": "進位函數",
     "category": "section",
     "text": "Function Description Return type\nround(x) round x to the nearest integer typeof(x)\nround(T, x) round x to the nearest integer T\nfloor(x) round x towards -Inf typeof(x)\nfloor(T, x) round x towards -Inf T\nceil(x) round x towards +Inf typeof(x)\nceil(T, x) round x towards +Inf T\ntrunc(x) round x towards zero typeof(x)\ntrunc(T, x) round x towards zero T"
 },
 
 {
-    "location": "manual/mathematical-operations/#Division-functions-1",
+    "location": "manual/mathematical-operations/#除法函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Division functions",
+    "title": "除法函數",
     "category": "section",
     "text": "Function Description\ndiv(x,y), x÷y truncated division; quotient rounded towards zero\nfld(x,y) floored division; quotient rounded towards -Inf\ncld(x,y) ceiling division; quotient rounded towards +Inf\nrem(x,y) remainder; satisfies x == div(x,y)*y + rem(x,y); sign matches x\nmod(x,y) modulus; satisfies x == fld(x,y)*y + mod(x,y); sign matches y\nmod1(x,y) mod with offset 1; returns r∈(0,y] for y>0 or r∈[y,0) for y<0, where mod(r, y) == mod(x, y)\nmod2pi(x) modulus with respect to 2pi;  0 <= mod2pi(x)    < 2pi\ndivrem(x,y) returns (div(x,y),rem(x,y))\nfldmod(x,y) returns (fld(x,y),mod(x,y))\ngcd(x,y...) greatest positive common divisor of x, y,...\nlcm(x,y...) least positive common multiple of x, y,..."
 },
 
 {
-    "location": "manual/mathematical-operations/#Sign-and-absolute-value-functions-1",
+    "location": "manual/mathematical-operations/#符號與絕對值函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Sign and absolute value functions",
+    "title": "符號與絕對值函數",
     "category": "section",
     "text": "Function Description\nabs(x) a positive value with the magnitude of x\nabs2(x) the squared magnitude of x\nsign(x) indicates the sign of x, returning -1, 0, or +1\nsignbit(x) indicates whether the sign bit is on (true) or off (false)\ncopysign(x,y) a value with the magnitude of x and the sign of y\nflipsign(x,y) a value with the magnitude of x and the sign of x*y"
 },
 
 {
-    "location": "manual/mathematical-operations/#Powers,-logs-and-roots-1",
+    "location": "manual/mathematical-operations/#次方、logs-以及根號-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Powers, logs and roots",
+    "title": "次方、logs 以及根號",
     "category": "section",
     "text": "Function Description\nsqrt(x), √x square root of x\ncbrt(x), ∛x cube root of x\nhypot(x,y) hypotenuse of right-angled triangle with other sides of length x and y\nexp(x) natural exponential function at x\nexpm1(x) accurate exp(x)-1 for x near zero\nldexp(x,n) x*2^n computed efficiently for integer values of n\nlog(x) natural logarithm of x\nlog(b,x) base b logarithm of x\nlog2(x) base 2 logarithm of x\nlog10(x) base 10 logarithm of x\nlog1p(x) accurate log(1+x) for x near zero\nexponent(x) binary exponent of x\nsignificand(x) binary significand (a.k.a. mantissa) of a floating-point number xFor an overview of why functions like hypot, expm1, and log1p are necessary and useful, see John D. Cook\'s excellent pair of blog posts on the subject: expm1, log1p, erfc, and hypot."
 },
 
 {
-    "location": "manual/mathematical-operations/#Trigonometric-and-hyperbolic-functions-1",
+    "location": "manual/mathematical-operations/#三角函數及雙曲函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Trigonometric and hyperbolic functions",
+    "title": "三角函數及雙曲函數",
     "category": "section",
     "text": "All the standard trigonometric and hyperbolic functions are also defined:sin    cos    tan    cot    sec    csc\nsinh   cosh   tanh   coth   sech   csch\nasin   acos   atan   acot   asec   acsc\nasinh  acosh  atanh  acoth  asech  acsch\nsinc   coscThese are all single-argument functions, with atan also accepting two arguments corresponding to a traditional atan2 function.Additionally, sinpi(x) and cospi(x) are provided for more accurate computations of sin(pi*x) and cos(pi*x) respectively.In order to compute trigonometric functions with degrees instead of radians, suffix the function with d. For example, sind(x) computes the sine of x where x is specified in degrees. The complete list of trigonometric functions with degree variants is:sind   cosd   tand   cotd   secd   cscd\nasind  acosd  atand  acotd  asecd  acscd"
 },
 
 {
-    "location": "manual/mathematical-operations/#Special-functions-1",
+    "location": "manual/mathematical-operations/#特殊函數-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "Special functions",
+    "title": "特殊函數",
     "category": "section",
     "text": "Many other special mathematical functions are provided by the package SpecialFunctions.jl."
 },
