@@ -1,4 +1,4 @@
-# Networking and Streams
+# 網路與串流（Networking and Streams）
 
 Julia provides a rich interface to deal with streaming I/O objects such as terminals, pipes and
 TCP sockets. This interface, though asynchronous at the system level, is presented in a synchronous

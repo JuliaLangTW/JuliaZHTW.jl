@@ -1,4 +1,4 @@
-# 整數與浮點數
+# 整數與浮點數（Integers and Floating-Point Numbers）
 
 Integers and floating-point values are the basic building blocks of arithmetic and computation.
 Built-in representations of such values are called numeric primitives, while representations of

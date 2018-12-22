@@ -1,4 +1,4 @@
-# Environment Variables
+# 環境變數（Environment Variables）
 
 Julia can be configured with a number of environment variables, set either in
 the usual way for each operating system, or in a portable way from within Julia.

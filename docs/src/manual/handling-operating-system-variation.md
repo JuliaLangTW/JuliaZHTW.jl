@@ -1,4 +1,4 @@
-# Handling Operating System Variation
+# 處理作業系統差異（Handling Operating System Variation）
 
 When writing cross-platform applications or libraries, it is often necessary to allow for
 differences between operating systems. The variable `Sys.KERNEL` can be used to handle such
