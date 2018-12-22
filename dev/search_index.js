@@ -57,9 +57,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/variables/#變數-1",
+    "location": "manual/variables/#變數（Variables）-1",
     "page": "變數（Variables）",
-    "title": "變數",
+    "title": "變數（Variables）",
     "category": "section",
     "text": "一個變數，在 Julia 中，是一個名稱被關聯 (或是綁定) 到一個值。當你想要將值 (你可能是從一些數學運算得到的) 儲存起來以便以後使用，這會很有用。舉例來說：# 指定 10 的值給變數 x\njulia> x = 10\n10\n\n# 對 x 的值做一些數學運算\njulia> x + 1\n11\n\n# 重新指定 x 的值\njulia> x = 1 + 1\n2\n\n# 你可以指定其他型別的值，像是一個字串\njulia> x = \"Hello World!\"\n\"Hello World!\"Julia 提供了極有彈性的變數命名系統。 變數名稱是有區分大小寫的 (case-sensitive)，而且沒有語意上的意義（no semantic meaning)。也就是說，語言不會因為命名不同，而讓變數有所差別。julia> x = 1.0\n1.0\n\njulia> y = -3\n-3\n\njulia> Z = \"My string\"\n\"My string\"\n\njulia> customary_phrase = \"Hello world!\"\n\"Hello world!\"\n\njulia> UniversalDeclarationOfHumanRightsStart = \"人人生而自由，在尊严和权利上一律平等。\"\n\"人人生而自由，在尊严和权利上一律平等。\"允許以 Unicode 命名（使用 UTF-8）：julia> δ = 0.00001\n1.0e-5\n\njulia> 안녕하세요 = \"Hello\"\n\"Hello\"在 Julia REPL 與一些其他的編輯環境中，你可以鍵入很多 Unicode 的數學符號，藉由鍵入反斜線的 LaTeX 符號，最後加上 tab。舉例來說，變數名稱δ可以藉由鍵入\\delta-tab，或是甚至α̂₂可以鍵入\\alpha-tab-\\hat-tab-\\_2-tab。如果有需要的話，Julia 也允許你重新定義內建的常數跟函式：julia> pi\nπ = 3.1415926535897...\n\njulia> pi = 3\nWARNING: imported binding for pi overwritten in module Main\n3\n\njulia> pi\n3\n\njulia> sqrt(100)\n10.0\n\njulia> sqrt = 4\nWARNING: imported binding for sqrt overwritten in module Main\n4然而，這顯然是不建議這麼做，以避免潛在的衝突。"
 },
@@ -89,9 +89,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/integers-and-floating-point-numbers/#整數與浮點數-1",
+    "location": "manual/integers-and-floating-point-numbers/#整數與浮點數（Integers-and-Floating-Point-Numbers）-1",
     "page": "整數與浮點數（Integers and Floating-Point Numbers）",
-    "title": "整數與浮點數",
+    "title": "整數與浮點數（Integers and Floating-Point Numbers）",
     "category": "section",
     "text": "Integers and floating-point values are the basic building blocks of arithmetic and computation. Built-in representations of such values are called numeric primitives, while representations of integers and floating-point numbers as immediate values in code are known as numeric literals. For example, 1 is an integer literal, while 1.0 is a floating-point literal; their binary in-memory representations as objects are numeric primitives.Julia provides a broad range of primitive numeric types, and a full complement of arithmetic and bitwise operators as well as standard mathematical functions are defined over them. These map directly onto numeric types and operations that are natively supported on modern computers, thus allowing Julia to take full advantage of computational resources. Additionally, Julia provides software support for Arbitrary Precision Arithmetic, which can handle operations on numeric values that cannot be represented effectively in native hardware representations, but at the cost of relatively slower performance.The following are Julia\'s primitive numeric types:整數型別：Type Signed? Number of bits Smallest value Largest value\nInt8 ✓ 8 -2^7 2^7 - 1\nUInt8  8 0 2^8 - 1\nInt16 ✓ 16 -2^15 2^15 - 1\nUInt16  16 0 2^16 - 1\nInt32 ✓ 32 -2^31 2^31 - 1\nUInt32  32 0 2^32 - 1\nInt64 ✓ 64 -2^63 2^63 - 1\nUInt64  64 0 2^64 - 1\nInt128 ✓ 128 -2^127 2^127 - 1\nUInt128  128 0 2^128 - 1\nBool N/A 8 false (0) true (1)浮點數型別：Type Precision Number of bits\nFloat16 half 16\nFloat32 single 32\nFloat64 double 64Additionally, full support for Complex and Rational Numbers is built on top of these primitive numeric types. All numeric types interoperate naturally without explicit casting, thanks to a flexible, user-extensible type promotion system."
 },
@@ -209,9 +209,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/mathematical-operations/#數學運算與初等函式-1",
+    "location": "manual/mathematical-operations/#數學運算與初等函式（Mathematical-Operations-and-Elementary-Functions）-1",
     "page": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
-    "title": "數學運算與初等函式",
+    "title": "數學運算與初等函式（Mathematical Operations and Elementary Functions）",
     "category": "section",
     "text": "Julia provides a complete collection of basic arithmetic and bitwise operators across all of its numeric primitive types, as well as providing portable, efficient implementations of a comprehensive collection of standard mathematical functions."
 },
@@ -345,9 +345,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/complex-and-rational-numbers/#Complex-and-Rational-Numbers-1",
+    "location": "manual/complex-and-rational-numbers/#複數與有理數（Complex-and-Rational-Numbers）-1",
     "page": "複數與有理數（Complex and Rational Numbers）",
-    "title": "Complex and Rational Numbers",
+    "title": "複數與有理數（Complex and Rational Numbers）",
     "category": "section",
     "text": "Julia includes predefined types for both complex and rational numbers, and supports all the standard Mathematical Operations and Elementary Functions on them. Conversion and Promotion are defined so that operations on any combination of predefined numeric types, whether primitive or composite, behave as expected."
 },
@@ -379,7 +379,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/strings/#man-strings-1",
     "page": "字串（Strings）",
-    "title": "Strings",
+    "title": "字串（Strings）",
     "category": "section",
     "text": "Strings are finite sequences of characters. Of course, the real trouble comes when one asks what a character is. The characters that English speakers are familiar with are the letters A, B, C, etc., together with numerals and common punctuation symbols. These characters are standardized together with a mapping to integer values between 0 and 127 by the ASCII standard. There are, of course, many other characters used in non-English languages, including variants of the ASCII characters with accents and other modifications, related scripts such as Cyrillic and Greek, and scripts completely unrelated to ASCII and English, including Arabic, Chinese, Hebrew, Hindi, Japanese, and Korean. The Unicode standard tackles the complexities of what exactly a character is, and is generally accepted as the definitive standard addressing this problem. Depending on your needs, you can either ignore these complexities entirely and just pretend that only ASCII characters exist, or you can write code that can handle any of the characters or encodings that one may encounter when handling non-ASCII text. Julia makes dealing with plain ASCII text simple and efficient, and handling Unicode is as simple and efficient as possible. In particular, you can write C-style string code to process ASCII strings, and they will work as expected, both in terms of performance and semantics. If such code encounters non-ASCII text, it will gracefully fail with a clear error message, rather than silently introducing corrupt results. When this happens, modifying the code to handle non-ASCII data is straightforward.There are a few noteworthy high-level features about Julia\'s strings:The built-in concrete type used for strings (and string literals) in Julia is String. This supports the full range of Unicode characters via the UTF-8 encoding. (A transcode function is provided to convert to/from other Unicode encodings.)\nAll string types are subtypes of the abstract type AbstractString, and external packages define additional AbstractString subtypes (e.g. for other encodings).  If you define a function expecting a string argument, you should declare the type as AbstractString in order to accept any string type.\nLike C and Java, but unlike most dynamic languages, Julia has a first-class type for representing a single character, called AbstractChar. The built-in Char subtype of AbstractChar is a 32-bit primitive type that can represent any Unicode character (and which is based on the UTF-8 encoding).\nAs in Java, strings are immutable: the value of an AbstractString object cannot be changed. To construct a different string value, you construct a new string from parts of other strings.\nConceptually, a string is a partial function from indices to characters: for some index values, no character value is returned, and instead an exception is thrown. This allows for efficient indexing into strings by the byte index of an encoded representation rather than by a character index, which cannot be implemented both efficiently and simply for variable-width encodings of Unicode strings."
 },
@@ -491,7 +491,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/functions/#man-functions-1",
     "page": "函式（Functions）",
-    "title": "Functions",
+    "title": "函式（Functions）",
     "category": "section",
     "text": "In Julia, a function is an object that maps a tuple of argument values to a return value. Julia functions are not pure mathematical functions, in the sense that functions can alter and be affected by the global state of the program. The basic syntax for defining functions in Julia is:julia> function f(x,y)\n           x + y\n       end\nf (generic function with 1 method)There is a second, more terse syntax for defining a function in Julia. The traditional function declaration syntax demonstrated above is equivalent to the following compact \"assignment form\":julia> f(x,y) = x + y\nf (generic function with 1 method)In the assignment form, the body of the function must be a single expression, although it can be a compound expression (see Compound Expressions). Short, simple function definitions are common in Julia. The short function syntax is accordingly quite idiomatic, considerably reducing both typing and visual noise.A function is called using the traditional parenthesis syntax:julia> f(2,3)\n5Without parentheses, the expression f refers to the function object, and can be passed around like any value:julia> g = f;\n\njulia> g(2,3)\n5As with variables, Unicode can also be used for function names:julia> ∑(x,y) = x + y\n∑ (generic function with 1 method)\n\njulia> ∑(2, 3)\n5"
 },
@@ -633,9 +633,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/control-flow/#Control-Flow-1",
+    "location": "manual/control-flow/#控制流程（Control-Flow）-1",
     "page": "控制流程（Control Flow）",
-    "title": "Control Flow",
+    "title": "控制流程（Control Flow）",
     "category": "section",
     "text": "Julia provides a variety of control flow constructs:Compound Expressions: begin and (;).\nConditional Evaluation: if-elseif-else and ?: (ternary operator).\nShort-Circuit Evaluation: &&, || and chained comparisons.\nRepeated Evaluation: Loops: while and for.\nException Handling: try-catch, error and throw.\nTasks (aka Coroutines): yieldto.The first five control flow mechanisms are standard to high-level programming languages. Tasks are not so standard: they provide non-local control flow, making it possible to switch between temporarily-suspended computations. This is a powerful construct: both exception handling and cooperative multitasking are implemented in Julia using tasks. Everyday programming requires no direct usage of tasks, but certain problems can be solved much more easily by using tasks."
 },
@@ -763,7 +763,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/variables-and-scoping/#scope-of-variables-1",
     "page": "變數作用域（Scope of Variables）",
-    "title": "Scope of Variables",
+    "title": "變數作用域（Scope of Variables）",
     "category": "section",
     "text": "The scope of a variable is the region of code within which a variable is visible. Variable scoping helps avoid variable naming conflicts. The concept is intuitive: two functions can both have arguments called x without the two x\'s referring to the same thing. Similarly, there are many other cases where different blocks of code can use the same name without referring to the same thing. The rules for when the same variable name does or doesn\'t refer to the same thing are called scope rules; this section spells them out in detail.Certain constructs in the language introduce scope blocks, which are regions of code that are eligible to be the scope of some set of variables. The scope of a variable cannot be an arbitrary set of source lines; instead, it will always line up with one of these blocks. There are two main types of scopes in Julia, global scope and local scope. The latter can be nested. The constructs introducing scope blocks are:"
 },
@@ -827,7 +827,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/types/#man-types-1",
     "page": "型別（Types）",
-    "title": "Types",
+    "title": "型別（Types）",
     "category": "section",
     "text": "Type systems have traditionally fallen into two quite different camps: static type systems, where every program expression must have a type computable before the execution of the program, and dynamic type systems, where nothing is known about types until run time, when the actual values manipulated by the program are available. Object orientation allows some flexibility in statically typed languages by letting code be written without the precise types of values being known at compile time. The ability to write code that can operate on different types is called polymorphism. All code in classic dynamically typed languages is polymorphic: only by explicitly checking types, or when objects fail to support operations at run-time, are the types of any values ever restricted.Julia\'s type system is dynamic, but gains some of the advantages of static type systems by making it possible to indicate that certain values are of specific types. This can be of great assistance in generating efficient code, but even more significantly, it allows method dispatch on the types of function arguments to be deeply integrated with the language. Method dispatch is explored in detail in Methods, but is rooted in the type system presented here.The default behavior in Julia when types are omitted is to allow values to be of any type. Thus, one can write many useful Julia functions without ever explicitly using types. When additional expressiveness is needed, however, it is easy to gradually introduce explicit type annotations into previously \"untyped\" code. Adding annotations serves three primary purposes: to take advantage of Julia\'s powerful multiple-dispatch mechanism,  to improve human readability, and to catch programmer errors.Describing Julia in the lingo of type systems, it is: dynamic, nominative and parametric. Generic types can be parameterized, and the hierarchical relationships between types are explicitly declared, rather than implied by compatible structure. One particularly distinctive feature of Julia\'s type system is that concrete types may not subtype each other: all concrete types are final and may only have abstract types as their supertypes. While this might at first seem unduly restrictive, it has many beneficial consequences with surprisingly few drawbacks. It turns out that being able to inherit behavior is much more important than being able to inherit structure, and inheriting both causes significant difficulties in traditional object-oriented languages. Other high-level aspects of Julia\'s type system that should be mentioned up front are:There is no division between object and non-object values: all values in Julia are true objects having a type that belongs to a single, fully connected type graph, all nodes of which are equally first-class as types.\nThere is no meaningful concept of a \"compile-time type\": the only type a value has is its actual type when the program is running. This is called a \"run-time type\" in object-oriented languages where the combination of static compilation with polymorphism makes this distinction significant.\nOnly values, not variables, have types – variables are simply names bound to values.\nBoth abstract and concrete types can be parameterized by other types. They can also be parameterized by symbols, by values of any type for which isbits returns true (essentially, things like numbers and bools that are stored like C types or structs with no pointers to other objects), and also by tuples thereof. Type parameters may be omitted when they do not need to be referenced or restricted.Julia\'s type system is designed to be powerful and expressive, yet clear, intuitive and unobtrusive. Many Julia programmers may never feel the need to write code that explicitly uses types. Some kinds of programming, however, become clearer, simpler, faster and more robust with declared types."
 },
@@ -1001,9 +1001,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/methods/#Methods-1",
+    "location": "manual/methods/#方法（Methods）-1",
     "page": "方法（Methods）",
-    "title": "Methods",
+    "title": "方法（Methods）",
     "category": "section",
     "text": "Recall from Functions that a function is an object that maps a tuple of arguments to a return value, or throws an exception if no appropriate value can be returned. It is common for the same conceptual function or operation to be implemented quite differently for different types of arguments: adding two integers is very different from adding two floating-point numbers, both of which are distinct from adding an integer to a floating-point number. Despite their implementation differences, these operations all fall under the general concept of \"addition\". Accordingly, in Julia, these behaviors all belong to a single object: the + function.To facilitate using many different implementations of the same concept smoothly, functions need not be defined all at once, but can rather be defined piecewise by providing specific behaviors for certain combinations of argument types and counts. A definition of one possible behavior for a function is called a method. Thus far, we have presented only examples of functions defined with a single method, applicable to all types of arguments. However, the signatures of method definitions can be annotated to indicate the types of arguments in addition to their number, and more than a single method definition may be provided. When a function is applied to a particular tuple of arguments, the most specific method applicable to those arguments is applied. Thus, the overall behavior of a function is a patchwork of the behaviors of its various method definitions. If the patchwork is well designed, even though the implementations of the methods may be quite different, the outward behavior of the function will appear seamless and consistent.The choice of which method to execute when a function is applied is called dispatch. Julia allows the dispatch process to choose which of a function\'s methods to call based on the number of arguments given, and on the types of all of the function\'s arguments. This is different than traditional object-oriented languages, where dispatch occurs based only on the first argument, which often has a special argument syntax, and is sometimes implied rather than explicitly written as an argument. [1] Using all of a function\'s arguments to choose which method should be invoked, rather than just the first, is known as multiple dispatch. Multiple dispatch is particularly useful for mathematical code, where it makes little sense to artificially deem the operations to \"belong\" to one argument more than any of the others: does the addition operation in x + y belong to x any more than it does to y? The implementation of a mathematical operator generally depends on the types of all of its arguments. Even beyond mathematical operations, however, multiple dispatch ends up being a powerful and convenient paradigm for structuring and organizing programs.[1]: In C++ or Java, for example, in a method call like obj.meth(arg1,arg2), the object obj \"receives\" the method call and is implicitly passed to the method via the this keyword, rather than as an explicit method argument. When the current this object is the receiver of a method call, it can be omitted altogether, writing just meth(arg1,arg2), with this implied as the receiving object."
 },
@@ -1187,7 +1187,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/constructors/#man-constructors-1",
     "page": "建構子（Constructors）",
-    "title": "Constructors",
+    "title": "建構子（Constructors）",
     "category": "section",
     "text": "Constructors [1] are functions that create new objects – specifically, instances of Composite Types. In Julia, type objects also serve as constructor functions: they create new instances of themselves when applied to an argument tuple as a function. This much was already mentioned briefly when composite types were introduced. For example:julia> struct Foo\n           bar\n           baz\n       end\n\njulia> foo = Foo(1, 2)\nFoo(1, 2)\n\njulia> foo.bar\n1\n\njulia> foo.baz\n2For many types, forming new objects by binding their field values together is all that is ever needed to create instances. However, in some cases more functionality is required when creating composite objects. Sometimes invariants must be enforced, either by checking arguments or by transforming them. Recursive data structures, especially those that may be self-referential, often cannot be constructed cleanly without first being created in an incomplete state and then altered programmatically to be made whole, as a separate step from object creation. Sometimes, it\'s just convenient to be able to construct objects with fewer or different types of parameters than they have fields. Julia\'s system for object construction addresses all of these cases and more.[1]: Nomenclature: while the term \"constructor\" generally refers to the entire function which constructs objects of a type, it is common to abuse terminology slightly and refer to specific constructor methods as \"constructors\". In such situations, it is generally clear from the context that the term is used to mean \"constructor method\" rather than \"constructor function\", especially as it is often used in the sense of singling out a particular method of the constructor from all of the others."
 },
@@ -1251,7 +1251,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/conversion-and-promotion/#conversion-and-promotion-1",
     "page": "轉型與向上轉型（Conversion and Promotion）",
-    "title": "Conversion and Promotion",
+    "title": "轉型與向上轉型（Conversion and Promotion）",
     "category": "section",
     "text": "Julia has a system for promoting arguments of mathematical operators to a common type, which has been mentioned in various other sections, including Integers and Floating-Point Numbers, Mathematical Operations and Elementary Functions, Types, and Methods. In this section, we explain how this promotion system works, as well as how to extend it to new types and apply it to functions besides built-in mathematical operators. Traditionally, programming languages fall into two camps with respect to promotion of arithmetic arguments:Automatic promotion for built-in arithmetic types and operators. In most languages, built-in numeric types, when used as operands to arithmetic operators with infix syntax, such as +, -, *, and /, are automatically promoted to a common type to produce the expected results. C, Java, Perl, and Python, to name a few, all correctly compute the sum 1 + 1.5 as the floating-point value 2.5, even though one of the operands to + is an integer. These systems are convenient and designed carefully enough that they are generally all-but-invisible to the programmer: hardly anyone consciously thinks of this promotion taking place when writing such an expression, but compilers and interpreters must perform conversion before addition since integers and floating-point values cannot be added as-is. Complex rules for such automatic conversions are thus inevitably part of specifications and implementations for such languages.\nNo automatic promotion. This camp includes Ada and ML – very \"strict\" statically typed languages. In these languages, every conversion must be explicitly specified by the programmer. Thus, the example expression 1 + 1.5 would be a compilation error in both Ada and ML. Instead one must write real(1) + 1.5, explicitly converting the integer 1 to a floating-point value before performing addition. Explicit conversion everywhere is so inconvenient, however, that even Ada has some degree of automatic conversion: integer literals are promoted to the expected integer type automatically, and floating-point literals are similarly promoted to appropriate floating-point types.In a sense, Julia falls into the \"no automatic promotion\" category: mathematical operators are just functions with special syntax, and the arguments of functions are never automatically converted. However, one may observe that applying mathematical operations to a wide variety of mixed argument types is just an extreme case of polymorphic multiple dispatch – something which Julia\'s dispatch and type systems are particularly well-suited to handle. \"Automatic\" promotion of mathematical operands simply emerges as a special application: Julia comes with pre-defined catch-all dispatch rules for mathematical operators, invoked when no specific implementation exists for some combination of operand types. These catch-all rules first promote all operands to a common type using user-definable promotion rules, and then invoke a specialized implementation of the operator in question for the resulting values, now of the same type. User-defined types can easily participate in this promotion system by defining methods for conversion to and from other types, and providing a handful of promotion rules defining what types they should promote to when mixed with other types."
 },
@@ -1353,9 +1353,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/interfaces/#Interfaces-1",
+    "location": "manual/interfaces/#介面（Interfaces）-1",
     "page": "介面（Interfaces）",
-    "title": "Interfaces",
+    "title": "介面（Interfaces）",
     "category": "section",
     "text": "A lot of the power and extensibility in Julia comes from a collection of informal interfaces.  By extending a few specific methods to work for a custom type, objects of that type not only receive those functionalities, but they are also able to be used in other methods that are written to generically build upon those behaviors."
 },
@@ -1459,7 +1459,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/modules/#modules-1",
     "page": "模組（Modules）",
-    "title": "Modules",
+    "title": "模組（Modules）",
     "category": "section",
     "text": "Modules in Julia are separate variable workspaces, i.e. they introduce a new global scope. They are delimited syntactically, inside module Name ... end. Modules allow you to create top-level definitions (aka global variables) without worrying about name conflicts when your code is used together with somebody else\'s. Within a module, you can control which names from other modules are visible (via importing), and specify which of your names are intended to be public (via exporting).The following example demonstrates the major features of modules. It is not meant to be run, but is shown for illustrative purposes:module MyModule\nusing Lib\n\nusing BigLib: thing1, thing2\n\nimport Base.show\n\nexport MyType, foo\n\nstruct MyType\n    x\nend\n\nbar(x) = 2x\nfoo(a::MyType) = bar(a.x) + 1\n\nshow(io::IO, a::MyType) = print(io, \"MyType $(a.x)\")\nendNote that the style is not to indent the body of the module, since that would typically lead to whole files being indented.This module defines a type MyType, and two functions. Function foo and type MyType are exported, and so will be available for importing into other modules.  Function bar is private to MyModule.The statement using Lib means that a module called Lib will be available for resolving names as needed. When a global variable is encountered that has no definition in the current module, the system will search for it among variables exported by Lib and import it if it is found there. This means that all uses of that global within the current module will resolve to the definition of that variable in Lib.The statement using BigLib: thing1, thing2 brings just the identifiers thing1 and thing2 into scope from module BigLib. If these names refer to functions, adding methods to them will not be allowed (you may only \"use\" them, not extend them).The import keyword supports the same syntax as using, but only operates on a single name at a time. It does not add modules to be searched the way using does. import also differs from using in that functions imported using import can be extended with new methods.In MyModule above we wanted to add a method to the standard show function, so we had to write import Base.show. Functions whose names are only visible via using cannot be extended.Once a variable is made visible via using or import, a module may not create its own variable with the same name. Imported variables are read-only; assigning to a global variable always affects a variable owned by the current module, or else raises an error."
 },
@@ -1537,9 +1537,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/documentation/#Documentation-1",
+    "location": "manual/documentation/#文件（Documentation）-1",
     "page": "文件（Documentation）",
-    "title": "Documentation",
+    "title": "文件（Documentation）",
     "category": "section",
     "text": "Julia enables package developers and users to document functions, types and other objects easily via a built-in documentation system since Julia 0.4.The basic syntax is simple: any string appearing at the top-level right before an object (function, macro, type or instance) will be interpreted as documenting it (these are called docstrings). Note that no blank lines or comments may intervene between a docstring and the documented object. Here is a basic example:\"Tell whether there are too foo items in the array.\"\nfoo(xs::Array) = ...Documentation is interpreted as Markdown, so you can use indentation and code fences to delimit code examples from text. Technically, any object can be associated with any other as metadata; Markdown happens to be the default, but one can construct other string macros and pass them to the @doc macro just as well.note: Note\nMarkdown support is implemented in the Markdown standard library and for a full list of supported syntax see the documentation.Here is a more complex example, still using Markdown:\"\"\"\n    bar(x[, y])\n\nCompute the Bar index between `x` and `y`. If `y` is missing, compute\nthe Bar index between all pairs of columns of `x`.\n\n# Examples\n```julia-repl\njulia> bar([1, 2], [1, 2])\n1\n```\n\"\"\"\nfunction bar(x, y) ...As in the example above, we recommend following some simple conventions when writing documentation:Always show the signature of a function at the top of the documentation, with a four-space indent so that it is printed as Julia code.\nThis can be identical to the signature present in the Julia code (like mean(x::AbstractArray)), or a simplified form. Optional arguments should be represented with their default values (i.e. f(x, y=1)) when possible, following the actual Julia syntax. Optional arguments which do not have a default value should be put in brackets (i.e. f(x[, y]) and f(x[, y[, z]])). An alternative solution is to use several lines: one without optional arguments, the other(s) with them. This solution can also be used to document several related methods of a given function. When a function accepts many keyword arguments, only include a <keyword arguments> placeholder in the signature (i.e. f(x; <keyword arguments>)), and give the complete list under an # Arguments section (see point 4 below).\nInclude a single one-line sentence describing what the function does or what the object represents after the simplified signature block. If needed, provide more details in a second paragraph, after a blank line.\nThe one-line sentence should use the imperative form (\"Do this\", \"Return that\") instead of the third person (do not write \"Returns the length...\") when documenting functions. It should end with a period. If the meaning of a function cannot be summarized easily, splitting it into separate composable parts could be beneficial (this should not be taken as an absolute requirement for every single case though).\nDo not repeat yourself.\nSince the function name is given by the signature, there is no need to start the documentation with \"The function bar...\": go straight to the point. Similarly, if the signature specifies the types of the arguments, mentioning them in the description is redundant.\nOnly provide an argument list when really necessary.\nFor simple functions, it is often clearer to mention the role of the arguments directly in the description of the function\'s purpose. An argument list would only repeat information already provided elsewhere. However, providing an argument list can be a good idea for complex functions with many arguments (in particular keyword arguments). In that case, insert it after the general description of the function, under an # Arguments header, with one - bullet for each argument. The list should mention the types and default values (if any) of the arguments:\n\"\"\"\n...\n# Arguments\n- `n::Integer`: the number of elements to compute.\n- `dim::Integer=1`: the dimensions along which to perform the computation.\n...\n\"\"\"\nProvide hints to related functions.\nSometimes there are functions of related functionality. To increase discoverability please provide a short list of these in a See also: paragraph.\nSee also: [`bar!`](@ref), [`baz`](@ref), [`baaz`](@ref)\nInclude any code examples in an # Examples section.\nExamples should, whenever possible, be written as doctests. A doctest is a fenced code block (see Code blocks) starting with ```jldoctest and contains any number of julia> prompts together with inputs and expected outputs that mimic the Julia REPL.\nnote: Note\nDoctests are enabled by Documenter.jl. For more detailed documentation see Documenter\'s manual.\nFor example in the following docstring a variable a is defined and the expected result, as printed in a Julia REPL, appears afterwards:\n\"\"\"\nSome nice documentation here.\n\n# Examples\n```jldoctest\njulia> a = [1 2; 3 4]\n2×2 Array{Int64,2}:\n 1  2\n 3  4\n```\n\"\"\"\nwarning: Warning\nCalling rand and other RNG-related functions should be avoided in doctests since they will not produce consistent outputs during different Julia sessions. If you would like to show some random number generation related functionality, one option is to explicitly construct and seed your own MersenneTwister (or other pseudorandom number generator) and pass it to the functions you are doctesting.Operating system word size (Int32 or Int64) as well as path separator differences (/ or \\) will also affect the reproducibility of some doctests.Note that whitespace in your doctest is significant! The doctest will fail if you misalign the output of pretty-printing an array, for example.\nYou can then run make -C doc doctest=true to run all the doctests in the Julia Manual and API documentation, which will ensure that your example works.\nTo indicate that the output result is truncated, you may write [...] at the line where checking should stop. This is useful to hide a stacktrace (which contains non-permanent references to lines of julia code) when the doctest shows that an exception is thrown, for example:\n```jldoctest\njulia> div(1, 0)\nERROR: DivideError: integer division error\n[...]\n```\nExamples that are untestable should be written within fenced code blocks starting with ```julia so that they are highlighted correctly in the generated documentation.\ntip: Tip\nWherever possible examples should be self-contained and runnable so that readers are able to try them out without having to include any dependencies.\nUse backticks to identify code and equations.\nJulia identifiers and code excerpts should always appear between backticks ` to enable highlighting. Equations in the LaTeX syntax can be inserted between double backticks ``. Use Unicode characters rather than their LaTeX escape sequence, i.e. ``α = 1`` rather than ``\\\\alpha = 1``.\nPlace the starting and ending \"\"\" characters on lines by themselves.\nThat is, write:\n\"\"\"\n...\n\n...\n\"\"\"\nf(x, y) = ...\nrather than:\n\"\"\"...\n\n...\"\"\"\nf(x, y) = ...\nThis makes it more clear where docstrings start and end.\nRespect the line length limit used in the surrounding code.\nDocstrings are edited using the same tools as code. Therefore, the same conventions should apply. It is advised to add line breaks after 92 characters.\nProvide information allowing custom types to implement the function in an # Implementation section. These implementation details intended for developers rather than users, explaining e.g. which functions should be overridden and which functions automatically use appropriate fallbacks, are better kept separate from the main description of the function\'s behavior."
 },
@@ -1851,7 +1851,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/arrays/#man-multi-dim-arrays-1",
     "page": "多維陣列（Multi-dimensional Arrays）",
-    "title": "Multi-dimensional Arrays",
+    "title": "多維陣列（Multi-dimensional Arrays）",
     "category": "section",
     "text": "Julia, like most technical computing languages, provides a first-class array implementation. Most technical computing languages pay a lot of attention to their array implementation at the expense of other containers. Julia does not treat arrays in any special way. The array library is implemented almost completely in Julia itself, and derives its performance from the compiler, just like any other code written in Julia. As such, it\'s also possible to define custom array types by inheriting from AbstractArray. See the manual section on the AbstractArray interface for more details on implementing a custom array type.An array is a collection of objects stored in a multi-dimensional grid. In the most general case, an array may contain objects of type Any. For most computational purposes, arrays should contain objects of a more specific type, such as Float64 or Int32.In general, unlike many other technical computing languages, Julia does not expect programs to be written in a vectorized style for performance. Julia\'s compiler uses type inference and generates optimized code for scalar array indexing, allowing programs to be written in a style that is convenient and readable, without sacrificing performance, and using less memory at times.In Julia, all arguments to functions are passed by sharing (i.e. by pointers). Some technical computing languages pass arrays by value, and while this prevents accidental modification by callees of a value in the caller, it makes avoiding unwanted copying of arrays difficult. By convention, a function name ending with a ! indicates that it will mutate or destroy the value of one or more of its arguments (compare, for example, sort and sort!). Callees must make explicit copies to ensure that they don\'t modify inputs that they don\'t intend to change. Many non- mutating functions are implemented by calling a function of the same name with an added ! at the end on an explicit copy of the input, and returning that copy."
 },
@@ -1995,7 +1995,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/missing/#missing-1",
     "page": "遺失值（Missing Values）",
-    "title": "Missing Values",
+    "title": "遺失值（Missing Values）",
     "category": "section",
     "text": "Julia provides support for representing missing values in the statistical sense, that is for situations where no value is available for a variable in an observation, but a valid value theoretically exists. Missing values are represented via the missing object, which is the singleton instance of the type Missing. missing is equivalent to NULL in SQL and NA in R, and behaves like them in most situations."
 },
@@ -2065,9 +2065,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/networking-and-streams/#Networking-and-Streams-1",
+    "location": "manual/networking-and-streams/#網路與串流（Networking-and-Streams）-1",
     "page": "網路與串流（Networking and Streams）",
-    "title": "Networking and Streams",
+    "title": "網路與串流（Networking and Streams）",
     "category": "section",
     "text": "Julia provides a rich interface to deal with streaming I/O objects such as terminals, pipes and TCP sockets. This interface, though asynchronous at the system level, is presented in a synchronous manner to the programmer and it is usually unnecessary to think about the underlying asynchronous operation. This is achieved by making heavy use of Julia cooperative threading (coroutine) functionality."
 },
@@ -2129,9 +2129,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/parallel-computing/#Parallel-Computing-1",
+    "location": "manual/parallel-computing/#平行運算（Parallel-Computing）-1",
     "page": "平行運算（Parallel Computing）",
-    "title": "Parallel Computing",
+    "title": "平行運算（Parallel Computing）",
     "category": "section",
     "text": "For newcomers to multi-threading and parallel computing it can be useful to first appreciate the different levels of parallelism offered by Julia. We can divide them in three main categories :Julia Coroutines (Green Threading)\nMulti-Threading\nMulti-Core or Distributed ProcessingWe will first consider Julia Tasks (aka Coroutines) and other modules that rely on the Julia runtime library, that allow us to suspend and resume computations with full control of inter-Tasks communication without having to manually interface with the operating system\'s scheduler. Julia also supports communication between Tasks through operations like wait and fetch. Communication and data synchronization is managed through Channels, which are the conduits that provide inter-Tasks communication.Julia also supports experimental multi-threading, where execution is forked and an anonymous function is run across all threads. Known as the fork-join approach, parallel threads execute independently, and must ultimately be joined in Julia\'s main thread to allow serial execution to continue. Multi-threading is supported using the Base.Threads module that is still considered experimental, as Julia is not yet fully thread-safe. In particular segfaults seem to occur during I/O operations and task switching. As an up-to-date reference, keep an eye on the issue tracker. Multi-Threading should only be used if you take into consideration global variables, locks and atomics, all of which are explained later.In the end we will present Julia\'s approach to distributed and parallel computing. With scientific computing in mind, Julia natively implements interfaces to distribute a process across multiple cores or machines. Also we will mention useful external packages for distributed programming like MPI.jl and DistributedArrays.jl."
 },
@@ -2353,9 +2353,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/running-external-programs/#Running-External-Programs-1",
+    "location": "manual/running-external-programs/#執行外部程式（Running-External-Programs）-1",
     "page": "執行外部程式（Running External Programs）",
-    "title": "Running External Programs",
+    "title": "執行外部程式（Running External Programs）",
     "category": "section",
     "text": "Julia borrows backtick notation for commands from the shell, Perl, and Ruby. However, in Julia, writingjulia> `echo hello`\n`echo hello`differs in several aspects from the behavior in various shells, Perl, or Ruby:Instead of immediately running the command, backticks create a Cmd object to represent the command. You can use this object to connect the command to others via pipes, run it, and read or write to it.\nWhen the command is run, Julia does not capture its output unless you specifically arrange for it to. Instead, the output of the command by default goes to stdout as it would using libc\'s system call.\nThe command is never run with a shell. Instead, Julia parses the command syntax directly, appropriately interpolating variables and splitting on words as the shell would, respecting shell quoting syntax. The command is run as julia\'s immediate child process, using fork and exec calls.Here\'s a simple example of running an external program:julia> mycommand = `echo hello`\n`echo hello`\n\njulia> typeof(mycommand)\nCmd\n\njulia> run(mycommand);\nhelloThe hello is the output of the echo command, sent to stdout. The run method itself returns nothing, and throws an ErrorException if the external command fails to run successfully.If you want to read the output of the external command, read can be used instead:julia> a = read(`echo hello`, String)\n\"hello\\n\"\n\njulia> chomp(a) == \"hello\"\ntrueMore generally, you can use open to read from or write to an external command.julia> open(`less`, \"w\", stdout) do io\n           for i = 1:3\n               println(io, i)\n           end\n       end\n1\n2\n3The program name and the individual arguments in a command can be accessed and iterated over as if the command were an array of strings:julia> collect(`echo \"foo bar\"`)\n2-element Array{String,1}:\n \"echo\"\n \"foo bar\"\n\njulia> `echo \"foo bar\"`[2]\n\"foo bar\""
 },
@@ -2409,9 +2409,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/calling-c-and-fortran-code/#Calling-C-and-Fortran-Code-1",
+    "location": "manual/calling-c-and-fortran-code/#呼叫-C-與-Fortran-程式（Calling-C-and-Fortran-Code）-1",
     "page": "呼叫 C 與 Fortran 程式（Calling C and Fortran Code）",
-    "title": "Calling C and Fortran Code",
+    "title": "呼叫 C 與 Fortran 程式（Calling C and Fortran Code）",
     "category": "section",
     "text": "Though most code can be written in Julia, there are many high-quality, mature libraries for numerical computing already written in C and Fortran. To allow easy use of this existing code, Julia makes it simple and efficient to call C and Fortran functions. Julia has a \"no boilerplate\" philosophy: functions can be called directly from Julia without any \"glue\" code, code generation, or compilation – even from the interactive prompt. This is accomplished just by making an appropriate call with ccall syntax, which looks like an ordinary function call.The code to be called must be available as a shared library. Most C and Fortran libraries ship compiled as shared libraries already, but if you are compiling the code yourself using GCC (or Clang), you will need to use the -shared and -fPIC options. The machine instructions generated by Julia\'s JIT are the same as a native C call would be, so the resulting overhead is the same as calling a library function from C code. (Non-library function calls in both C and Julia can be inlined and thus may have even less overhead than calls to shared library functions. When both libraries and executables are generated by LLVM, it is possible to perform whole-program optimizations that can even optimize across this boundary, but Julia does not yet support that. In the future, however, it may do so, yielding even greater performance gains.)Shared libraries and functions are referenced by a tuple of the form (:function, \"library\") or (\"function\", \"library\") where function is the C-exported function name. library refers to the shared library name: shared libraries available in the (platform-specific) load path will be resolved by name, and if necessary a direct path may be specified.A function name may be used alone in place of the tuple (just :function or \"function\"). In this case the name is resolved within the current process. This form can be used to call C library functions, functions in the Julia runtime, or functions in an application linked to Julia.By default, Fortran compilers generate mangled names (for example, converting function names to lowercase or uppercase, often appending an underscore), and so to call a Fortran function via ccall you must pass the mangled identifier corresponding to the rule followed by your Fortran compiler.  Also, when calling a Fortran function, all inputs must be passed as pointers to allocated values on the heap or stack. This applies not only to arrays and other mutable objects which are normally heap-allocated, but also to scalar values such as integers and floats which are normally stack-allocated and commonly passed in registers when using C or Julia calling conventions.Finally, you can use ccall to actually generate a call to the library function. Arguments to ccall are as follows:A (:function, \"library\") pair, which must be written as a literal constant,\nOR\na :function name symbol or \"function\" name string, which is resolved in the current process,\nOR\na function pointer (for example, from dlsym).\nReturn type (see below for mapping the declared C type to Julia)\nThis argument will be evaluated at compile-time, when the containing method is defined.\nA tuple of input types. The input types must be written as a literal tuple, not a tuple-valued variable or expression.\nThis argument will be evaluated at compile-time, when the containing method is defined.\nThe following arguments, if any, are the actual argument values passed to the function.As a complete but simple example, the following calls the clock function from the standard C library:julia> t = ccall((:clock, \"libc\"), Int32, ())\n2292761\n\njulia> t\n2292761\n\njulia> typeof(ans)\nInt32clock takes no arguments and returns an Int32. One common gotcha is that a 1-tuple must be written with a trailing comma. For example, to call the getenv function to get a pointer to the value of an environment variable, one makes a call like this:julia> path = ccall((:getenv, \"libc\"), Cstring, (Cstring,), \"SHELL\")\nCstring(@0x00007fff5fbffc45)\n\njulia> unsafe_string(path)\n\"/bin/bash\"Note that the argument type tuple must be written as (Cstring,), rather than (Cstring). This is because (Cstring) is just the expression Cstring surrounded by parentheses, rather than a 1-tuple containing Cstring:julia> (Cstring)\nCstring\n\njulia> (Cstring,)\n(Cstring,)In practice, especially when providing reusable functionality, one generally wraps ccall uses in Julia functions that set up arguments and then check for errors in whatever manner the C or Fortran function indicates them, propagating to the Julia caller as exceptions. This is especially important since C and Fortran APIs are notoriously inconsistent about how they indicate error conditions. For example, the getenv C library function is wrapped in the following Julia function, which is a simplified version of the actual definition from env.jl:function getenv(var::AbstractString)\n    val = ccall((:getenv, \"libc\"),\n                Cstring, (Cstring,), var)\n    if val == C_NULL\n        error(\"getenv: undefined variable: \", var)\n    end\n    unsafe_string(val)\nendThe C getenv function indicates an error by returning NULL, but other standard C functions indicate errors in various different ways, including by returning -1, 0, 1 and other special values. This wrapper throws an exception clearly indicating the problem if the caller tries to get a non-existent environment variable:julia> getenv(\"SHELL\")\n\"/bin/bash\"\n\njulia> getenv(\"FOOBAR\")\ngetenv: undefined variable: FOOBARHere is a slightly more complex example that discovers the local machine\'s hostname:function gethostname()\n    hostname = Vector{UInt8}(undef, 128)\n    ccall((:gethostname, \"libc\"), Int32,\n          (Ptr{UInt8}, Csize_t),\n          hostname, sizeof(hostname))\n    hostname[end] = 0; # ensure null-termination\n    return unsafe_string(pointer(hostname))\nendThis example first allocates an array of bytes, then calls the C library function gethostname to fill the array in with the hostname, takes a pointer to the hostname buffer, and converts the pointer to a Julia string, assuming that it is a NUL-terminated C string. It is common for C libraries to use this pattern of requiring the caller to allocate memory to be passed to the callee and filled in. Allocation of memory from Julia like this is generally accomplished by creating an uninitialized array and passing a pointer to its data to the C function. This is why we don\'t use the Cstring type here: as the array is uninitialized, it could contain NUL bytes. Converting to a Cstring as part of the ccall checks for contained NUL bytes and could therefore throw a conversion error."
 },
@@ -2641,9 +2641,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/handling-operating-system-variation/#Handling-Operating-System-Variation-1",
+    "location": "manual/handling-operating-system-variation/#處理作業系統差異（Handling-Operating-System-Variation）-1",
     "page": "處理作業系統差異（Handling Operating System Variation）",
-    "title": "Handling Operating System Variation",
+    "title": "處理作業系統差異（Handling Operating System Variation）",
     "category": "section",
     "text": "When writing cross-platform applications or libraries, it is often necessary to allow for differences between operating systems. The variable Sys.KERNEL can be used to handle such cases. There are several functions in the Sys module intended to make this easier, such as isunix, islinux, isapple, isbsd, isfreebsd, and iswindows. These may be used as follows:if Sys.iswindows()\n    windows_specific_thing(a)\nendNote that islinux, isapple, and isfreebsd are mutually exclusive subsets of isunix. Additionally, there is a macro @static which makes it possible to use these functions to conditionally hide invalid code, as demonstrated in the following examples.Simple blocks:ccall((@static Sys.iswindows() ? :_fopen : :fopen), ...)Complex blocks:@static if Sys.islinux()\n    linux_specific_thing(a)\nelse\n    generic_thing(a)\nendWhen chaining conditionals (including if/elseif/end), the @static must be repeated for each level (parentheses optional, but recommended for readability):@static Sys.iswindows() ? :a : (@static Sys.isapple() ? :b : :c)"
 },
@@ -2657,9 +2657,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/environment-variables/#Environment-Variables-1",
+    "location": "manual/environment-variables/#環境變數（Environment-Variables）-1",
     "page": "環境變數（Environment Variables）",
-    "title": "Environment Variables",
+    "title": "環境變數（Environment Variables）",
     "category": "section",
     "text": "Julia can be configured with a number of environment variables, set either in the usual way for each operating system, or in a portable way from within Julia. Supposing that you want to set the environment variable JULIA_EDITOR to vim, you can type ENV[\"JULIA_EDITOR\"] = \"vim\" (for instance, in the REPL) to make this change on a case by case basis, or add the same to the user configuration file ~/.julia/config/startup.jl in the user\'s home directory to have a permanent effect. The current value of the same environment variable can be determined by evaluating ENV[\"JULIA_EDITOR\"].The environment variables that Julia uses generally start with JULIA. If InteractiveUtils.versioninfo is called with the keyword verbose=true, then the output will list defined environment variables relevant for Julia, including those for which JULIA appears in the name.note: Note\nSome variables, such as JULIA_NUM_THREADS and JULIA_PROJECT, need to be set before Julia starts, therefore adding these to ~/.julia/config/startup.jl is too late in the startup process. In Bash, environment variables can either be set manually by running, e.g., export JULIA_NUM_THREADS=4 before starting Julia, or by adding the same command to -/.bashrc or ~/.bash_profile to set the variable each time Bash is started."
 },
@@ -2913,9 +2913,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/embedding/#Embedding-Julia-1",
+    "location": "manual/embedding/#嵌入式-Julia（Embedding-Julia）-1",
     "page": "嵌入式 Julia（Embedding Julia）",
-    "title": "Embedding Julia",
+    "title": "嵌入式 Julia（Embedding Julia）",
     "category": "section",
     "text": "As we have seen in Calling C and Fortran Code, Julia has a simple and efficient way to call functions written in C. But there are situations where the opposite is needed: calling Julia function from C code. This can be used to integrate Julia code into a larger C/C++ project, without the need to rewrite everything in C/C++. Julia has a C API to make this possible. As almost all programming languages have some way to call C functions, the Julia C API can also be used to build further language bridges (e.g. calling Julia from Python or C#)."
 },
@@ -3049,9 +3049,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/code-loading/#Code-Loading-1",
+    "location": "manual/code-loading/#程式碼載入（Code-Loading）-1",
     "page": "程式碼載入（Code Loading）",
-    "title": "Code Loading",
+    "title": "程式碼載入（Code Loading）",
     "category": "section",
     "text": "note: Note\nThis chapter covers the technical details of package loading. To install packages, use Pkg, Julia\'s built-in package manager, to add packages to your active environment. To use packages already in your active environment, write import X or using X, as described in the Modules documentation."
 },
@@ -3121,9 +3121,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/profile/#Profiling-1",
+    "location": "manual/profile/#效能剖析（Profiling）-1",
     "page": "效能剖析（Profiling）",
-    "title": "Profiling",
+    "title": "效能剖析（Profiling）",
     "category": "section",
     "text": "The Profile module provides tools to help developers improve the performance of their code. When used, it takes measurements on running code, and produces output that helps you understand how much time is spent on individual line(s). The most common usage is to identify \"bottlenecks\" as targets for optimization.Profile implements what is known as a \"sampling\" or statistical profiler.  It works by periodically taking a backtrace during the execution of any task. Each backtrace captures the currently-running function and line number, plus the complete chain of function calls that led to this line, and hence is a \"snapshot\" of the current state of execution.If much of your run time is spent executing a particular line of code, this line will show up frequently in the set of all backtraces. In other words, the \"cost\" of a given line–or really, the cost of the sequence of function calls up to and including this line–is proportional to how often it appears in the set of all backtraces.A sampling profiler does not provide complete line-by-line coverage, because the backtraces occur at intervals (by default, 1 ms on Unix systems and 10 ms on Windows, although the actual scheduling is subject to operating system load). Moreover, as discussed further below, because samples are collected at a sparse subset of all execution points, the data collected by a sampling profiler is subject to statistical noise.Despite these limitations, sampling profilers have substantial strengths:You do not have to make any modifications to your code to take timing measurements (in contrast to the alternative instrumenting profiler).\nIt can profile into Julia\'s core code and even (optionally) into C and Fortran libraries.\nBy running \"infrequently\" there is very little performance overhead; while profiling, your code can run at nearly native speed.For these reasons, it\'s recommended that you try using the built-in sampling profiler before considering any alternatives."
 },
@@ -3243,7 +3243,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/performance-tips/#man-performance-tips-1",
     "page": "效能建議（Performance Tips）",
-    "title": "Performance Tips",
+    "title": "效能建議（Performance Tips）",
     "category": "section",
     "text": "In the following sections, we briefly go through a few techniques that can help make your Julia code run as fast as possible."
 },
@@ -3467,7 +3467,7 @@ var documenterSearchIndex = {"docs": [
 {
     "location": "manual/workflow-tips/#man-workflow-tips-1",
     "page": "工作流程建議（Workflow Tips）",
-    "title": "Workflow Tips",
+    "title": "工作流程建議（Workflow Tips）",
     "category": "section",
     "text": "Here are some tips for working with Julia efficiently."
 },
@@ -3498,15 +3498,15 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#",
-    "page": "程式風格指引（Style Guide）",
-    "title": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
+    "title": "程式風格指引 (Style Guide)",
     "category": "page",
     "text": ""
 },
 
 {
     "location": "manual/style-guide/#man-style-guide-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "程式風格指引 (Style Guide)",
     "category": "section",
     "text": "接下來的章節會解釋一些Julia程式風格中慣用語的一些面向。沒有任何一條規則是絕對的；他們只是一些建議，協助你自己熟悉這個語言，也協助你挑選設計的替代方案。"
@@ -3514,7 +3514,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#撰寫函式，而不只是腳本（scripts）-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "撰寫函式，而不只是腳本（scripts）",
     "category": "section",
     "text": "一步一步的撰寫top level code是開始解決問題一個快速的方法，但你應該嘗試盡力將程式拆解成很多的函式。函式可以更好的被重新利用與測試，他可以釐清哪些步驟已經被執行，而他們的輸入與輸出是什麼。再者，在函式中的程式碼傾向跑的比top level code快，這取決於Julia編譯器如何運作。要再一次強調，函式應該要採用參數裡的值，而不是直接操作全域變數（除了常數以外，像pi）。"
@@ -3522,7 +3522,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免撰寫過度專一的型別-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免撰寫過度專一的型別",
     "category": "section",
     "text": "程式碼應該愈泛用愈好。而不是撰寫：convert(Complex{Float64}, x)比較好的作法是使用泛用函式：complex(float(x))第二個版本會將x轉成適當的型別，並非一直是同一種型別。這則指引是特別關於函式參數。例如，若是他可以是任意整數，請勿宣告參數型別為Int或Int32，使用抽象型別Integer更為恰當。事實上，很多時候你可以省略所有的參數型別，除非需要區分不同方法的定義，如果傳遞的型別不支援方法中任何必要的操作，自然會拋出MethodError。（這被稱為鴨子定型 duck typing）。舉例，考慮以下函式定義，addone會回傳參數值加一：addone(x::Int) = x + 1                 # works only for Int\naddone(x::Integer) = x + one(x)    # any integer type\naddone(x::Number) = x + one(x)     # any numeric type\naddone(x) = x + one(x)             # any type supporting + and oneunit最後的addone定義會被one（one會回傳跟x型別相同的1，這樣可以避免無謂的向上轉型）以及+函式處理，他們支援任意的參數型別。重要的是，要理解如果只定義廣義的addone(x) = x + one(x)是沒有效能懲罰的，因為Julia會根據需求自動編譯特定的版本。舉例像是，當你第一次呼叫addone(12)時，Julia會自動編譯一個特別給x::Int參數的addone函式，呼叫中的one會被取代為他的值1。因此，當有第四個定義時，前三個addone定義是完全的冗餘。"
@@ -3530,7 +3530,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#呼叫方處理超出範圍的參數-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "呼叫方處理超出範圍的參數",
     "category": "section",
     "text": "不要寫：function foo(x, y)\n    x = Int(x); y = Int(y)\n    ...\nend\nfoo(x, y)請使用：function foo(x::Int, y::Int)\n    ...\nend\nfoo(Int(x), Int(y))這是較好的風格，foo並不是真的接受所有的數字型別；他只接受Int。這邊有個議題是，一個函式天生就需要整數，可能強制呼叫方決定非整數值該如何被轉換，會是比較好的作法（e.g. floor或是ceiling）。另一個議題是，宣告更特定的型別可以為以後方法的定義上留下更多空間。"
@@ -3538,7 +3538,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#如果函式會修改到參數的值，在函式名稱之後加上!-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "如果函式會修改到參數的值，在函式名稱之後加上!",
     "category": "section",
     "text": "不要寫：function double(a::AbstractArray{<:Number})\n    for i = 1:endof(a)\n        a[i] *= 2\n    end\n    return a\nend請使用：function double!(a::AbstractArray{<:Number})\n    for i = 1:endof(a)\n        a[i] *= 2\n    end\n    return a\nendJulia標準程式庫普遍使用這樣的慣例，標準程式庫中也包含了拷貝形式跟修改形式的函式範例(e.g., sort()與sort!())，還有一些只有修改形式(e.g., push!(), pop!(), splice!())。為了方便，這樣的函式回傳修改過的陣列，也是很典型的例子。"
@@ -3546,7 +3546,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免不可思議的Union型別-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免不可思議的Union型別",
     "category": "section",
     "text": "像是Union{Function,AbstractString}的型別常常意味著一些設計上可以更單純。"
@@ -3554,7 +3554,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免在field中使用Union型別-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免在field中使用Union型別",
     "category": "section",
     "text": "當創造一個型別時：mutable struct MyType\n    ...\n    x::Union{Void,T}\nend詢問x是不是nothing（其型別是Void）是非常重要的。這裡有些其他的事項需要考慮：尋求一個安全的預設值來初始化x\n引進另一個不需要x的型別\n如果有很多跟x相似的field，將他們存在一個字典中\n決定一個簡單的規則來確認x是不是nothing。舉例來說，通常一個field一開始會是nothing 但會在一個明確的地方做初始化。在那個例子中，是讓他一開始維持未定義。\n如果一個x真的需要在某些時候不被賦值，定義他為::Nullable{T}，當程式存取這個field時，符合了型別穩定性（見Nullable types）。"
@@ -3562,7 +3562,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免詳盡描述容器型別-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免詳盡描述容器型別",
     "category": "section",
     "text": "像以下方式建構一個陣列通常沒多大的幫助：a = Array{Union{Int,AbstractString,Tuple,Array}}(n)在這個例子中，Array{Any}(n)是更好的。標註特定的使用範圍是對編譯器更有幫助的（e.g. a[i]::Int），比起試圖打包多種替代型別到一個型別中。"
@@ -3570,7 +3570,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#使用與Juliabase/一致的命名慣例-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "使用與Juliabase/一致的命名慣例",
     "category": "section",
     "text": "模組跟型別命名開頭大寫，並使用駝峰式命名法： module SparseArrays, struct UnitRange.\n函式開頭小寫 (maximum(), convert())，當不影響可讀性時，多個字連接在一起 (isequal(), haskey())。 必要時，使用底線將字分開。 底線也用來暗示兩個概念的結合 (remotecall_fetch() 為fetch(remotecall(...))更加簡便的實作) 或是作為修飾 (sum_kbn())。\n簡潔是有價值的，但請避免縮寫（使用indexin()比indxin()好），當一個字變得難以記憶是否或是如何被縮寫。如果一個函式需要多個字，考慮他可能代表多於一個概念，可能將他拆成多個片段比較好。"
@@ -3578,7 +3578,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要過度使用try-catch-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用try-catch",
     "category": "section",
     "text": "避免error比起依賴捕捉他們來的好。"
@@ -3586,7 +3586,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#別將條件式括弧起來-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "別將條件式括弧起來",
     "category": "section",
     "text": "Julia不需要在if與while中將條件括弧起來。請寫：if a == b而不是：if (a == b)"
@@ -3594,7 +3594,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要過度使用...-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用...",
     "category": "section",
     "text": "切割函式參數可能會上癮。不要使用[a..., b...]，而是使用簡單的[a; b]，他會串接陣列。collect(a)比[a...]更好，但如果a已經是iterable，常常更好的選擇會是不要理他，而不必要把他轉換成陣列。"
@@ -3602,7 +3602,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要使用不必要的靜態參數-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要使用不必要的靜態參數",
     "category": "section",
     "text": "函式簽名：foo(x::T) where {T<:Real} = ...應該寫成：foo(x::Real) = ...特別是，如果T在函式內部沒有使用到。即使T有被使用到，方便的話，可以被取代為typeof(x)。他在效能上是沒有差別的。要注意的是，這不是對一般靜態參數的警示，只是他們被用在不需要的地方。還有一點值得注意，容器型別可能特別需要函式中的參數型別。可以看FAQ 避免Avoid fields with abstract containers以取得更多資訊。"
@@ -3610,7 +3610,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免混淆實例與型別-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免混淆實例與型別",
     "category": "section",
     "text": "像以下一系列的定義可能會使人困惑：foo(::Type{MyType}) = ...\nfoo(::MyType) = foo(MyType)Decide whether the concept in question will be written as MyType or MyType(), and stick to it.The preferred style is to use instances by default, and only add methods involving Type{MyType} later if they become necessary to solve some problem.If a type is effectively an enumeration, it should be defined as a single (ideally immutable struct or primitive) type, with the enumeration values being instances of it. Constructors and conversions can check whether values are valid. This design is preferred over making the enumeration an abstract type, with the \"values\" as subtypes."
@@ -3618,7 +3618,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要過度使用macros-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要過度使用macros",
     "category": "section",
     "text": "Be aware of when a macro could really be a function instead.Calling eval() inside a macro is a particularly dangerous warning sign; it means the macro will only work when called at the top level. If such a macro is written as a function instead, it will naturally have access to the run-time values it needs."
@@ -3626,7 +3626,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要在介面上暴露不安全的操作-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要在介面上暴露不安全的操作",
     "category": "section",
     "text": "If you have a type that uses a native pointer:mutable struct NativeType\n    p::Ptr{UInt8}\n    ...\nenddon\'t write definitions like the following:getindex(x::NativeType, i) = unsafe_load(x.p, i)The problem is that users of this type can write x[i] without realizing that the operation is unsafe, and then be susceptible to memory bugs.Such a function should either check the operation to ensure it is safe, or have unsafe somewhere in its name to alert callers."
@@ -3634,7 +3634,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要重載基本容器型別的方法-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要重載基本容器型別的方法",
     "category": "section",
     "text": "撰寫以下定義是可能的：show(io::IO, v::Vector{MyType}) = ...這會提供向量承載的特定新型別一個客製化呈現。這固然吸引人，卻是需要避免的。這會造成麻煩，使用者會期待一個已知的型別，像Vector()，做出特定的行為，過度的客製化它的行為會導致它更難以運作。"
@@ -3642,7 +3642,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#避免type-piracy-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "避免type piracy",
     "category": "section",
     "text": "\"Type piracy\"指的是實際延伸或是重新定義Base或是其他套件中的方法到你尚未定義的型別上。某些狀況下，你可以免除type piracy，只有少數不良效應。然而，在極端的狀況，你甚至會使Julia崩潰(e.g. 如果你的延伸或是重新定義導致無法輸入並傳給ccall)。 Type piracy會使程式碼的推論惡化（reasoning about code），也可能引進不相容，這些是難以預測跟診斷的。舉例，假設模組中你想要在symbols上定義乘法：module A\nimport Base.*\n*(x::Symbol, y::Symbol) = Symbol(x,y)\nendThe problem is that now any other module that uses Base.* will also see this definition. Since Symbol is defined in Base and is used by other modules, this can change the behavior of unrelated code unexpectedly. There are several alternatives here, including using a different function name, or wrapping the Symbols in another type that you define.Sometimes, coupled packages may engage in type piracy to separate features from definitions, especially when the packages were designed by collaborating authors, and when the definitions are reusable. For example, one package might provide some types useful for working with colors; another package could define methods for those types that enable conversions between color spaces. Another example might be a package that acts as a thin wrapper for some C code, which another package might then pirate to implement a higher-level, Julia-friendly API."
@@ -3650,7 +3650,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#要小心型別的等價性-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "要小心型別的等價性",
     "category": "section",
     "text": "大家一般喜歡用isa()跟<: (issubtype())來測試型別，而非==。檢查型別的等價性一般只有跟已知的具體型別比較是對的。(e.g. T == Float64)，或是你真的真的知道你自己在做什麼。"
@@ -3658,7 +3658,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#不要寫x-f(x)-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "不要寫x->f(x)",
     "category": "section",
     "text": "由於高階函式常常呼叫匿名函式，這幾乎是必要的。不過任何函式都可以不用包裝成匿名函式直接作為參數傳送。不要寫map(x->f(x), a)，請使用map(f, a)."
@@ -3666,7 +3666,7 @@ var documenterSearchIndex = {"docs": [
 
 {
     "location": "manual/style-guide/#Avoid-using-floats-for-numeric-literals-in-generic-code-when-possible-1",
-    "page": "程式風格指引（Style Guide）",
+    "page": "程式風格指引 (Style Guide)",
     "title": "Avoid using floats for numeric literals in generic code when possible",
     "category": "section",
     "text": "If you write generic code which handles numbers, and which can be expected to run with many different numeric type arguments, try using literals of a numeric type that will affect the arguments as little as possible through promotion.For example,julia> f(x) = 2.0 * x\nf (generic function with 1 method)\n\njulia> f(1//2)\n1.0\n\njulia> f(1/2)\n1.0\n\njulia> f(1)\n2.0whilejulia> g(x) = 2 * x\ng (generic function with 1 method)\n\njulia> g(1//2)\n1//1\n\njulia> g(1/2)\n1.0\n\njulia> g(1)\n2As you can see, the second version, where we used an Int literal, preserved the type of the input argument, while the first didn\'t. This is because e.g. promote_type(Int, Float64) == Float64, and promotion happens with the multiplication. Similarly, Rational literals are less type disruptive than Float64 literals, but more disruptive than Ints:julia> h(x) = 2//1 * x\nh (generic function with 1 method)\n\njulia> h(1//2)\n1//1\n\njulia> h(1/2)\n1.0\n\njulia> h(1)\n2//1Thus, use Int literals when possible, with Rational{Int} for literal non-integer numbers, in order to make it easier to use your code."
@@ -3681,9 +3681,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/faq/#Frequently-Asked-Questions-1",
+    "location": "manual/faq/#常見問題（Frequently-Asked-Questions）-1",
     "page": "常見問題（Frequently Asked Questions）",
-    "title": "Frequently Asked Questions",
+    "title": "常見問題（Frequently Asked Questions）",
     "category": "section",
     "text": ""
 },
@@ -3969,9 +3969,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/noteworthy-differences/#Noteworthy-Differences-from-other-Languages-1",
+    "location": "manual/noteworthy-differences/#與其他語言的差異（Noteworthy-Differences-from-other-Languages）-1",
     "page": "與其他語言的差異（Noteworthy Differences from other Languages）",
-    "title": "Noteworthy Differences from other Languages",
+    "title": "與其他語言的差異（Noteworthy Differences from other Languages）",
     "category": "section",
     "text": ""
 },
@@ -4017,9 +4017,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "manual/unicode-input/#Unicode-Input-1",
+    "location": "manual/unicode-input/#Unicode-輸入（Unicode-Input）-1",
     "page": "Unicode 輸入（Unicode Input）",
-    "title": "Unicode Input",
+    "title": "Unicode 輸入（Unicode Input）",
     "category": "section",
     "text": "The following table lists Unicode characters that can be entered via tab completion of LaTeX-like abbreviations in the Julia REPL (and in various other editing environments).  You can also get information on how to type a symbol by entering it in the REPL help, i.e. by typing ? and then entering the symbol in the REPL (e.g., by copy-paste from somewhere you saw the symbol).warning: Warning\nThis table may appear to contain missing characters in the second column, or even show characters that are inconsistent with the characters as they are rendered in the Julia REPL. In these cases, users are strongly advised to check their choice of fonts in their browser and REPL environment, as there are known issues with glyphs in many fonts.#\n# Generate a table containing all LaTeX and Emoji tab completions available in the REPL.\n#\nimport REPL, Markdown\nconst NBSP = \'\\u00A0\'\n\nfunction tab_completions(symbols...)\n    completions = Dict{String, Vector{String}}()\n    for each in symbols, (k, v) in each\n        completions[v] = push!(get!(completions, v, String[]), k)\n    end\n    return completions\nend\n\nfunction unicode_data()\n    file = normpath(@__DIR__, \"..\", \"..\", \"UnicodeData.txt\")\n    names = Dict{UInt32, String}()\n    open(file) do unidata\n        for line in readlines(unidata)\n            id, name, desc = split(line, \";\")[[1, 2, 11]]\n            codepoint = parse(UInt32, \"0x$id\")\n            names[codepoint] = titlecase(lowercase(\n                name == \"\" ? desc : desc == \"\" ? name : \"$name / $desc\"))\n        end\n    end\n    return names\nend\n\n# Surround combining characters with no-break spaces (i.e \'\\u00A0\'). Follows the same format\n# for how unicode is displayed on the unicode.org website:\n# http://unicode.org/cldr/utility/character.jsp?a=0300\nfunction fix_combining_chars(char)\n    cat = Base.Unicode.category_code(char)\n    return cat == 6 || cat == 8 ? \"$NBSP$char$NBSP\" : \"$char\"\nend\n\n\nfunction table_entries(completions, unicode_dict)\n    entries = [[\n        \"Code point(s)\", \"Character(s)\",\n        \"Tab completion sequence(s)\", \"Unicode name(s)\"\n    ]]\n    for (chars, inputs) in sort!(collect(completions), by = first)\n        code_points, unicode_names, characters = String[], String[], String[]\n        for char in chars\n            push!(code_points, \"U+$(uppercase(string(UInt32(char), base = 16, pad = 5)))\")\n            push!(unicode_names, get(unicode_dict, UInt32(char), \"(No Unicode name)\"))\n            push!(characters, isempty(characters) ? fix_combining_chars(char) : \"$char\")\n        end\n        push!(entries, [\n            join(code_points, \" + \"), join(characters),\n            join(inputs, \", \"), join(unicode_names, \" + \")\n        ])\n    end\n    return Markdown.Table(entries, [:l, :l, :l, :l])\nend\n\ntable_entries(\n    tab_completions(\n        REPL.REPLCompletions.latex_symbols,\n        REPL.REPLCompletions.emoji_symbols\n    ),\n    unicode_data()\n)"
 },
