@@ -1,4 +1,4 @@
-# [Types](@id man-types)
+# [型別（Types）](@id man-types)
 
 Type systems have traditionally fallen into two quite different camps: static type systems, where
 every program expression must have a type computable before the execution of the program, and

@@ -1,4 +1,4 @@
-# Unicode Input
+# Unicode 輸入（Unicode Input）
 
 The following table lists Unicode characters that can be entered via
 tab completion of LaTeX-like abbreviations in the Julia REPL (and

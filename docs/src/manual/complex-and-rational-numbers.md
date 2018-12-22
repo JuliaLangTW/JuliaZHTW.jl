@@ -1,4 +1,4 @@
-# Complex and Rational Numbers
+# 複數與有理數（Complex and Rational Numbers）
 
 Julia includes predefined types for both complex and rational numbers, and supports
 all the standard [Mathematical Operations and Elementary Functions](@ref) on them. [Conversion and Promotion](@ref conversion-and-promotion) are defined

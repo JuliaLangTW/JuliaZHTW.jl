@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# 常見問題（Frequently Asked Questions）
 
 ## Sessions and the REPL
 

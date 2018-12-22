@@ -1,4 +1,4 @@
-# [Performance Tips](@id man-performance-tips)
+# [效能建議（Performance Tips）](@id man-performance-tips)
 
 In the following sections, we briefly go through a few techniques that can help make your Julia
 code run as fast as possible.

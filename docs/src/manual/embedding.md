@@ -1,4 +1,4 @@
-# Embedding Julia
+# 嵌入式 Julia（Embedding Julia）
 
 As we have seen in [Calling C and Fortran Code](@ref), Julia has a simple and efficient way to
 call functions written in C. But there are situations where the opposite is needed: calling Julia

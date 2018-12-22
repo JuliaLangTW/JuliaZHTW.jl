@@ -1,4 +1,4 @@
-# [Workflow Tips](@id man-workflow-tips)
+# [工作流程建議（Workflow Tips）](@id man-workflow-tips)
 
 Here are some tips for working with Julia efficiently.
 
