@@ -1,5 +1,9 @@
 using Documenter
 
+
+# manual/unicode-input.md
+download("http://www.unicode.org/Public/9.0.0/ucd/UnicodeData.txt", joinpath(@__DIR__, "UnicodeData.txt"))
+
 makedocs(
     clean = true,
     doctest = false, # TODO: Fix doctest
@@ -7,8 +11,8 @@ makedocs(
     pages = [
         "首頁" => "index.md",
         "手冊" => [
-            "入門 (Getting Started)" => "manual/getting-started.md",
-            "變數 (Variables)" => "manual/variables.md",
+            "入門（Getting Started）" => "manual/getting-started.md",
+            "變數（Variables）" => "manual/variables.md",
             "整數與浮點數（Integers and Floating-Point Numbers）" => "manual/integers-and-floating-point-numbers.md",
             "數學運算與初等函式（Mathematical Operations and Elementary Functions）" => "manual/mathematical-operations.md",
             "複數與有理數（Complex and Rational Numbers）" => "manual/complex-and-rational-numbers.md",
@@ -36,9 +40,9 @@ makedocs(
             "程式碼載入（Code Loading）" => "manual/code-loading.md",
             "效能剖析（Profiling）" => "manual/profile.md",
             "Stack Traces" => "manual/stacktraces.md",
-            "效能建議 (Performance Tips)" => "manual/performance-tips.md",
+            "效能建議（Performance Tips）" => "manual/performance-tips.md",
             "工作流程建議（Workflow Tips）" => "manual/workflow-tips.md",
-            "程式風格指引 (Style Guide)" => "manual/style-guide.md",
+            "程式風格指引（Style Guide）" => "manual/style-guide.md",
             "常見問題（Frequently Asked Questions）" => "manual/faq.md",
             "與其他語言的差異（Noteworthy Differences from other Languages）" => "manual/noteworthy-differences.md",
             "Unicode 輸入（Unicode Input）" => "manual/unicode-input.md",
