@@ -11,7 +11,7 @@ makedocs(
     pages = [
         "首頁" => "index.md",
         "手冊" => [
-            "入門（Getting Started）" => "manual/getting-started.md",
+            "asdfasdf" => "manual/getting-started.md",
             "變數（Variables）" => "manual/variables.md",
             "整數與浮點數（Integers and Floating-Point Numbers）" => "manual/integers-and-floating-point-numbers.md",
             "數學運算與初等函式（Mathematical Operations and Elementary Functions）" => "manual/mathematical-operations.md",
@@ -61,6 +61,8 @@ makedocs(
     assets = ["assets/favicon.ico"],
 )
 
+if "deploy" in ARGS
 deploydocs(
     repo = "github.com/JuliaLangTW/JuliaZHTW.jl.git",
 )
+end
