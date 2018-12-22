@@ -61,6 +61,6 @@ makedocs(
     assets = ["assets/favicon.ico"],
 )
 
-deploydocs(
-    repo = "github.com/JuliaLangTW/JuliaZHTW.jl.git",
-)
+# deploydocs(
+#     repo = "github.com/JuliaLangTW/JuliaZHTW.jl.git",
+# )

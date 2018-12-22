@@ -1,4 +1,4 @@
-# Integers and Floating-Point Numbers
+# 整數與浮點數
 
 Integers and floating-point values are the basic building blocks of arithmetic and computation.
 Built-in representations of such values are called numeric primitives, while representations of
@@ -16,7 +16,7 @@ of relatively slower performance.
 
 The following are Julia's primitive numeric types:
 
-  * **Integer types:**
+  * **整數型別：**
 
 | Type              | Signed? | Number of bits | Smallest value | Largest value |
 |:----------------- |:------- |:-------------- |:-------------- |:------------- |
@@ -32,7 +32,7 @@ The following are Julia's primitive numeric types:
 | [`UInt128`](@ref) |         | 128            | 0              | 2^128 - 1     |
 | [`Bool`](@ref)    | N/A     | 8              | `false` (0)    | `true` (1)    |
 
-  * **Floating-point types:**
+  * **浮點數型別：**
 
 | Type              | Precision                                                                      | Number of bits |
 |:----------------- |:------------------------------------------------------------------------------ |:-------------- |
@@ -44,7 +44,7 @@ Additionally, full support for [Complex and Rational Numbers](@ref) is built on 
 numeric types. All numeric types interoperate naturally without explicit casting, thanks to a
 flexible, user-extensible [type promotion system](@ref conversion-and-promotion).
 
-## Integers
+## 整數
 
 Literal integers are represented in the standard manner:
 
@@ -219,7 +219,7 @@ type. (The above expression uses several features that have yet to be introduced
 [Strings](@ref man-strings), and [Interpolation](@ref), but should be easy enough to understand for users
 with some existing programming experience.)
 
-### Overflow behavior
+### 溢位行為
 
 In Julia, exceeding the maximum representable value of a given type results in a wraparound behavior:
 
@@ -240,14 +240,14 @@ computers. In applications where overflow is possible, explicit checking for wra
 by overflow is essential; otherwise, the [`BigInt`](@ref) type in [Arbitrary Precision Arithmetic](@ref)
 is recommended instead.
 
-### Division errors
+### 除法錯誤
 
 Integer division (the `div` function) has two exceptional cases: dividing by zero, and dividing
 the lowest negative number ([`typemin`](@ref)) by -1. Both of these cases throw a [`DivideError`](@ref).
 The remainder and modulus functions (`rem` and `mod`) throw a [`DivideError`](@ref) when their
 second argument is zero.
 
-## Floating-Point Numbers
+## 浮點數
 
 Literal floating-point numbers are represented in the standard formats, using
 [E-notation](https://en.wikipedia.org/wiki/Scientific_notation#E-notation) when necessary:
@@ -334,7 +334,7 @@ julia> 10_000, 0.000_000_005, 0xdead_beef, 0b1011_0010
 (10000, 5.0e-9, 0xdeadbeef, 0xb2)
 ```
 
-### Floating-point zero
+### 浮點數零
 
 Floating-point numbers have [two zeros](https://en.wikipedia.org/wiki/Signed_zero), positive zero
 and negative zero. They are equal to each other but have different binary representations, as
@@ -351,7 +351,7 @@ julia> bitstring(-0.0)
 "1000000000000000000000000000000000000000000000000000000000000000"
 ```
 
-### Special floating-point values
+### 特殊浮點數值
 
 There are three specified standard floating-point values that do not correspond to any point on
 the real number line:
@@ -417,7 +417,7 @@ julia> (typemin(Float64),typemax(Float64))
 (-Inf, Inf)
 ```
 
-### Machine epsilon
+### 機器誤差
 
 Most real numbers cannot be represented exactly with floating-point numbers, and so for many purposes
 it is important to know the distance between two adjacent representable floating-point numbers,
@@ -489,7 +489,7 @@ julia> bitstring(nextfloat(x))
 This example highlights the general principle that the adjacent representable floating-point numbers
 also have adjacent binary integer representations.
 
-### Rounding modes
+### 小數進位模式
 
 If a number doesn't have an exact floating-point representation, it must be rounded to an
 appropriate representable value. However, the manner in which this rounding is done can be
@@ -499,7 +499,7 @@ standard](https://en.wikipedia.org/wiki/IEEE_754-2008).
 The default mode used is always [`RoundNearest`](@ref), which rounds to the nearest representable
 value, with ties rounded towards the nearest value with an even least significant bit.
 
-### Background and References
+### 背景與參考
 
 Floating-point arithmetic entails many subtleties which can be surprising to users who are unfamiliar
 with the low-level implementation details. However, these subtleties are described in detail in
@@ -520,7 +520,7 @@ most books on scientific computation, and also in the following references:
     of [William Kahan](https://en.wikipedia.org/wiki/William_Kahan), commonly known as the "Father
     of Floating-Point". Of particular interest may be [An Interview with the Old Man of Floating-Point](https://people.eecs.berkeley.edu/~wkahan/ieee754status/754story.html).
 
-## Arbitrary Precision Arithmetic
+## 任意精度算術運算
 
 To allow computations with arbitrary-precision integers and floating point numbers, Julia wraps
 the [GNU Multiple Precision Arithmetic Library (GMP)](https://gmplib.org) and the [GNU MPFR Library](http://www.mpfr.org),
@@ -594,7 +594,7 @@ julia> setprecision(40) do
 1.1000000000004
 ```
 
-## [Numeric Literal Coefficients](@id man-numeric-literal-coefficients)
+## [數字字面係數](@id man-numeric-literal-coefficients)
 
 To make common numeric formulae and expressions clearer, Julia allows variables to be immediately
 preceded by a numeric literal, implying multiplication. This makes writing polynomial expressions
@@ -665,7 +665,7 @@ The above syntactic enhancements significantly reduce the visual noise incurred 
 mathematical formulae. Note that no whitespace may come between a numeric literal coefficient
 and the identifier or parenthesized expression which it multiplies.
 
-### Syntax Conflicts
+### 語法衝突
 
 Juxtaposed literal coefficient syntax may conflict with two numeric literal syntaxes: hexadecimal
 integer literals and engineering notation for floating-point literals. Here are some situations
@@ -689,7 +689,7 @@ letter and does not behave like `f` in numeric literals. Hence, expressions star
 followed by `F` are interpreted as the numerical literal multiplied by a variable, which means that, for
 example, `1.5F22` is equal to `1.5 * F22`.
 
-## Literal zero and one
+## 字面零與一
 
 Julia provides functions which return literal 0 and 1 corresponding to a specified type or the
 type of a given variable.
