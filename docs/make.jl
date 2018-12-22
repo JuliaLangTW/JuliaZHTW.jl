@@ -61,6 +61,8 @@ makedocs(
     assets = ["assets/favicon.ico"],
 )
 
-# deploydocs(
-#     repo = "github.com/JuliaLangTW/JuliaZHTW.jl.git",
-# )
+if "deploy" in ARGS
+deploydocs(
+    repo = "github.com/JuliaLangTW/JuliaZHTW.jl.git",
+)
+end
