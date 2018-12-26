@@ -513,7 +513,7 @@ as part of the standard library shipped with Julia.
 有兩個影響效能的主要因素：CPU 核心本身的速度，以及他們存取記憶體的速度。在一個叢集當中，顯然一個 CPU 跟他存取的記憶體
 在同一台電腦（node）上，會有最快的存取速度。也許更驚訝的是，在典型的多核心筆電上也有類似的議題，是由於主記憶體以及[快取](https://www.akkadia.org/drepper/cpumemory.pdf)
 速度的差異。最後，一個多行程（multiprocessing）的環境應該允許一個特定的 CPU「擁有」一段記憶體空間的控制權。
-Julia 提供了一個多行程環境，允許程式可以，藉由訊息傳遞的方式，同時在多個記憶體空間獨立的行程上執行。
+ Julia 提供了一個多行程環境，允許程式可以，藉由訊息傳遞（message passing）的方式，同時在多個記憶體空間獨立的行程上執行。
 
 Julia 所實作的訊息傳遞的方式不同於其他環境，像是MPI [^1]。Julia 當中通訊的一般來說是「單向的」，意思是，在兩個行程
 之間的操作，程式設計師需要明確地管理其中一個行程。此外，這些操作基本上並不像是「message send」跟「message receive」，
