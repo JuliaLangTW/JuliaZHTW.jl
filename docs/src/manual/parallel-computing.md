@@ -530,7 +530,7 @@ Remote references 會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChanne
 
 另一方面，[`RemoteChannel`](@ref) 是可以被重複寫入的。舉例來說，多個行程可以透過操作同一個遠端的`Channel`，來達成協作。
 
-每個行程會連結到一個辨識子。提供了互動式 Julia prompt 的行程的 `id` 一定是等於一。預設被用來執行平行操作的行程
+每個行程都有一個識別號碼（identifier）。Julia prompt 的行程的 `id` 一定是等於一。預設被用來執行平行操作的行程
 被視為「workers」。當只有一個行程存在，行程 1 也是個 worker。否則，worker 就會是除了 1 以外的全部行程。
 
 我們一起來試試看吧。以 `julia -p n` 開始，會在在地機器上提供 `n` 個 worker 行程。
