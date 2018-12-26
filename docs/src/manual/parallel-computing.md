@@ -523,7 +523,7 @@ Julia 所實作的訊息傳遞的方式不同於其他環境，像是MPI [^1]。
 一個 remote reference 是一個物件，他可以被任何行程使用，而且指向一個儲存於特定行程的物件。一個 remote call 是
 一個由行程發出的請求（request），在給定參數後，對另一個（可能相同）行程上，呼叫某個函式。
 
-Remote references會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChannel`](@ref)。
+Remote references 會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChannel`](@ref)。
 
 一個 remote call 會回傳一個 [`Future`](@ref) 作為結果。Remote call 會立即回傳；行程會在其他地方讓函式呼叫繼續運算下去。
 你可以在回傳的 [`Future`](@ref) 上呼叫 [`wait()`](@ref) 來等 remote call 完成，以及可以使用 [`fetch()`](@ref) 來獲得完整的運算結果。
