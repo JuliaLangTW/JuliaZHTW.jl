@@ -521,7 +521,7 @@ Julia 所實作的訊息傳遞的方式不同於其他環境，像是MPI [^1]。
 
 在 Julia 中，分散式程式設計（distributed programming）是建構在兩個基本單元上：*remote references* 和 *remote calls*。
 一個 remote reference 是一個物件，他可以被任何行程使用，而且指向一個儲存於特定行程的物件。一個 remote call 是
-一個由行程發出的請求（request），在另一個（可能相同）行程上，來呼叫特定函式，並給定參數。
+一個由行程發出的請求（request），在給定參數後，對另一個（可能相同）行程上，呼叫某個函式。
 
 Remote references會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChannel`](@ref)。
 
