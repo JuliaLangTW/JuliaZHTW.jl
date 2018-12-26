@@ -560,7 +560,7 @@ julia> fetch(s)
 在 `r` 跟 `s` 得到。[`@spawnat`](@ref) macro 的第二個參數是個表達式，會在第一個參數指定的行程上執行。
 
 有時候你可能希望馬上對遠端運算取值。這一般會發生在你讀取遠端的物件來獲取資料，而資料馬上被本地的運算所需要。
-[`remotecall_fetch()`](@ref) 就是為了這種情形存在的。他等價於 `fetch(remotecall(...))`，但更為高效。
+[`remotecall_fetch()`](@ref) 就是為了這種情形存在的。其等價於 `fetch(remotecall(...))`，但更有效率。
 
 ```julia-repl
 julia> remotecall_fetch(getindex, 2, r, 1, 1)
