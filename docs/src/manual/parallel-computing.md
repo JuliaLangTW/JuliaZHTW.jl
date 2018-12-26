@@ -570,7 +570,7 @@ julia> remotecall_fetch(getindex, 2, r, 1, 1)
 請記得 [`getindex(r,1,1)`](@ref) [等價](@ref man-array-indexing)於 `r[1,1]`，這個呼叫會取回 future `r` 的第一個元素。
 
 [`remotecall()`](@ref) 的語法不是特別方便。[`@spawn`](@ref) macro 會讓事情更簡單。
-他操作表達式，而非函數，他會自動幫你挑選執行的行程：
+它操作一個表達式，而非函數，且會自動幫你挑選執行的行程：
 
 ```julia-repl
 julia> r = @spawn rand(2,2)
