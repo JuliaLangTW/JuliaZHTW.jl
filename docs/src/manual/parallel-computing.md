@@ -509,12 +509,19 @@ It is very important that the called function does not call back into Julia, as 
 An implementation of distributed memory parallel computing is provided by module `Distributed`
 as part of the standard library shipped with Julia.
 
-大多數現代電腦擁有不只一個核心，多個電腦更可以整合在一起成為一個叢集。駕馭多核心的強大能力讓很多運算可以被快速地完成。有兩個影響效能的主要因素：CPU核心本身的速度，以及他們存取記憶體的速度。在一個叢集當中，顯然一個 CPU 跟他存取的記憶體在同一台電腦（node）上，會有最快的存取速度。也許更驚訝的是，在典型的多核心筆電上也有類似的議題，是由於主記憶體以及[快取](https://www.akkadia.org/drepper/cpumemory.pdf)速度的差異。最後，一個多行程（multiprocessing）的環境應該允許一個特定的CPU「擁有」一段記憶體空間的控制權。Julia 提供了一個多行程環境，允許程式可以，藉由訊息傳遞的方式，同時在多個記憶體空間獨立的行程上執行。
+大多數現代電腦擁有不只一個核心，多個電腦更可以整合在一起成為一個叢集。駕馭多核心的強大能力讓很多運算可以被快速地完成。
+有兩個影響效能的主要因素：CPU 核心本身的速度，以及他們存取記憶體的速度。在一個叢集當中，顯然一個 CPU 跟他存取的記憶體
+在同一台電腦（node）上，會有最快的存取速度。也許更驚訝的是，在典型的多核心筆電上也有類似的議題，是由於主記憶體以及[快取](https://www.akkadia.org/drepper/cpumemory.pdf)
+速度的差異。最後，一個多行程（multiprocessing）的環境應該允許一個特定的 CPU「擁有」一段記憶體空間的控制權。
+Julia 提供了一個多行程環境，允許程式可以，藉由訊息傳遞的方式，同時在多個記憶體空間獨立的行程上執行。
 
-Julia 所實作的訊息傳遞的方式不同於其他環境，像是MPI [^1]。Julia 當中通訊的一般來說是「單向的」，意思是，在兩個行程之間的操作，程式設計師需要明確地管理其中一個行程。此外，這些操作基本上並不像是「message send」跟「message receive」，而更像是高階的操作，就像呼叫函式一般。
+Julia 所實作的訊息傳遞的方式不同於其他環境，像是MPI [^1]。Julia 當中通訊的一般來說是「單向的」，意思是，在兩個行程
+之間的操作，程式設計師需要明確地管理其中一個行程。此外，這些操作基本上並不像是「message send」跟「message receive」，
+而更像是高階的操作，就像呼叫函式一般。
 
 在 Julia 中，分散式程式設計（distributed programming）是建構在兩個基本單元上：*remote references* 和 *remote calls*。
-一個 remote reference 是一個物件，他可以被任何行程使用，而且指向一個儲存於特定行程的物件。一個 remote call 是一個由行程發出的請求（request），在另一個（可能相同）行程上，來呼叫特定函式，並給定參數。
+一個 remote reference 是一個物件，他可以被任何行程使用，而且指向一個儲存於特定行程的物件。一個 remote call 是
+一個由行程發出的請求（request），在另一個（可能相同）行程上，來呼叫特定函式，並給定參數。
 
 Remote references會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChannel`](@ref)。
 
@@ -523,7 +530,8 @@ Remote references會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChannel
 
 另一方面，[`RemoteChannel`](@ref) 是可以被重寫的。舉例來說，多個行程可以互相協調，藉由參考同一個遠端的`Channel`。
 
-每個行程會連結到一個辨識子。提供了互動式 Julia prompt 的行程的 `id` 一定是等於一。預設被用來執行平行操作的行程被視為「workers」。當只有一個行程存在，行程 1 也是個 worker。否則，worker 就會是除了 1 以外的全部行程。
+每個行程會連結到一個辨識子。提供了互動式 Julia prompt 的行程的 `id` 一定是等於一。預設被用來執行平行操作的行程
+被視為「workers」。當只有一個行程存在，行程 1 也是個 worker。否則，worker 就會是除了 1 以外的全部行程。
 
 我們一起來試試看吧。以 `julia -p n` 開始，會在在地機器上提供 `n` 個 worker 行程。
 一般來說，讓 `n` 等同於機器的CPU核心數（邏輯核心）是合理的。提醒，使用 `-p` 參數等同於隱性地載入了 `Distributed` 模組。
@@ -544,11 +552,15 @@ julia> fetch(s)
  1.16296  1.60607
 ```
 
-[`remotecall()`](@ref) 的第一個參數是要呼叫的函式。Julia中大多數的平行程式設計不需要操考特定的行程或是行程的編號，但 [`remotecall()`](@ref) 被設計為一個低階的介面來提供更細緻的控制。[`remotecall()`](@ref) 的第二個參數是指定執行函式的行程 `id`，剩下的參數將會傳遞給被呼叫的函式。
+[`remotecall()`](@ref) 的第一個參數是要呼叫的函式。Julia中大多數的平行程式設計不需要操考特定的行程或是行程的編號，
+但 [`remotecall()`](@ref) 被設計為一個低階的介面來提供更細緻的控制。[`remotecall()`](@ref) 的第二個參數是指定執行
+函式的行程 `id`，剩下的參數將會傳遞給被呼叫的函式。
 
-如你所見，第 1 行我們要求行程 2 建構一個 2×2 的隨機矩陣，以及第 2 行我們要求再加 1 到它身上。兩個計算的結果可以在 `r` 跟 `s` 得到。[`@spawnat`](@ref) macro 會在第 1 個參數指定的行程上，對第 2 個參數的表達式求值。
+如你所見，第 1 行我們要求行程 2 建構一個 2×2 的隨機矩陣，以及第 2 行我們要求再加 1 到它身上。兩個計算的結果可以
+在 `r` 跟 `s` 得到。[`@spawnat`](@ref) macro 會在第 1 個參數指定的行程上，對第 2 個參數的表達式求值。
 
-有時候你可能希望馬上對遠端運算求值。這一般會發生在你讀取遠端的物件來獲取資料，而資料馬上被在地的運算所需要。[`remotecall_fetch()`](@ref) 就是為了這種情形存在的。他等價於 `fetch(remotecall(...))`，但更為高效。
+有時候你可能希望馬上對遠端運算求值。這一般會發生在你讀取遠端的物件來獲取資料，而資料馬上被在地的運算所需要。
+[`remotecall_fetch()`](@ref) 就是為了這種情形存在的。他等價於 `fetch(remotecall(...))`，但更為高效。
 
 ```julia-repl
 julia> remotecall_fetch(getindex, 2, r, 1, 1)
@@ -557,7 +569,8 @@ julia> remotecall_fetch(getindex, 2, r, 1, 1)
 
 還記得 [`getindex(r,1,1)`](@ref) [等價](@ref man-array-indexing)於 `r[1,1]`，這個呼叫會取回 future `r` 的第一個元素。
 
-[`remotecall()`](@ref) 的語法不是特別方便。[`@spawn`](@ref) macro 會讓事情更簡單。他操作表達式，而非函數，他會自動幫你挑選執行的行程：
+[`remotecall()`](@ref) 的語法不是特別方便。[`@spawn`](@ref) macro 會讓事情更簡單。
+他操作表達式，而非函數，他會自動幫你挑選執行的行程：
 
 ```julia-repl
 julia> r = @spawn rand(2,2)
