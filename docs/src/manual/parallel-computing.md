@@ -534,7 +534,7 @@ Remote references 會以兩種形式出現：[`Future`](@ref) 與 [`RemoteChanne
 被視為「workers」。當只有一個行程存在，行程 1 也是個 worker。否則，worker 就會是除了 1 以外的全部行程。
 
 我們一起來試試看吧。以 `julia -p n` 啟動，會在本機上啟動 `n` 個 worker 行程。
-一般來說，讓 `n` 等同於機器的CPU核心數（邏輯核心）是合理的。提醒，使用 `-p` 參數等同於隱性地載入了 `Distributed` 模組。
+一般來說，讓 `n` 等同於機器的 CPU（邏輯）核心數是常見的做法。注意到使用參數 `-p` 會自動載入了 `Distributed` 模組。
 
 
 ```julia
