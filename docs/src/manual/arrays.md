@@ -1,31 +1,31 @@
 # [多維陣列（Multi-dimensional Arrays）](@id man-multi-dim-arrays)
 
-Julia，就像許多現代的程式語言，提供一流的陣列(array)實作。
-許多程式語言花了不少功夫以犧牲其他容器(container)為代價來實作陣列(array)。
-但Julia卻不這樣做。 Julia本身內建完整的陣列(array)函式庫(library)， 且擁有編譯器等級的效能
+Julia，就像許多現代的程式語言，提供一流的陣列實作。
+許多程式語言花了不少功夫以犧牲其他容器(container)為代價來實作陣列。
+但Julia卻不這樣做。 Julia本身內建完整的陣列函式庫(library)，且擁有編譯器等級的效能
 ，就像任何用Julia寫的程式一樣。
-因此，利用[`AbstractArray`](@ref)來制定客製化陣列(array)型態是可以達成的。
+因此，利用[`AbstractArray`](@ref)來制定客製化陣列型態是可以達成的。
 查看[AbstractArray interface使用手冊](@ref man-interface-array) 來獲得實作客製化陣列型態的詳細說明。
 
-陣列(array)是一個由許多物件(objects)組成並且儲存在一個多維框架(multi-dimensional grid)的集合。在一般使用上，
-一個陣列(array)可能存在[`Any`](@ref)物件(objects)。 對於大多數的計算需求， 陣列必須指定
-更詳細的物件(object)型態(type)， 像是 [`Float64`](@ref) 或 [`Int32`](@ref)。
+陣列是一個由許多物件(objects)組成並且儲存在一個多維框架(multi-dimensional grid)的集合。在一般使用上，
+一個陣列可能存在[`Any`](@ref)物件(objects)。 對於大多數的計算需求，陣列必須指定
+更詳細的物件(object)型態(type)，像是 [`Float64`](@ref) 或 [`Int32`](@ref)。
 
-一般來說， 不像其他的程式語言， Julia並沒有預設程式以向量風格（vectorized style）來撰寫。 在純量陣列索引（scalar array indexing）方面，Julia的編譯器使用型態推斷（type inference）產生最佳化程式碼，藉此來允許程式碼能夠撰寫的更加方便及更可讀也可以避免犧牲效能和使用較少記憶體。
+一般來說，不像其他的程式語言，Julia並沒有預設程式以向量風格（vectorized style）來撰寫。 在純量陣列索引（scalar array indexing）方面，Julia的編譯器使用型態推斷（type inference）產生最佳化程式碼，藉此來允許程式碼能夠撰寫的更加方便及更可讀也可以避免犧牲效能和使用較少記憶體。
 
 在Julia中，所有變數儲存的函數皆為[pass by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)
 （i.e. 透過指標）。 一些程式語言使用傳值來傳遞陣列，即便這些防止對於原陣列的意外修改 
-卻造成不必要的陣列複製。依照慣例，一個函式名稱結尾為 `!` 代表它將會修改或刪除裡面其一或多個變數 (舉例來說， [`sort`](@ref) 和 [`sort!`](@ref))。
-呼叫呼叫者（Callers）必須有精確的複製來確保不修改任何意料之外的輸入值。
-許多非變異函式是通過呼叫同名函式實現的，差別只在結尾增加了`！`，再返回這個函式。
+卻讓避免不必要的陣列複製變得困難。依照慣例，一個函式名稱結尾為 ! 代表它將會修改或刪除它的一或多個參數的值(舉例來說，[`sort`](@ref) 和 [`sort!`](@ref))。
+被呼叫方（Callees）必須顯示的拷貝來確保不會對輸入做出非預期的修改。
+許多的無修改函數（non-mutating function）的實做是透過呼叫一個以 ! 結尾的同名函數在輸入的顯示拷貝上並回傳這份拷貝值。
 
 ## 基本函式
 
 | 函式               | 說明                                                                      |
 |:---------------------- |:-------------------------------------------------------------------------------- |
-| [`eltype(A)`](@ref)    | 一個包含`A`的一個元素型態                                        |
-| [`length(A)`](@ref)    | 陣列`A`的長度                                                    |
-| [`ndims(A)`](@ref)     | 陣列`A`的維度 (dimensions)                                                  |
+| [`eltype(A)`](@ref)    |  `A`裡面的元素型別                                        |
+| [`length(A)`](@ref)    | 陣列`A`中的元素數量                                                    |
+| [`ndims(A)`](@ref)     | 陣列`A`的維度 (dimensions)大小                                                  |
 | [`size(A)`](@ref)      | 一個元祖 (tuple) 包含了`A`的維度                                         |
 | [`size(A,n)`](@ref)    | 沿著維度`n`的`A`陣列大小                                               |
 | [`axes(A)`](@ref)      | 一個元祖（tuple）包含`A`的有效索引                                      |
@@ -37,31 +37,31 @@ Julia，就像許多現代的程式語言，提供一流的陣列(array)實作�
 ## 建構與初始化
 
 目前提供許多建構與初始化的函式。 例如：
-呼叫為 `dims...` 變數可以為包含為度大小的單獨元祖抑或是
+呼叫為 `dims...` 變數可以為包含維度大小的單獨元祖亦或是
 一系列維度大小作為可變數量的參數傳遞。這些函數大多數 
-都接受第一個輸入為`T`， 此為一元素型態的陣列。 如果型態`T`為
+都接受第一個輸入為`T`，此為一元素型態的陣列。 如果型態`T`為
 省略則型態預設將為[`Float64`](@ref)。
 
 | 函式                           | 說明                                                                                                                                                                                                                                  |
 |:---------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`Array{T}(undef, dims...)`](@ref)             | 一個尚未初始化密度的[`Array`](@ref)                                                                                                                                                                                                              |
-| [`zeros(T, dims...)`](@ref)                    | 一個全為0的 `Array`                                                                                                                                                                                                                       |
-| [`ones(T, dims...)`](@ref)                     | 一個全為1的 `Array`                                                                                                                                                                                                                       |
-| [`trues(dims...)`](@ref)                       | 一個全為`true`的 [`BitArray`](@ref)                                                                                                                                                                                                    |
-| [`falses(dims...)`](@ref)                      | 一個全為`false`的 `BitArray`                                                                                                                                                                                                          |
-| [`reshape(A, dims...)`](@ref)                  | 一個陣列(array)包含與`A`相同的資料，但不同的維度                                                                                                                                                                      |
+| [`Array{T}(undef, dims...)`](@ref)             | 一個尚未初始化的密集陣列[`Array`](@ref)                                                                                                                                                                                                              |
+| [`zeros(T, dims...)`](@ref)                    | 值全為 0 的 Array                                                                                                                                                                                                                       |
+| [`ones(T, dims...)`](@ref)                     | 值全為 1 的 Array                                                                                                                                                                                                                       |
+| [`trues(dims...)`](@ref)                       | 值全為 `true` 的 [`BitArray`](@ref)                                                                                                                                                                                                    |
+| [`falses(dims...)`](@ref)                      | 值全為 `false` 的 `BitArray`                                                                                                                                                                                                          |
+| [`reshape(A, dims...)`](@ref)                  | 一個陣列包含與`A`相同的資料，但不同的維度                                                                                                                                                                      |
 | [`copy(A)`](@ref)                              | 複製 `A`                                                                                                                                                                                                                                     |
 | [`deepcopy(A)`](@ref)                          | 複製 `A`，並遞迴複製其元素                                                                                                                                                                                                   |
-| [`similar(A, T, dims...)`](@ref)               | 與`A`有相同的型態(緊密度（dense）， 疏遠度（sparse），等)的一個非初始化的陣列(array)， 但有著特定元素型態與維度。第二與第三變數為選用，預設值為與`A`相同的元素型態與維度。 |
-| [`reinterpret(T, A)`](@ref)                    | 一個陣列(array)與`A`有相同的資料，但有著元素型態 `T`                                                                                                                                                                         |
-| [`rand(T, dims...)`](@ref)                     | 一個隨機 `陣列Array`， 在半開放區間``[0, 1)``有iid [^1] 和均勻分散的數值                                                                                                                                        |
-| [`randn(T, dims...)`](@ref)                    | 一個隨機 `陣列Array`， iid 和標準一般分散數值                                                                                                                                                                         |
-| [`Matrix{T}(I, m, n)`](@ref)                   | `m`-by-`n` 特性的矩陣                                                                                                                                                                                                                   |
+| [`similar(A, T, dims...)`](@ref)               | 與`A`有相同的型態(密集（dense），稀疏（sparse），等)的一個非初始化的陣列，但有著特定元素型態與維度。第二與第三變數為選用，預設值為與`A`相同的元素型態與維度。 |
+| [`reinterpret(T, A)`](@ref)                    | 一個陣列與`A`有相同的資料，但有著元素型態 `T`                                                                                                                                                                         |
+| [`rand(T, dims...)`](@ref)                     | 一個隨機 `陣列Array`，在半開放區間``[0, 1)``有iid [^1] 和均勻分散的數值                                                                                                                                        |
+| [`randn(T, dims...)`](@ref)                    | 一個隨機 `陣列Array`，iid 和標準一般分散數值                                                                                                                                                                         |
+| [`Matrix{T}(I, m, n)`](@ref)                   | `m`-by-`n` 單位矩陣                                                                                                                                                                                                                   |
 | [`range(start, stop=stop, length=n)`](@ref)    | 一個範圍`n`的線性間隔的元素，從`start`到`stop`                                                                                                                                                                                 |
-| [`fill!(A, x)`](@ref)                          | 陣列(array)`A`以數值`x`填滿                                                                                                                                                                                                        |
-| [`fill(x, dims...)`](@ref)                     | 一個 `陣列Array`以數值`x`填滿                                                                                                                                                                                                         |
+| [`fill!(A, x)`](@ref)                          | 陣列`A`以數值`x`填滿                                                                                                                                                                                                        |
+| [`fill(x, dims...)`](@ref)                     | 一個`陣列Array`以數值`x`填滿                                                                                                                                                                                                         |
 
-[^1]: *iid*, 獨立且相同的分佈.
+[^1]: *iid*, 獨立且相同的分佈。
 
 The syntax `[A, B, C, ...]` constructs a 1-d陣列(array)(i.e., a vector) of its arguments. If all
 arguments have a common [promotion type](@ref conversion-and-promotion) then they get
@@ -137,11 +137,11 @@ julia> [[1 2]; [3 4]]
  3  4
 ```
 
-## Typed陣列(array)initializers
+## Typed陣列initializers
 
-An陣列(array)with a specific element type can be constructed using the syntax `T[A, B, C, ...]`. This
-will construct a 1-d陣列(array)with element type `T`, initialized to contain elements `A`, `B`, `C`,
-etc. For example, `Any[x, y, z]` constructs a heterogeneous陣列(array)that can contain any values.
+An陣列with a specific element type can be constructed using the syntax `T[A, B, C, ...]`. This
+will construct a 1-d陣列with element type `T`, initialized to contain elements `A`, `B`, `C`,
+etc. For example, `Any[x, y, z]` constructs a heterogeneous陣列that can contain any values.
 
 Concatenation syntax can similarly be prefixed with a type to specify the element type of the
 result.
@@ -168,7 +168,7 @@ A = [ F(x,y,...) for x=rx, y=ry, ... ]
 The meaning of this form is that `F(x,y,...)` is evaluated with the variables `x`, `y`, etc. taking
 on each value in their given list of values. Values can be specified as any iterable object, but
 will commonly be ranges like `1:n` or `2:(n-1)`, or explicit arrays of values like `[1.2, 3.4, 5.7]`.
-The result is an N-d dense陣列(array)with dimensions that are the concatenation of the dimensions
+The result is an N-d dense陣列with dimensions that are the concatenation of the dimensions
 of the variable ranges `rx`, `ry`, etc. and each `F(x,y,...)` evaluation returns a scalar.
 
 The following example computes a weighted average of the current element and its left and right
@@ -196,7 +196,7 @@ julia> [ 0.25*x[i-1] + 0.5*x[i] + 0.25*x[i+1] for i=2:length(x)-1 ]
  0.656511
 ```
 
-The resulting陣列(array)type depends on the types of the computed elements. In order to control the
+The resulting陣列type depends on the types of the computed elements. In order to control the
 type explicitly, a type can be prepended to the comprehension. For example, we could have requested
 the result in single precision by writing:
 
@@ -208,7 +208,7 @@ Float32[ 0.25*x[i-1] + 0.5*x[i] + 0.25*x[i+1] for i=2:length(x)-1 ]
 
 Comprehensions can also be written without the enclosing square brackets, producing an object
 known as a generator. This object can be iterated to produce values on demand, instead of allocating
-an陣列(array)and storing them in advance (see [Iteration](@ref)). For example, the following expression
+an陣列and storing them in advance (see [Iteration](@ref)). For example, the following expression
 sums a series without allocating memory:
 
 ```jldoctest
@@ -269,20 +269,20 @@ julia> [(i,j) for i=1:3 for j=1:i if i+j == 4]
 
 ## [Indexing](@id man-array-indexing)
 
-The general syntax for indexing into an n-dimensional陣列(array)`A` is:
+The general syntax for indexing into an n-dimensional陣列`A` is:
 
 ```
 X = A[I_1, I_2, ..., I_n]
 ```
 
-where each `I_k` may be a scalar integer, an陣列(array)of integers, or any other
+where each `I_k` may be a scalar integer, an陣列of integers, or any other
 [supported index](@ref man-supported-index-types). This includes
 [`Colon`](@ref) (`:`) to select all indices within the entire dimension,
 ranges of the form `a:c` or `a:b:c` to select contiguous or strided
 subsections, and arrays of booleans to select elements at their `true` indices.
 
-If all the indices are scalars, then the result `X` is a single element from the陣列(array)`A`. Otherwise,
-`X` is an陣列(array)with the same number of dimensions as the sum of the dimensionalities of all the
+If all the indices are scalars, then the result `X` is a single element from the陣列`A`. Otherwise,
+`X` is an陣列with the same number of dimensions as the sum of the dimensionalities of all the
 indices.
 
 If all indices `I_k` are vectors, for example, then the shape of `X` would be `(length(I_1), length(I_2), ..., length(I_n))`,
@@ -333,9 +333,9 @@ julia> A[[1, 2], [1], [1, 2], 1] # a mix of index types
  6
 ```
 
-Note how the size of the resulting陣列(array)is different in the last two cases.
+Note how the size of the resulting陣列is different in the last two cases.
 
-If `I_1` is changed to a two-dimensional matrix, then `X` becomes an `n+1`-dimensional陣列(array)of
+If `I_1` is changed to a two-dimensional matrix, then `X` becomes an `n+1`-dimensional陣列of
 shape `(size(I_1, 1), size(I_1, 2), length(I_2), ..., length(I_n))`. The matrix adds a dimension.
 
 Example:
@@ -355,7 +355,7 @@ julia> A[[1 2; 1 2], 1, 2, 1]
 ```
 
 The location `i_1, i_2, i_3, ..., i_{n+1}` contains the value at `A[I_1[i_1, i_2], I_2[i_3], ..., I_n[i_{n+1}]]`.
-All dimensions indexed with scalars are dropped. For example, if `J` is an陣列(array)of indices, then the result of `A[2, J, 3]` is an
+All dimensions indexed with scalars are dropped. For example, if `J` is an陣列of indices, then the result of `A[2, J, 3]` is an
 array with size `size(J)`. Its `j`th element is populated by `A[2, J[j], 3]`.
 
 As a special part of this syntax, the `end` keyword may be used to represent the last index of
@@ -400,13 +400,13 @@ julia> searchsorted(a, 4)
 
 ## Assignment
 
-The general syntax for assigning values in an n-dimensional陣列(array)`A` is:
+The general syntax for assigning values in an n-dimensional陣列`A` is:
 
 ```
 A[I_1, I_2, ..., I_n] = X
 ```
 
-where each `I_k` may be a scalar integer, an陣列(array)of integers, or any other
+where each `I_k` may be a scalar integer, an陣列of integers, or any other
 [supported index](@ref man-supported-index-types). This includes
 [`Colon`](@ref) (`:`) to select all indices within the entire dimension,
 ranges of the form `a:c` or `a:b:c` to select contiguous or strided
@@ -431,7 +431,7 @@ A[I_1, I_2, ..., I_n] .= X
 
 Just as in [Indexing](@ref man-array-indexing), the `end` keyword may be used
 to represent the last index of each dimension within the indexing brackets, as
-determined by the size of the陣列(array)being assigned into. Indexed assignment
+determined by the size of the陣列being assigned into. Indexed assignment
 syntax without the `end` keyword is equivalent to a call to
 [`setindex!`](@ref):
 
@@ -462,19 +462,19 @@ julia> x
 ## [Supported index types](@id man-supported-index-types)
 
 In the expression `A[I_1, I_2, ..., I_n]`, each `I_k` may be a scalar index, an
-array of scalar indices, or an object that represents an陣列(array)of scalar
+array of scalar indices, or an object that represents an陣列of scalar
 indices and can be converted to such by [`to_indices`](@ref):
 
 1. A scalar index. By default this includes:
     * Non-boolean integers
     * [`CartesianIndex{N}`](@ref)s, which behave like an `N`-tuple of integers spanning multiple dimensions (see below for more details)
-2. An陣列(array)of scalar indices. This includes:
+2. An陣列of scalar indices. This includes:
     * Vectors and multidimensional arrays of integers
     * Empty arrays like `[]`, which select no elements
     * Ranges like `a:c` or `a:b:c`, which select contiguous or strided subsections from `a` to `c` (inclusive)
-    * Any custom陣列(array)of scalar indices that is a subtype of `AbstractArray`
+    * Any custom陣列of scalar indices that is a subtype of `AbstractArray`
     * Arrays of `CartesianIndex{N}` (see below for more details)
-3. An object that represents an陣列(array)of scalar indices and can be converted to such by [`to_indices`](@ref). By default this includes:
+3. An object that represents an陣列of scalar indices and can be converted to such by [`to_indices`](@ref). By default this includes:
     * [`Colon()`](@ref) (`:`), which represents all indices within an entire dimension or across the entire array
     * Arrays of booleans, which select elements at their `true` indices (see below for more details)
 
@@ -599,10 +599,10 @@ julia> A[CartesianIndex.(axes(A, 1), axes(A, 2)), :]
 ### Logical indexing
 
 Often referred to as logical indexing or indexing with a logical mask, indexing
-by a boolean陣列(array)selects elements at the indices where its values are `true`.
+by a boolean陣列selects elements at the indices where its values are `true`.
 Indexing by a boolean vector `B` is effectively the same as indexing by the
 vector of integers that is returned by [`findall(B)`](@ref). Similarly, indexing
-by a `N`-dimensional boolean陣列(array)is effectively the same as indexing by the
+by a `N`-dimensional boolean陣列is effectively the same as indexing by the
 vector of `CartesianIndex{N}`s where its values are `true`. A logical index
 must be a vector of the same length as the dimension it indexes into, or it
 must be the only index provided and match the size and dimensionality of the
@@ -640,7 +640,7 @@ julia> x[mask]
 
 ## Iteration
 
-The recommended ways to iterate over a whole陣列(array)are
+The recommended ways to iterate over a whole陣列are
 
 ```julia
 for a in A
@@ -653,7 +653,7 @@ end
 ```
 
 The first construct is used when you need the value, but not index, of each element. In the second
-construct, `i` will be an `Int` if `A` is an陣列(array)type with fast linear indexing; otherwise,
+construct, `i` will be an `Int` if `A` is an陣列type with fast linear indexing; otherwise,
 it will be a `CartesianIndex`:
 
 ```jldoctest
@@ -673,7 +673,7 @@ i = CartesianIndex(3, 2)
 ```
 
 In contrast with `for i = 1:length(A)`, iterating with [`eachindex`](@ref) provides an efficient way to
-iterate over any陣列(array)type.
+iterate over any陣列type.
 
 ## Array traits
 
@@ -728,7 +728,7 @@ julia> repeat(a,1,3)+A
 ```
 
 This is wasteful when dimensions get large, so Julia provides [`broadcast`](@ref), which expands
-singleton dimensions in陣列(array)arguments to match the corresponding dimension in the other array
+singleton dimensions in陣列arguments to match the corresponding dimension in the other array
 without using extra memory, and applies the given function elementwise:
 
 ```julia-repl
@@ -779,11 +779,11 @@ julia> string.(1:3, ". ", ["First", "Second", "Third"])
 
 ## Implementation
 
-The base陣列(array)type in Julia is the abstract type [`AbstractArray{T,N}`](@ref). It is parameterized by
+The base陣列type in Julia is the abstract type [`AbstractArray{T,N}`](@ref). It is parameterized by
 the number of dimensions `N` and the element type `T`. [`AbstractVector`](@ref) and [`AbstractMatrix`](@ref) are
 aliases for the 1-d and 2-d cases. Operations on `AbstractArray` objects are defined using higher
 level operators and functions, in a way that is independent of the underlying storage. These operations
-generally work correctly as a fallback for any specific陣列(array)implementation.
+generally work correctly as a fallback for any specific陣列implementation.
 
 The `AbstractArray` type includes anything vaguely array-like, and implementations of it might
 be quite different from conventional arrays. For example, elements might be computed on request
@@ -792,7 +792,7 @@ at least [`size(A)`](@ref) (returning an `Int` tuple), [`getindex(A,i)`](@ref) a
 mutable arrays should also implement [`setindex!`](@ref). It is recommended that these operations
 have nearly constant time complexity, or technically Õ(1) complexity, as otherwise some array
 functions may be unexpectedly slow. Concrete types should also typically provide a [`similar(A,T=eltype(A),dims=size(A))`](@ref)
-method, which is used to allocate a similar陣列(array)for [`copy`](@ref) and other out-of-place
+method, which is used to allocate a similar陣列for [`copy`](@ref) and other out-of-place
 operations. No matter how an `AbstractArray{T,N}` is represented internally, `T` is the type of
 object returned by *integer* indexing (`A[1, ..., 1]`, when `A` is not empty) and `N` should be
 the length of the tuple returned by [`size`](@ref). For more details on defining custom
@@ -803,13 +803,13 @@ elements are stored contiguously in column-major order (see additional notes in
 [Performance Tips](@ref man-performance-tips)). The [`Array`](@ref) type is a specific instance
 of `DenseArray`;  [`Vector`](@ref) and [`Matrix`](@ref) are aliases for the 1-d and 2-d cases.
 Very few operations are implemented specifically for `Array` beyond those that are required
-for all `AbstractArray`s; much of the陣列(array)library is implemented in a generic
+for all `AbstractArray`s; much of the陣列library is implemented in a generic
 manner that allows all custom arrays to behave similarly.
 
 `SubArray` is a specialization of `AbstractArray` that performs indexing by
-sharing memory with the original陣列(array)rather than by copying it. A `SubArray`
+sharing memory with the original陣列rather than by copying it. A `SubArray`
 is created with the [`view`](@ref) function, which is called the same way as
-[`getindex`](@ref) (with an陣列(array)and a series of index arguments). The result
+[`getindex`](@ref) (with an陣列and a series of index arguments). The result
 of [`view`](@ref) looks the same as the result of [`getindex`](@ref), except the
 data is left in place. [`view`](@ref) stores the input index vectors in a
 `SubArray` object, which can later be used to index the original array
@@ -821,7 +821,7 @@ create a `SubArray` view instead.
 They can be used similarly to `Array{Bool}` arrays (which store one byte per boolean value),
 and can be converted to/from the latter via `Array(bitarray)` and `BitArray(array)`, respectively.
 
-A "strided"陣列(array)is stored in memory with elements laid out in regular offsets such that
+A "strided"陣列is stored in memory with elements laid out in regular offsets such that
 an instance with a supported `isbits` element type can be passed to
 external C and Fortran functions that expect this memory layout. Strided arrays
 must define a [`strides(A)`](@ref) method that returns a tuple of "strides" for each dimension; a
@@ -829,10 +829,10 @@ provided [`stride(A,k)`](@ref) method accesses the `k`th element within this tup
 index of dimension `k` by `1` should increase the index `i` of [`getindex(A,i)`](@ref) by
 [`stride(A,k)`](@ref). If a pointer conversion method [`Base.unsafe_convert(Ptr{T}, A)`](@ref) is
 provided, the memory layout must correspond in the same way to these strides. `DenseArray` is a
-very specific example of a strided陣列(array)where the elements are arranged contiguously, thus it
+very specific example of a strided陣列where the elements are arranged contiguously, thus it
 provides its subtypes with the appropriate definition of `strides`. More concrete examples
 can be found within the [interface guide for strided arrays](@ref man-interface-strided-arrays).
-[`StridedVector`](@ref) and [`StridedMatrix`](@ref) are convenient aliases for many of the builtin陣列(array)types that
+[`StridedVector`](@ref) and [`StridedMatrix`](@ref) are convenient aliases for many of the builtin陣列types that
 are considered strided arrays, allowing them to dispatch to select specialized implementations that
 call highly tuned and optimized BLAS and LAPACK functions using just the pointer and strides.
 
