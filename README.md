@@ -15,6 +15,16 @@
 
 詳細語法參考 Documenter 的 [doc](https://juliadocs.github.io/Documenter.jl/stable/man/syntax/#@ref-link-1)
 
+## 中文文件排版格式
+
+請參考[中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)。
+
+## 專有名詞對照表
+
+翻譯專有名詞時可以先參考既有翻譯，[專有名詞對照表](jargons.md)。
+
+如果覺得有更好的翻譯，可以在 issue 中提出。
+
 ## 貢獻者名單
 
 - [Daniel Chen (陳建鳴)](https://github.com/d4n1elchen)
