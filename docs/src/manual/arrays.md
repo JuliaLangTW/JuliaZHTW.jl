@@ -1,21 +1,21 @@
 # [多維陣列（Multi-dimensional Arrays）](@id man-multi-dim-arrays)
 
 Julia，就像許多現代的程式語言，提供一流的陣列實作。
-許多程式語言花了不少功夫以犧牲其他容器(container)為代價來實作陣列。
-但Julia卻不這樣做。 Julia本身內建完整的陣列函式庫(library)，且擁有編譯器等級的效能
-，就像任何用Julia寫的程式一樣。
-因此，利用[`AbstractArray`](@ref)來制定客製化陣列型態是可以達成的。
-查看[AbstractArray interface使用手冊](@ref man-interface-array) 來獲得實作客製化陣列型態的詳細說明。
+許多程式語言花了不少功夫以犧牲其他容器（container）為代價來實作陣列。
+但 Julia 卻不這樣做。Julia 本身內建完整的陣列函式庫（library），且擁有編譯器等級的效能
+，就像任何用 Julia 寫的程式一樣。
+因此，利用 [`AbstractArray`](@ref) 來制定客製化陣列型態是可以達成的。
+查看 [`AbstractArray interface使用手冊`](@ref man-interface-array) 來獲得實作客製化陣列型態的詳細說明。
 
-陣列是一個由許多物件(objects)組成並且儲存在一個多維框架(multi-dimensional grid)的集合。在一般使用上，
-一個陣列可能存在[`Any`](@ref)物件(objects)。 對於大多數的計算需求，陣列必須指定
-更詳細的物件(object)型態(type)，像是 [`Float64`](@ref) 或 [`Int32`](@ref)。
+陣列是一個由許多物件（objects）組成並且儲存在一個多維框架 (multi-dimensional grid) 的集合。在一般使用上，
+一個陣列可能存在 [`Any`](@ref)物件（objects）。 對於大多數的計算需求，陣列必須指定
+更詳細的物件（object）型態（type），像是 [`Float64`](@ref) 或 [`Int32`](@ref)。
 
-一般來說，不像其他的程式語言，Julia並沒有預設程式以向量風格（vectorized style）來撰寫。 在純量陣列索引（scalar array indexing）方面，Julia的編譯器使用型態推斷（type inference）產生最佳化程式碼，藉此來允許程式碼能夠撰寫的更加方便及更可讀也可以避免犧牲效能和使用較少記憶體。
+一般來說，不像其他的程式語言，Julia 並沒有預設程式以向量風格（vectorized style）來撰寫。在純量陣列索引（scalar array indexing）方面，Julia 的編譯器使用型態推斷（type inference）產生最佳化程式碼，藉此來允許程式碼能夠撰寫的更加方便及更可讀也可以避免犧牲效能和使用較少記憶體。
 
-在Julia中，所有變數儲存的函數皆為[pass by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)
-（i.e. 透過指標）。 一些程式語言使用傳值來傳遞陣列，即便這些防止對於原陣列的意外修改 
-卻讓避免不必要的陣列複製變得困難。依照慣例，一個函式名稱結尾為 ! 代表它將會修改或刪除它的一或多個參數的值(舉例來說，[`sort`](@ref) 和 [`sort!`](@ref))。
+在 Julia 中，所有變數儲存的函數皆為 [pass by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)
+（i.e. 透過指標）。一些程式語言使用傳值來傳遞陣列，即便這些防止對於原陣列的意外修改 
+卻讓避免不必要的陣列複製變得困難。依照慣例，一個函式名稱結尾為 ! 代表它將會修改或刪除它的一或多個參數的值 (舉例來說，[`sort`](@ref) 和 [`sort!`](@ref)。
 被呼叫方（Callees）必須顯示的拷貝來確保不會對輸入做出非預期的修改。
 許多的無修改函數（non-mutating function）的實做是透過呼叫一個以 ! 結尾的同名函數在輸入的顯示拷貝上並回傳這份拷貝值。
 
@@ -23,43 +23,42 @@ Julia，就像許多現代的程式語言，提供一流的陣列實作。
 
 | 函式               | 說明                                                                      |
 |:---------------------- |:-------------------------------------------------------------------------------- |
-| [`eltype(A)`](@ref)    |  `A`裡面的元素型別                                        |
-| [`length(A)`](@ref)    | 陣列`A`中的元素數量                                                    |
-| [`ndims(A)`](@ref)     | 陣列`A`的維度 (dimensions)大小                                                  |
-| [`size(A)`](@ref)      | 一個元祖 (tuple) 包含了`A`的維度                                         |
-| [`size(A,n)`](@ref)    | 沿著維度`n`的`A`陣列大小                                               |
-| [`axes(A)`](@ref)      | 一個元祖（tuple）包含`A`的有效索引                                      |
-| [`axes(A,n)`](@ref)    | 表示沿著維度`n`的有效索引的範圍                          |
-| [`eachindex(A)`](@ref) | 一個用於訪問每個位置`A`的高效率疊代器（iterator）                          |
-| [`stride(A,k)`](@ref)  | 沿著維度`k`的步長（stride(鄰近的元素之間的索引距離）） |
-| [`strides(A)`](@ref)   | 一個元祖（tuple）包含所有維度的步長（stride）                                         |
+| [`eltype(A)`](@ref)    | `A` 裡面的元素型別                                        |
+| [`length(A)`](@ref)    | 陣列 `A` 中的元素數量                                                    |
+| [`ndims(A)`](@ref)     | 陣列 `A` 的維度 (dimensions)大小                                                  |
+| [`size(A)`](@ref)      | 一個元祖（tuple）包含了`A`的維度                                         |
+| [`size(A,n)`](@ref)    | 沿著維度 `n` 的 `A` 陣列大小                                               |
+| [`axes(A)`](@ref)      | 一個元祖（tuple）包含 `A` 的有效索引                                      |
+| [`axes(A,n)`](@ref)    | 表示沿著維度 `n` 的有效索引的範圍                          |
+| [`eachindex(A)`](@ref) | 一個用於訪問每個位置 `A` 的高效率疊代器（iterator）                           |
+| [`stride(A,k)`](@ref)  | 沿著維度 `k` 的步長（stride，鄰近的元素之間的索引距離）  |
+| [`strides(A)`](@ref)   | 一個元祖（tuple）包含所有維度的步長（stride）                                          |
 
 ## 建構與初始化
 
 目前提供許多建構與初始化的函式。 例如：
 呼叫為 `dims...` 變數可以為包含維度大小的單獨元祖亦或是
 一系列維度大小作為可變數量的參數傳遞。這些函數大多數 
-都接受第一個輸入為`T`，此為一元素型態的陣列。 如果型態`T`為
-省略則型態預設將為[`Float64`](@ref)。
+都接受第一個輸入為 `T`，此為一元素型態的陣列。如果型態 `T` 為省略則型態預設將為 [`Float64`](@ref)。
 
 | 函式                           | 說明                                                                                                                                                                                                                                  |
 |:---------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`Array{T}(undef, dims...)`](@ref)             | 一個尚未初始化的密集陣列[`Array`](@ref)                                                                                                                                                                                                              |
+| [`Array{T}(undef, dims...)`](@ref)             | 一個尚未初始化的密集陣列 [`Array`](@ref)                                                                                                                                                                                                              |
 | [`zeros(T, dims...)`](@ref)                    | 值全為 0 的 Array                                                                                                                                                                                                                       |
 | [`ones(T, dims...)`](@ref)                     | 值全為 1 的 Array                                                                                                                                                                                                                       |
 | [`trues(dims...)`](@ref)                       | 值全為 `true` 的 [`BitArray`](@ref)                                                                                                                                                                                                    |
 | [`falses(dims...)`](@ref)                      | 值全為 `false` 的 `BitArray`                                                                                                                                                                                                          |
-| [`reshape(A, dims...)`](@ref)                  | 一個陣列包含與`A`相同的資料，但不同的維度                                                                                                                                                                      |
+| [`reshape(A, dims...)`](@ref)                  | 一個陣列包含與 `A` 相同的資料，但不同的維度                                                                                                                                                                      |
 | [`copy(A)`](@ref)                              | 複製 `A`                                                                                                                                                                                                                                     |
 | [`deepcopy(A)`](@ref)                          | 複製 `A`，並遞迴複製其元素                                                                                                                                                                                                   |
-| [`similar(A, T, dims...)`](@ref)               | 與`A`有相同的型態(密集（dense），稀疏（sparse），等)的一個非初始化的陣列，但有著特定元素型態與維度。第二與第三變數為選用，預設值為與`A`相同的元素型態與維度。 |
-| [`reinterpret(T, A)`](@ref)                    | 一個陣列與`A`有相同的資料，但有著元素型態 `T`                                                                                                                                                                         |
+| [`similar(A, T, dims...)`](@ref)               | 與 `A` 有相同的型態（密集（dense），稀疏（sparse）等）的一個非初始化的陣列，但有著特定元素型態與維度。第二與第三變數為選用，預設值為與 `A` 相同的元素型態與維度。 |
+| [`reinterpret(T, A)`](@ref)                    | 一個陣列與 `A` 有相同的資料，但有著元素型態 `T`                                                                                                                                                                         |
 | [`rand(T, dims...)`](@ref)                     | 一個隨機 `陣列Array`，在半開放區間``[0, 1)``有iid [^1] 和均勻分散的數值                                                                                                                                        |
 | [`randn(T, dims...)`](@ref)                    | 一個隨機 `陣列Array`，iid 和標準一般分散數值                                                                                                                                                                         |
 | [`Matrix{T}(I, m, n)`](@ref)                   | `m`-by-`n` 單位矩陣                                                                                                                                                                                                                   |
-| [`range(start, stop=stop, length=n)`](@ref)    | 一個範圍`n`的線性間隔的元素，從`start`到`stop`                                                                                                                                                                                 |
-| [`fill!(A, x)`](@ref)                          | 陣列`A`以數值`x`填滿                                                                                                                                                                                                        |
-| [`fill(x, dims...)`](@ref)                     | 一個`陣列Array`以數值`x`填滿                                                                                                                                                                                                         |
+| [`range(start, stop=stop, length=n)`](@ref)    | 一個範圍 `n` 的線性間隔的元素，從 `start` 到 `stop`                                                                                                                                                                                 |
+| [`fill!(A, x)`](@ref)                          | 陣列 `A` 以數值 `x` 填滿                                                                                                                                                                                                        |
+| [`fill(x, dims...)`](@ref)                     | 一個 `陣列Array` 以數值 `x` 填滿                                                                                                                                                                                                         |
 
 [^1]: *iid*, 獨立且相同的分佈。
 
