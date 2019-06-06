@@ -148,7 +148,7 @@ Base.isnull
 Base.unsafe_get
 ```
 
-##  系統
+## 系統
 
 ```@docs
 Base.run
