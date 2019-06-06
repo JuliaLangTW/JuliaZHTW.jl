@@ -1,5 +1,5 @@
 
-# 基本（Essentials）  
+# 基本功能（Essentials）  
 
 ## 介紹   
 
@@ -7,9 +7,9 @@ Julia 的標準函式庫包含了一系列的方法並且其之巨集（Macro）
 以下將按照函式的使用時機為各別主題，列出標準函式庫中的函式：  
   
 附註：  
- * 除了內置模組（例如：`Pkg`，`Collections`，`Test`和`Profile`）中的函式之外，此處列載的所有函式都可直接在程式中使用。  
- * 若要使用內置模組之函式，需使用 `import Module` 來匯入模組，並且使用 `Module.fn(x)` 來呼叫該模組中的函式。  
- * 又或者，可藉由使用 `using Module`，將會匯入所有 `Module` 中的函式到當前的命名空間（`namespace`）。
+ * 除了內建模組（例如：`Pkg`，`Collections`，`Test`和`Profile`）中的函式之外，此處列載的所有函式都可直接在程式中使用。  
+ * 若要使用內建模組之函式，需使用 `import Module` 來匯入模組，並且使用 `Module.fn(x)` 來呼叫該模組中的函式。  
+ * 又或者，可藉由使用 `using Module`，將會匯入所有 `Module` 中的函式到當前的命名空間。
  * 依據慣例，部分函式命名以感嘆號（`！`）做結尾會變更它們的參數。一些函數保有變更的（例如：`sort！`），也有未變更的（例如：`sort`）版本。  
  
 ## 隨時可使用之函式
@@ -49,7 +49,7 @@ Base.workspace
 ans
 ```  
 
-## 物件（Objects）
+## 物件
 
 ```@docs
 Core.:(===)
@@ -78,7 +78,7 @@ Base.widen
 Base.identity
 ```
 
-## 型別（Types）
+## 型別
 
 ```@docs
 Base.supertype
@@ -110,7 +110,7 @@ Base.Enums.@enum
 Base.instances
 ```
 
-## 一般函式（General Functions）
+## 一般函式
 
 ```@docs
 Core.Function
@@ -122,7 +122,7 @@ Base.:(|>)
 Base.:(∘)
 ```
 
-## 語法（Syntax）
+## 語法
 
 ```@docs
 Core.eval
@@ -139,7 +139,7 @@ Base.parse(::Any, ::Any)
 Base.parse(::Any)
 ```
 
-## 可為 Null 的型別（Nullables）
+## Nullables
 
 ```@docs
 Base.Nullable
@@ -148,7 +148,7 @@ Base.isnull
 Base.unsafe_get
 ```
 
-##  系統（System）
+##  系統
 
 ```@docs
 Base.run
@@ -192,7 +192,7 @@ Base.Sys.windows_version
 Base.@static
 ```
 
-## 錯誤（Errors）
+## 錯誤
 
 ```@docs
 Base.error
@@ -231,7 +231,7 @@ Base.retry
 Base.ExponentialBackOff
 ```
 
-## 事件（Events）
+## 事件
 
 ```@docs
 Base.Timer(::Function, ::Real, ::Real)
@@ -240,7 +240,7 @@ Base.AsyncCondition
 Base.AsyncCondition(::Function)
 ```
 
-## 映射（Reflection）
+## 反射（Reflection）
 
 ```@docs
 Base.module_name
@@ -262,7 +262,7 @@ Base.functionloc(::Method)
 Base.@functionloc
 ```
 
-## 內部核心（Internals）
+## 內部功能（Internals）
 
 ```@docs
 Base.gc
