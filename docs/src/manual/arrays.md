@@ -1,82 +1,70 @@
-# [多維陣列（Multi-dimensional Arrays）](@id man-multi-dim-arrays)
+# [多維陣列 (Multi-dimensional Arrays) ](@id man-multi-dim-arrays)
 
-Julia, like most technical computing languages, provides a first-class array implementation. Most
-technical computing languages pay a lot of attention to their array implementation at the expense
-of other containers. Julia does not treat arrays in any special way. The array library is implemented
-almost completely in Julia itself, and derives its performance from the compiler, just like any
-other code written in Julia. As such, it's also possible to define custom array types by inheriting
-from [`AbstractArray`](@ref). See the [manual section on the AbstractArray interface](@ref man-interface-array) for more details
-on implementing a custom array type.
+Julia，就像許多現代的程式語言，提供一流的陣列實作。
+許多程式語言花了不少功夫以犧牲其他容器（container）為代價來實作陣列。
+但 Julia 卻不這樣做。Julia 本身內建完整的陣列函式庫，且擁有編譯器等級的效能
+，就像任何用 Julia 寫的程式一樣。
+因此，可以利用 [`AbstractArray`](@ref) 來自製客製化陣列型別。
+查看 [`AbstractArray interface使用手冊`](@ref man-interface-array) 來獲得實作客製化陣列型別的詳細說明。
 
-An array is a collection of objects stored in a multi-dimensional grid. In the most general case,
-an array may contain objects of type [`Any`](@ref). For most computational purposes, arrays should contain
-objects of a more specific type, such as [`Float64`](@ref) or [`Int32`](@ref).
+陣列是一個由許多物件組成並且儲存在一個多維框架 (multi-dimensional grid) 的集合。在一般使用上，
+一個陣列可能存在 [`Any`](@ref)物件。 對於大多數的計算需求，陣列必須指定
+更詳細的物件型別，像是 [`Float64`](@ref) 或 [`Int32`](@ref)。
 
-In general, unlike many other technical computing languages, Julia does not expect programs to
-be written in a vectorized style for performance. Julia's compiler uses type inference and generates
-optimized code for scalar array indexing, allowing programs to be written in a style that is convenient
-and readable, without sacrificing performance, and using less memory at times.
+一般來說，不像其他的程式語言，Julia 並沒有預設程式以向量風格（vectorized style）來撰寫。在純量陣列索引（scalar array indexing）方面，Julia 的編譯器使用型別推論（type inference）產生最佳化程式碼，藉此來允許程式碼能夠撰寫的更加方便及更可讀也可以避免犧牲效能和使用較少記憶體。
 
-In Julia, all arguments to functions are [passed by
-sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)
-(i.e. by pointers). Some technical computing languages pass arrays by value, and
-while this prevents accidental modification by callees of a value in the caller,
-it makes avoiding unwanted copying of arrays difficult. By convention, a
-function name ending with a `!` indicates that it will mutate or destroy the
-value of one or more of its arguments (compare, for example, [`sort`](@ref) and [`sort!`](@ref)).
-Callees must make explicit copies to ensure that they don't modify inputs that
-they don't intend to change. Many non- mutating functions are implemented by
-calling a function of the same name with an added `!` at the end on an explicit
-copy of the input, and returning that copy.
+在 Julia 中，所有參數傳遞給函式的方式皆為 [pass by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)
+（也就是，透過指標）。一些程式語言使用傳值來傳遞陣列，即便這些防止對於原陣列的意外修改 
+卻難以避免不必要的陣列複製。依照慣例，一個函式名稱結尾為 ! 代表它將會修改或刪除它的一或多個參數的值 (舉例來說，[`sort`](@ref) 和 [`sort!`](@ref)。
+被呼叫方（Callees）必須明確地複製來確保不會對輸入做出非預期的修改。
+許多的無修改函數（non-mutating function）的實作是，透過呼叫一個後綴 ! 的同名函數，明確地複製輸入的值，並回傳這份複製的值。
 
-## Basic Functions
+## 基本函式
 
-| Function               | Description                                                                      |
+| 函式               | 說明                                                                      |
 |:---------------------- |:-------------------------------------------------------------------------------- |
-| [`eltype(A)`](@ref)    | the type of the elements contained in `A`                                        |
-| [`length(A)`](@ref)    | the number of elements in `A`                                                    |
-| [`ndims(A)`](@ref)     | the number of dimensions of `A`                                                  |
-| [`size(A)`](@ref)      | a tuple containing the dimensions of `A`                                         |
-| [`size(A,n)`](@ref)    | the size of `A` along dimension `n`                                              |
-| [`axes(A)`](@ref)      | a tuple containing the valid indices of `A`                                      |
-| [`axes(A,n)`](@ref)    | a range expressing the valid indices along dimension `n`                         |
-| [`eachindex(A)`](@ref) | an efficient iterator for visiting each position in `A`                          |
-| [`stride(A,k)`](@ref)  | the stride (linear index distance between adjacent elements) along dimension `k` |
-| [`strides(A)`](@ref)   | a tuple of the strides in each dimension                                         |
+| [`eltype(A)`](@ref)    | `A` 裡面的元素型別                                        |
+| [`length(A)`](@ref)    | 陣列 `A` 中的元素數量                                                    |
+| [`ndims(A)`](@ref)     | 陣列 `A` 的維度大小                                                  |
+| [`size(A)`](@ref)      | 一個元祖（tuple）包含了`A`的維度                                         |
+| [`size(A,n)`](@ref)    | 沿著維度 `n` 的 `A` 陣列大小                                               |
+| [`axes(A)`](@ref)      | 一個數組（tuple）包含 `A` 的有效索引                                      |
+| [`axes(A,n)`](@ref)    | 表示沿著維度 `n` 的有效索引的範圍                          |
+| [`eachindex(A)`](@ref) | 一個用於存取 `A` 每個位置的高效率迭代器（iterator）                           |
+| [`stride(A,k)`](@ref)  | 沿著維度 `k` 的步長（stride，鄰近的元素之間的索引距離）  |
+| [`strides(A)`](@ref)   | 一個元祖（tuple）包含所有維度的步長（stride）                                          |
 
-## Construction and Initialization
+## 建構與初始化
 
-Many functions for constructing and initializing arrays are provided. In the following list of
-such functions, calls with a `dims...` argument can either take a single tuple of dimension sizes
-or a series of dimension sizes passed as a variable number of arguments. Most of these functions
-also accept a first input `T`, which is the element type of the array. If the type `T` is
-omitted it will default to [`Float64`](@ref).
+目前提供許多建構與初始化的函式。 例如：
+呼叫為 `dims...` 變數可以為包含維度大小的單獨元祖亦或是
+一系列維度大小作為可變數量的參數傳遞。這些函數大多數 
+都接受第一個輸入為 `T`，此為一元素型別的陣列。如果省略型別 `T`，則預設型別為 [`Float64`](@ref)。
 
-| Function                           | Description                                                                                                                                                                                                                                  |
+| 函式                           | 說明                                                                                                                                                                                                                                  |
 |:---------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`Array{T}(undef, dims...)`](@ref)             | an uninitialized dense [`Array`](@ref)                                                                                                                                                                                                              |
-| [`zeros(T, dims...)`](@ref)                    | an `Array` of all zeros                                                                                                                                                                                                                      |
-| [`ones(T, dims...)`](@ref)                     | an `Array` of all ones                                                                                                                                                                                                                       |
-| [`trues(dims...)`](@ref)                       | a [`BitArray`](@ref) with all values `true`                                                                                                                                                                                                  |
-| [`falses(dims...)`](@ref)                      | a `BitArray` with all values `false`                                                                                                                                                                                                         |
-| [`reshape(A, dims...)`](@ref)                  | an array containing the same data as `A`, but with different dimensions                                                                                                                                                                      |
-| [`copy(A)`](@ref)                              | copy `A`                                                                                                                                                                                                                                     |
-| [`deepcopy(A)`](@ref)                          | copy `A`, recursively copying its elements                                                                                                                                                                                                   |
-| [`similar(A, T, dims...)`](@ref)               | an uninitialized array of the same type as `A` (dense, sparse, etc.), but with the specified element type and dimensions. The second and third arguments are both optional, defaulting to the element type and dimensions of `A` if omitted. |
-| [`reinterpret(T, A)`](@ref)                    | an array with the same binary data as `A`, but with element type `T`                                                                                                                                                                         |
-| [`rand(T, dims...)`](@ref)                     | an `Array` with random, iid [^1] and uniformly distributed values in the half-open interval ``[0, 1)``                                                                                                                                       |
-| [`randn(T, dims...)`](@ref)                    | an `Array` with random, iid and standard normally distributed values                                                                                                                                                                         |
-| [`Matrix{T}(I, m, n)`](@ref)                   | `m`-by-`n` identity matrix                                                                                                                                                                                                                   |
-| [`range(start, stop=stop, length=n)`](@ref)    | range of `n` linearly spaced elements from `start` to `stop`                                                                                                                                                                                 |
-| [`fill!(A, x)`](@ref)                          | fill the array `A` with the value `x`                                                                                                                                                                                                        |
-| [`fill(x, dims...)`](@ref)                     | an `Array` filled with the value `x`                                                                                                                                                                                                         |
+| [`Array{T}(undef, dims...)`](@ref)             | 一個尚未初始化的密集陣列 [`Array`](@ref)                                                                                                                                                                                                              |
+| [`zeros(T, dims...)`](@ref)                    | 值全為 0 的陣列                                                                                                                                                                                                                       |
+| [`ones(T, dims...)`](@ref)                     | 值全為 1 的陣列                                                                                                                                                                                                                       |
+| [`trues(dims...)`](@ref)                       | 值全為 `true` 的 [`BitArray`](@ref)                                                                                                                                                                                                    |
+| [`falses(dims...)`](@ref)                      | 值全為 `false` 的 `BitArray`                                                                                                                                                                                                          |
+| [`reshape(A, dims...)`](@ref)                  | 一個陣列包含與 `A` 相同的資料，但不同的維度                                                                                                                                                                      |
+| [`copy(A)`](@ref)                              | 複製 `A`                                                                                                                                                                                                                                     |
+| [`deepcopy(A)`](@ref)                          | 複製 `A`，並遞迴複製其元素                                                                                                                                                                                                   |
+| [`similar(A, T, dims...)`](@ref)               | 與 `A` 有相同的型別（密集（dense），稀疏（sparse）等）的一個非初始化的陣列，但有著特定元素型別與維度。第二與第三變數為選用，預設值為與 `A` 相同的元素型別與維度。 |
+| [`reinterpret(T, A)`](@ref)                    | 一個陣列與 `A` 有相同的資料，但有著元素型別 `T`                                                                                                                                                                         |
+| [`rand(T, dims...)`](@ref)                     | 一個隨機 `陣列Array`，在半開放區間``[0, 1)``有iid [^1] 和均勻分散的數值                                                                                                                                        |
+| [`randn(T, dims...)`](@ref)                    | 一個隨機 `陣列Array`，iid 和標準一般分散數值                                                                                                                                                                         |
+| [`Matrix{T}(I, m, n)`](@ref)                   | `m`-by-`n` 單位矩陣                                                                                                                                                                                                                   |
+| [`range(start, stop=stop, length=n)`](@ref)    | 一個範圍 `n` 的線性間隔的元素，從 `start` 到 `stop`                                                                                                                                                                                 |
+| [`fill!(A, x)`](@ref)                          | 陣列 `A` 以數值 `x` 填滿                                                                                                                                                                                                        |
+| [`fill(x, dims...)`](@ref)                     | 一個 `陣列Array` 以數值 `x` 填滿                                                                                                                                                                                                         |
 
-[^1]: *iid*, independently and identically distributed.
+[^1]: *iid*, 獨立且相同的分佈。
 
-The syntax `[A, B, C, ...]` constructs a 1-d array (i.e., a vector) of its arguments. If all
+The syntax `[A, B, C, ...]` constructs a 1-d array(i.e., a vector) of its arguments. If all
 arguments have a common [promotion type](@ref conversion-and-promotion) then they get
 converted to that type using [`convert`](@ref).
-
 To see the various ways we can pass dimensions to these constructors, consider the following examples:
 ```jldoctest
 julia> zeros(Int8, 2, 3)
