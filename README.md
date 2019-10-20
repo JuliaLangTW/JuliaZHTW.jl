@@ -2,6 +2,12 @@
 
 [原翻譯文件(hackmd)](https://hackmd.io/c/r106dSpkb)
 
+## 安裝依賴
+
+```
+julia --project=docs -e "using Pkg; Pkg.instantiate()"
+```
+
 ## 搬運說明
 
 1. 將 hackmd 中的 markdown 原始碼複製，並在 `docs/src/manual/` 中建立對應的 `.md` 檔
